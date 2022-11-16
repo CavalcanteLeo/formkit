@@ -37,7 +37,7 @@ import {
   isAlphaNumericVersion,
   msg,
   getCurrentHash,
-  updateFKCoreVersionExport
+  updateFKCoreVersionExport,
 } from './utils.mjs'
 import { buildAllPackages } from './build.mjs'
 import axios from 'axios'
@@ -65,14 +65,21 @@ async function publishPackages(force = false) {
   }
   if (!checkGitIsMasterBranch()) {
     tag = 'next'
-    const { confirmBuild } = await prompts({
-      type: 'confirm',
-      name: 'confirmBuild',
-      message: `⚠️  Not on master brach! Publishing under the @next tag. Proceed?`,
-      initial: true,
+    const { tagName } = await prompts({
+      type: 'text',
+      name: 'tagName',
+      message: `⚠️ Not on master branch! You must use a tag to publish: `,
+      initial: 'next',
+      validate: (t) => {
+        if (t.length) {
+          return true
+        }
+        return 'You must provide a tag. to abort press ^c...'
+      },
     })
-    if (confirmBuild) {
-      msg.info('Setting tag to @next')
+    if (tagName) {
+      tag = tagName
+      msg.info(`Setting tag to @${tagName}}`)
     } else {
       msg.error('✋ Will not publish')
       return
@@ -202,7 +209,9 @@ Any dependent packages will also require publishing to include dependency change
         `/npm/@formkit/themes@${tag || 'latest'}/dist/genesis/theme.css`,
         `/npm/@formkit/themes@${tag || 'latest'}/dist/genesis/theme.min.css`,
         `/npm/@formkit/themes@${tag || 'latest'}/dist/tailwindcss/index.mjs`,
-        `/npm/@formkit/themes@${tag || 'latest'}/dist/tailwindcss/index.min.mjs`,
+        `/npm/@formkit/themes@${
+          tag || 'latest'
+        }/dist/tailwindcss/index.min.mjs`,
         `/npm/@formkit/themes@${tag || 'latest'}/dist/unocss/index.mjs`,
         `/npm/@formkit/themes@${tag || 'latest'}/dist/unocss/index.min.mjs`,
         `/npm/@formkit/themes@${tag || 'latest'}/dist/windicss/index.mjs`,
