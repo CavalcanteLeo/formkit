@@ -46,6 +46,11 @@
           Modify schema with plugin
         </router-link>
       </li>
+      <li>
+        <router-link to="/performance-test">
+          Performance test
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>

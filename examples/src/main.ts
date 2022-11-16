@@ -16,6 +16,7 @@ import TSXExample from './vue/examples/TSXExample.tsx'
 import ModifySchema from './vue/examples/ModifySchema.vue'
 import { createAutoAnimatePlugin } from '@formkit/addons'
 import '@formkit/themes/genesis'
+import PerformanceTest from './vue/examples/PerformanceTest.vue'
 
 const myInput = createInput(CurrencyInput)
 
@@ -80,6 +81,10 @@ const router = createRouter({
     {
       path: '/plugin-schema',
       component: ModifySchema,
+    },
+    {
+      path: '/performance-test',
+      component: PerformanceTest,
     },
   ],
 })

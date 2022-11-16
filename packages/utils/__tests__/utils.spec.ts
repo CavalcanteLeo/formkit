@@ -18,6 +18,7 @@ import {
   slugify,
   shallowClone,
   spread,
+  isScalar,
 } from '../src/index'
 
 describe('eq', () => {
@@ -605,4 +606,18 @@ describe('spread', () => {
     expect(spreadArr).toStrictEqual(arr)
     expect(spreadArr).not.toBe(arr)
   })
+})
+
+describe('isScalar', () => {
+  it('evaluates strings as true', () => expect(isScalar('hello')).toBe(true))
+  it('evaluates numbers as true', () => expect(isScalar(123)).toBe(true))
+  it('evaluates bigint as true', () =>
+    expect(isScalar(BigInt(123123))).toBe(true))
+  it('evaluates null as true', () => expect(isScalar(null)).toBe(true))
+  it('evaluates undefined as true', () =>
+    expect(isScalar(undefined)).toBe(true))
+  it('evaluates object literal as false', () =>
+    expect(isScalar({})).toBe(false))
+  it('evaluates function as false', () =>
+    expect(isScalar(() => {})).toBe(false))
 })

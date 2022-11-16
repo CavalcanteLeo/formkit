@@ -668,3 +668,20 @@ function applyExplicit<T extends object | any[]>(
   }
   return obj
 }
+
+/**
+ * Determines if a given value is "scalar", intended to be used in places where
+ * something modified by reference or deep reference would be problematic.
+ *
+ * Possibles types:
+ *
+ * @param value - Any value type
+ * @returns
+ * @public
+ */
+export function isScalar(
+  value: unknown
+): value is number | string | boolean | undefined | bigint | symbol {
+  const t = typeof value
+  return value === null || (t !== 'function' && t !== 'object')
+}

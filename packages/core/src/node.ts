@@ -9,6 +9,7 @@ import {
   init,
   cloneAny,
   clone,
+  isScalar,
 } from '@formkit/utils'
 import {
   createEmitter,
@@ -1093,7 +1094,11 @@ function hydrate(node: FormKitNode, context: FormKitContext): FormKitNode {
         (_value[child.name] && typeof _value[child.name] === 'object')
           ? init(_value[child.name])
           : _value[child.name]
-      child.input(childValue, false)
+      if (!isScalar(childValue) || child._value !== childValue) {
+        // Only perform a downstream input if the value is non-scalar or
+        // the value is scalar and has changed.
+        child.input(childValue, false)
+      }
     } else {
       if (node.type !== 'list' || typeof child.name === 'number') {
         // In this case, the parent’s values have no knowledge of the child
