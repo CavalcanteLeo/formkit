@@ -68,7 +68,7 @@ async function publishPackages(force = false) {
     const { tagName } = await prompts({
       type: 'text',
       name: 'tagName',
-      message: `⚠️ Not on master branch! You must use a tag to publish: `,
+      message: `⚠️  Not on master branch! You must use a tag to publish: `,
       initial: 'next',
       validate: (t) => {
         if (t.length) {
@@ -79,7 +79,7 @@ async function publishPackages(force = false) {
     })
     if (tagName) {
       tag = tagName
-      msg.info(`Setting tag to @${tagName}}`)
+      msg.info(`Setting tag to @${tagName}`)
     } else {
       msg.error('✋ Will not publish')
       return
