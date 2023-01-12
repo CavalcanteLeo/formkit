@@ -270,14 +270,14 @@ export function createIconHandler(
     if (typeof iconName !== 'string') return // bail if we got something that wasn't a boolean or string
 
     // check if we've already loaded the icon before
-    const iconWasAlreadyLoaded = iconName in iconRegistry
+    const icon = iconRegistry[iconName]
 
     // is this a default icon that should only load from a stylesheet?
     const isDefault = iconName.startsWith('default:')
     iconName = isDefault ? iconName.split(':')[1] : iconName
 
     let loadedIcon: string | undefined | Promise<string | undefined> = undefined
-    if (iconWasAlreadyLoaded) {
+    if (icon || iconName in iconRegistry) {
       return iconRegistry[iconName]
     } else if (!iconRequests[iconName]) {
       loadedIcon = getIconFromStylesheet(iconName)

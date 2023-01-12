@@ -1,11 +1,9 @@
-import { defineNuxtConfig } from 'nuxt/config'
+import { defineNuxtConfig } from 'nuxt3'
 import FormKitModule from '../'
 
 export default defineNuxtConfig({
   modules: [FormKitModule],
-  app: {
-    head: {
-      script: [{ src: 'https://unpkg.com/tailwindcss-jit-cdn' }],
-    }
+  meta: {
+    script: [{ src: 'https://unpkg.com/tailwindcss-jit-cdn' }],
   },
 })
