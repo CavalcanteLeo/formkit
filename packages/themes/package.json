@@ -9,6 +9,12 @@
   "exports": {
     "./package.json": "./package.json",
     "./genesis": "./dist/genesis/theme.css",
+    "./material": {
+      "types": "./dist/material/index.d.ts",
+      "import": "./dist/material/index.mjs",
+      "require": "./dist/material/index.cjs"
+    },
+    "./material/css": "./dist/material/theme.css",
     "./windicss": {
       "types": "./dist/windicss/index.d.ts",
       "import": "./dist/windicss/index.mjs",
@@ -72,7 +78,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@formkit/core": "0.17.2"
+    "@formkit/core": "0.17.2",
+    "@formkit/inputs": "0.17.2",
+    "@formkit/utils": "0.17.2"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.0",

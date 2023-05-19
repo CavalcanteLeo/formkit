@@ -1,0 +1,6 @@
+:root {
+  --mdf-sys-state-dragged-state-layer-opacity: 0.16;
+  --mdf-sys-state-focus-state-layer-opacity: 0.12;
+  --mdf-sys-state-hover-state-layer-opacity: 0.08;
+  --mdf-sys-state-pressed-state-layer-opacity: 0.12;
+}

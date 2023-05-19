@@ -1,0 +1,1874 @@
+.mdf-button {
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+
+  background: transparent;
+
+  user-select: none;
+
+  & .formkit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &::before,
+  & .mdf-elevation,
+  & .mdf-elevation::before,
+  & .mdf-elevation::after,
+  & .mdf-surface,
+  & .mdf-surface::before,
+  & .mdf-outline {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  & .mdf-surface::before {
+    transition: opacity 15ms linear, background-color 15ms linear;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    opacity: 0.38;
+
+    &::before,
+    & .mdf-outline {
+      opacity: 0.12;
+    }
+
+    & .mdf-surface {
+      opacity: 0;
+    }
+  }
+
+  &:focus-visible {
+    & .mdf-surface::before {
+      transition-duration: 125ms;
+    }
+  }
+}
+
+.mdf-button {
+  /* Elevated Button */
+  &.mdf-button--elevated {
+    block-size: var(
+      --mdf-cmp-button--elevated-layout-block-size,
+      var(--mdf-cmp-button-layout-block-size, 40px)
+    );
+    min-inline-size: var(
+      --mdf-cmp-button--elevated-layout-min-inline-size,
+      var(--mdf-cmp-button-layout-min-inline-size, 64px)
+    );
+
+    padding-inline-start: var(
+      --mdf-cmp-button--elevated-layout-padding-inline-start,
+      var(--mdf-cmp-button-layout-padding-inline-start, 24px)
+    );
+    padding-inline-end: var(
+      --mdf-cmp-button--elevated-layout-padding-inline-end,
+      var(--mdf-cmp-button-layout-padding-inline-end, 24px)
+    );
+    gap: var(
+      --mdf-cmp-button--elevated-layout-padding-gap,
+      var(--mdf-cmp-button-layout-padding-gap, 8px)
+    );
+
+    border-radius: var(
+      --mdf-cmp-button--elevated-layout-border-radius,
+      var(--mdf-cmp-button-layout-border-radius, 20px)
+    );
+
+    color: var(
+      --mdf-cmp-button--elevated-state-label-color,
+      var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary))
+    );
+
+    font-family: var(
+      --mdf-cmp-button--elevated-state-label-font,
+      var(
+        --mdf-cmp-button-state-label-text-font,
+        var(--mdf-sys-typescale-label-large-font)
+      )
+    );
+    line-height: var(
+      --mdf-cmp-button--elevated-state-label-line-height,
+      var(
+        --mdf-cmp-button-state-label-line-height,
+        var(--mdf-sys-typescale-label-large-line-height)
+      )
+    );
+    font-size: var(
+      --mdf-cmp-button--elevated-state-label-size,
+      var(
+        --mdf-cmp-button-state-label-size,
+        var(--mdf-sys-typescale-label-large-size)
+      )
+    );
+    letter-spacing: var(
+      --mdf-cmp-button--elevated-state-label-tracking,
+      var(
+        --mdf-cmp-button-state-label-tracking,
+        var(--mdf-sys-typescale-label-large-tracking)
+      )
+    );
+    font-weight: var(
+      --mdf-cmp-button--elevated-state-label-weight,
+      var(
+        --mdf-cmp-button-state-label-weight,
+        var(--mdf-sys-typescale-label-large-weight)
+      )
+    );
+
+    & svg {
+      block-size: var(
+        --mdf-cmp-button--elevated-layout-icon-block-size,
+        var(--mdf-cmp-button-layout-icon-block-size, 18px)
+      );
+      inline-size: var(
+        --mdf-cmp-button--elevated-layout-icon-inline-size,
+        var(--mdf-cmp-button-layout-icon-inline-size, 18px)
+      );
+
+      color: var(
+        --mdf-cmp-button--elevated-state-icon-color,
+        var(--mdf-cmp-button-state-icon-color, inherit)
+      );
+    }
+
+    :is([data-prefix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--elevated-layout-with-prefix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px)
+      );
+    }
+
+    :is([data-suffix-icon="true"]) & {
+      padding-inline-end: var(
+        --mdf-cmp-button--elevated-layout-with-suffix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px)
+      );
+    }
+
+    &::before {
+      background-color: var(
+        --mdf-cmp-button--elevated-state-container-color,
+        var(
+          --mdf-cmp-button-state-container-color,
+          var(--mdf-sys-color-surface-container-low)
+        )
+      );
+    }
+
+    & .mdf-elevation {
+      --_elevation: var(
+        --mdf-cmp-button--elevated-state-container-elevation,
+        var(
+          --mdf-cmp-button-state-container-elevation,
+          var(--mdf-sys-elevation-level1)
+        )
+      );
+      --_shadow-color: var(
+        --mdf-cmp-button--elevated-state-container-shadow-color,
+        var(
+          --mdf-cmp-button-state-container-shadow-color,
+          var(--mdf-sys-color-shadow)
+        )
+      );
+
+      &::before {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 3, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(2 * clamp(0, var(--_elevation), 1)) +
+                  clamp(0, var(--_elevation) - 2, 1) +
+                  clamp(0, var(--_elevation) - 4, 1)
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.3;
+      }
+
+      /* Need to fix box-shadow calcs */
+      &::after {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 1, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(3 * clamp(0, var(--_elevation), 2)) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 4) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.15;
+      }
+    }
+
+    &:disabled {
+      color: var(
+        --mdf-cmp-button--elevated-disabled-state-label-color,
+        var(
+          --mdf-cmp-button-disabled-state-label-color,
+          var(--mdf-sys-color-on-surface)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--elevated-disabled-state-icon-color,
+          var(--mdf-cmp-button-disabled-state-icon-color, inherit)
+        );
+      }
+
+      &::before {
+        background-color: var(
+          --mdf-cmp-button--elevated-disabled-state-container-color,
+          var(
+            --mdf-cmp-button-disabled-state-container-color,
+            var(--mdf-sys-color-on-surface)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--elevated-disabled-state-container-elevation,
+          var(
+            --mdf-cmp-button-disabled-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+
+    &:hover {
+      color: var(
+        --mdf-cmp-button--elevated-hover-state-label-color,
+        var(
+          --mdf-cmp-button-hover-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--elevated-hover-state-icon-color,
+          var(--mdf-cmp-button-hover-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--elevated-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--elevated-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-state-hover-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--elevated-hover-state-container-elevation,
+          var(
+            --mdf-cmp-button-hover-state-container-elevation,
+            var(--mdf-sys-elevation-level2)
+          )
+        );
+      }
+    }
+
+    &:focus-visible {
+      color: var(
+        --mdf-cmp-button--elevated-focus-state-label-color,
+        var(
+          --mdf-cmp-button-focus-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--elevated-focus-state-icon-color,
+          var(--mdf-cmp-button-focus-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--elevated-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--elevated-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-state-focus-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--elevated-focus-state-container-elevation,
+          var(
+            --mdf-cmp-button-focus-state-container-elevation,
+            var(--mdf-sys-elevation-level1)
+          )
+        );
+      }
+    }
+
+    &:active {
+      color: var(
+        --mdf-cmp-button--elevated-pressed-state-label-color,
+        var(
+          --mdf-cmp-button-pressed-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--elevated-pressed-state-icon-color,
+          var(--mdf-cmp-button-pressed-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--elevated-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--elevated-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-state-pressed-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--elevated-pressed-state-container-elevation,
+          var(
+            --mdf-cmp-button-pressed-state-container-elevation,
+            var(--mdf-sys-elevation-level1)
+          )
+        );
+      }
+    }
+  }
+
+  /* Filled Button */
+  &.mdf-button--filled {
+    block-size: var(
+      --mdf-cmp-button--filled-layout-block-size,
+      var(--mdf-cmp-button-layout-block-size, 40px)
+    );
+    min-inline-size: var(
+      --mdf-cmp-button--filled-layout-min-inline-size,
+      var(--mdf-cmp-button-layout-min-inline-size, 64px)
+    );
+
+    padding-inline-start: var(
+      --mdf-cmp-button--filled-layout-padding-inline-start,
+      var(--mdf-cmp-button-layout-padding-inline-start, 24px)
+    );
+    padding-inline-end: var(
+      --mdf-cmp-button--filled-layout-padding-inline-end,
+      var(--mdf-cmp-button-layout-padding-inline-end, 24px)
+    );
+    gap: var(
+      --mdf-cmp-button--filled-layout-padding-gap,
+      var(--mdf-cmp-button-layout-padding-gap, 8px)
+    );
+
+    border-radius: var(
+      --mdf-cmp-button--filled-layout-border-radius,
+      var(--mdf-cmp-button-layout-border-radius, 20px)
+    );
+
+    color: var(
+      --mdf-cmp-button--filled-state-label-color,
+      var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-on-primary))
+    );
+
+    font-family: var(
+      --mdf-cmp-button--filled-state-label-font,
+      var(
+        --mdf-cmp-button-state-label-text-font,
+        var(--mdf-sys-typescale-label-large-font)
+      )
+    );
+    line-height: var(
+      --mdf-cmp-button--filled-state-label-line-height,
+      var(
+        --mdf-cmp-button-state-label-line-height,
+        var(--mdf-sys-typescale-label-large-line-height)
+      )
+    );
+    font-size: var(
+      --mdf-cmp-button--filled-state-label-size,
+      var(
+        --mdf-cmp-button-state-label-size,
+        var(--mdf-sys-typescale-label-large-size)
+      )
+    );
+    letter-spacing: var(
+      --mdf-cmp-button--filled-state-label-tracking,
+      var(
+        --mdf-cmp-button-state-label-tracking,
+        var(--mdf-sys-typescale-label-large-tracking)
+      )
+    );
+    font-weight: var(
+      --mdf-cmp-button--filled-state-label-weight,
+      var(
+        --mdf-cmp-button-state-label-weight,
+        var(--mdf-sys-typescale-label-large-weight)
+      )
+    );
+
+    & svg {
+      block-size: var(
+        --mdf-cmp-button--filled-layout-icon-block-size,
+        var(--mdf-cmp-button-layout-icon-block-size, 18px)
+      );
+      inline-size: var(
+        --mdf-cmp-button--filled-layout-icon-inline-size,
+        var(--mdf-cmp-button-layout-icon-inline-size, 18px)
+      );
+
+      color: var(
+        --mdf-cmp-button--filled-state-icon-color,
+        var(--mdf-cmp-button-state-icon-color, inherit)
+      );
+    }
+
+    :is([data-prefix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-layout-with-prefix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-layout-with-prefix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-end, 24px)
+      );
+    }
+
+    :is([data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-layout-with-suffix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-start, 24px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-layout-with-suffix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px)
+      );
+    }
+
+    :is([data-prefix-icon="true"][data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-layout-with-prefix-and-suffix-icon-padding-inline-start,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-start,
+          16px
+        )
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-layout-with-prefix-and-suffix-icon-padding-inline-end,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-end,
+          16px
+        )
+      );
+    }
+
+    &::before {
+      background-color: var(
+        --mdf-cmp-button--filled-state-container-color,
+        var(
+          --mdf-cmp-button-state-container-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+    }
+
+    & .mdf-elevation {
+      --_elevation: var(
+        --mdf-cmp-button--filled-state-container-elevation,
+        var(
+          --mdf-cmp-button-state-container-elevation,
+          var(--mdf-sys-elevation-level0)
+        )
+      );
+      --_shadow-color: var(
+        --mdf-cmp-button--filled-state-container-shadow-color,
+        var(
+          --mdf-cmp-button-state-container-shadow-color,
+          var(--mdf-sys-color-shadow)
+        )
+      );
+
+      &::before {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 3, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(2 * clamp(0, var(--_elevation), 1)) +
+                  clamp(0, var(--_elevation) - 2, 1) +
+                  clamp(0, var(--_elevation) - 4, 1)
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.3;
+      }
+
+      /* Need to fix box-shadow calcs */
+      &::after {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 1, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(3 * clamp(0, var(--_elevation), 2)) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 4) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.15;
+      }
+    }
+
+    &:disabled {
+      color: var(
+        --mdf-cmp-button--filled-disabled-state-label-color,
+        var(
+          --mdf-cmp-button-disabled-state-label-color,
+          var(--mdf-sys-color-on-surface)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-disabled-state-icon-color,
+          var(--mdf-cmp-button-disabled-state-icon-color, inherit)
+        );
+      }
+
+      &::before {
+        background-color: var(
+          --mdf-cmp-button--filled-disabled-state-container-color,
+          var(
+            --mdf-cmp-button-disabled-state-container-color,
+            var(--mdf-sys-color-on-surface)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-disabled-state-container-elevation,
+          var(
+            --mdf-cmp-button-disabled-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+
+    &:hover {
+      color: var(
+        --mdf-cmp-button--filled-hover-state-label-color,
+        var(
+          --mdf-cmp-button-hover-state-label-color,
+          var(--mdf-sys-color-on-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-hover-state-icon-color,
+          var(--mdf-cmp-button-hover-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-color-on-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-state-hover-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-hover-state-container-elevation,
+          var(
+            --mdf-cmp-button-hover-state-container-elevation,
+            var(--mdf-sys-elevation-level1)
+          )
+        );
+      }
+    }
+
+    &:focus-visible {
+      color: var(
+        --mdf-cmp-button--filled-focus-state-label-color,
+        var(
+          --mdf-cmp-button-focus-state-label-color,
+          var(--mdf-sys-color-on-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-focus-state-icon-color,
+          var(--mdf-cmp-button-focus-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-color-on-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-state-focus-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-focus-state-container-elevation,
+          var(
+            --mdf-cmp-button-focus-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+
+    &:active {
+      color: var(
+        --mdf-cmp-button--filled-pressed-state-label-color,
+        var(
+          --mdf-cmp-button-pressed-state-label-color,
+          var(--mdf-sys-color-on-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-pressed-state-icon-color,
+          var(--mdf-cmp-button-pressed-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-color-on-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-state-pressed-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-pressed-state-container-elevation,
+          var(
+            --mdf-cmp-button-pressed-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+  }
+
+  /* Filled Tonal Button */
+  &.mdf-button--filled-tonal {
+    block-size: var(
+      --mdf-cmp-button--filled-tonal-layout-block-size,
+      var(--mdf-cmp-button-layout-block-size, 40px)
+    );
+    min-inline-size: var(
+      --mdf-cmp-button--filled-tonal-layout-min-inline-size,
+      var(--mdf-cmp-button-layout-min-inline-size, 64px)
+    );
+
+    padding-inline-start: var(
+      --mdf-cmp-button--filled-tonal-layout-padding-inline-start,
+      var(--mdf-cmp-button-layout-padding-inline-start, 24px)
+    );
+    padding-inline-end: var(
+      --mdf-cmp-button--filled-tonal-layout-padding-inline-end,
+      var(--mdf-cmp-button-layout-padding-inline-end, 24px)
+    );
+    gap: var(
+      --mdf-cmp-button--filled-tonal-layout-padding-gap,
+      var(--mdf-cmp-button-layout-padding-gap, 8px)
+    );
+
+    border-radius: var(
+      --mdf-cmp-button--filled-tonal-layout-border-radius,
+      var(--mdf-cmp-button-layout-border-radius, 20px)
+    );
+
+    color: var(
+      --mdf-cmp-button--filled-tonal-state-label-color,
+      var(
+        --mdf-cmp-button-state-label-color,
+        var(--mdf-sys-color-on-secondary-container)
+      )
+    );
+
+    font-family: var(
+      --mdf-cmp-button--filled-tonal-state-label-font,
+      var(
+        --mdf-cmp-button-state-label-text-font,
+        var(--mdf-sys-typescale-label-large-font)
+      )
+    );
+    line-height: var(
+      --mdf-cmp-button--filled-tonal-state-label-line-height,
+      var(
+        --mdf-cmp-button-state-label-line-height,
+        var(--mdf-sys-typescale-label-large-line-height)
+      )
+    );
+    font-size: var(
+      --mdf-cmp-button--filled-tonal-state-label-size,
+      var(
+        --mdf-cmp-button-state-label-size,
+        var(--mdf-sys-typescale-label-large-size)
+      )
+    );
+    letter-spacing: var(
+      --mdf-cmp-button--filled-tonal-state-label-tracking,
+      var(
+        --mdf-cmp-button-state-label-tracking,
+        var(--mdf-sys-typescale-label-large-tracking)
+      )
+    );
+    font-weight: var(
+      --mdf-cmp-button--filled-tonal-state-label-weight,
+      var(
+        --mdf-cmp-button-state-label-weight,
+        var(--mdf-sys-typescale-label-large-weight)
+      )
+    );
+
+    & svg {
+      block-size: var(
+        --mdf-cmp-button--filled-tonal-layout-icon-block-size,
+        var(--mdf-cmp-button-layout-icon-block-size, 18px)
+      );
+      inline-size: var(
+        --mdf-cmp-button--filled-tonal-layout-icon-inline-size,
+        var(--mdf-cmp-button-layout-icon-inline-size, 18px)
+      );
+
+      color: var(
+        --mdf-cmp-button--filled-tonal-state-icon-color,
+        var(--mdf-cmp-button-state-icon-color, inherit)
+      );
+    }
+
+    :is([data-prefix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-tonal-layout-with-prefix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-tonal-layout-with-prefix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-end, 24px)
+      );
+    }
+
+    :is([data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-tonal-layout-with-suffix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-start, 24px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-tonal-layout-with-suffix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px)
+      );
+    }
+
+    :is([data-prefix-icon="true"][data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--filled-tonal-layout-with-prefix-and-suffix-icon-padding-inline-start,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-start,
+          16px
+        )
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--filled-tonal-layout-with-prefix-and-suffix-icon-padding-inline-end,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-end,
+          16px
+        )
+      );
+    }
+
+    &::before {
+      background-color: var(
+        --mdf-cmp-button--filled-tonal-state-container-color,
+        var(
+          --mdf-cmp-button-state-container-color,
+          var(--mdf-sys-color-secondary-container)
+        )
+      );
+    }
+
+    & .mdf-elevation {
+      --_elevation: var(
+        --mdf-cmp-button--filled-tonal-state-container-elevation,
+        var(
+          --mdf-cmp-button-state-container-elevation,
+          var(--mdf-sys-elevation-level0)
+        )
+      );
+      --_shadow-color: var(
+        --mdf-cmp-button--filled-tonal-state-container-shadow-color,
+        var(
+          --mdf-cmp-button-state-container-shadow-color,
+          var(--mdf-sys-color-shadow)
+        )
+      );
+
+      &::before {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 3, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(2 * clamp(0, var(--_elevation), 1)) +
+                  clamp(0, var(--_elevation) - 2, 1) +
+                  clamp(0, var(--_elevation) - 4, 1)
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.3;
+      }
+
+      /* Need to fix box-shadow calcs */
+      &::after {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 1, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(3 * clamp(0, var(--_elevation), 2)) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 4) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.15;
+      }
+    }
+
+    &:disabled {
+      color: var(
+        --mdf-cmp-button--filled-tonal-disabled-state-label-color,
+        var(
+          --mdf-cmp-button-disabled-state-label-color,
+          var(--mdf-sys-color-on-surface)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-tonal-disabled-state-icon-color,
+          var(--mdf-cmp-button-disabled-state-icon-color, inherit)
+        );
+      }
+
+      &::before {
+        background-color: var(
+          --mdf-cmp-button--filled-tonal-disabled-state-container-color,
+          var(
+            --mdf-cmp-button-disabled-state-container-color,
+            var(--mdf-sys-color-on-surface)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-tonal-disabled-state-container-elevation,
+          var(
+            --mdf-cmp-button-disabled-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+
+    &:hover {
+      color: var(
+        --mdf-cmp-button--filled-tonal-hover-state-label-color,
+        var(
+          --mdf-cmp-button-hover-state-label-color,
+          var(--mdf-sys-color-on-secondary-container)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-tonal-hover-state-icon-color,
+          var(--mdf-cmp-button-hover-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-tonal-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-color-on-secondary-container)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-tonal-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-state-hover-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-tonal-hover-state-container-elevation,
+          var(
+            --mdf-cmp-button-hover-state-container-elevation,
+            var(--mdf-sys-elevation-level1)
+          )
+        );
+      }
+    }
+
+    &:focus-visible {
+      color: var(
+        --mdf-cmp-button--filled-tonal-focus-state-label-color,
+        var(
+          --mdf-cmp-button-focus-state-label-color,
+          var(--mdf-sys-color-on-secondary-container)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-tonal-focus-state-icon-color,
+          var(--mdf-cmp-button-focus-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-tonal-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-color-on-secondary-container)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-tonal-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-state-focus-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-tonal-focus-state-container-elevation,
+          var(
+            --mdf-cmp-button-focus-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+
+    &:active {
+      color: var(
+        --mdf-cmp-button--filled-tonal-pressed-state-label-color,
+        var(
+          --mdf-cmp-button-pressed-state-label-color,
+          var(--mdf-sys-color-on-secondary-container)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--filled-tonal-pressed-state-icon-color,
+          var(--mdf-cmp-button-pressed-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--filled-tonal-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-color-on-secondary-container)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--filled-tonal-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-state-pressed-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--filled-tonal-pressed-state-container-elevation,
+          var(
+            --mdf-cmp-button-pressed-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+    }
+  }
+
+  /* Outlined Button */
+  &.mdf-button--outlined {
+    block-size: var(
+      --mdf-cmp-button--outlined-layout-block-size,
+      var(--mdf-cmp-button-layout-block-size, 40px)
+    );
+    min-inline-size: var(
+      --mdf-cmp-button--outlined-layout-min-inline-size,
+      var(--mdf-cmp-button-layout-min-inline-size, 64px)
+    );
+
+    padding-inline-start: var(
+      --mdf-cmp-button--outlined-layout-padding-inline-start,
+      var(--mdf-cmp-button-layout-padding-inline-start, 24px)
+    );
+    padding-inline-end: var(
+      --mdf-cmp-button--outlined-layout-padding-inline-end,
+      var(--mdf-cmp-button-layout-padding-inline-end, 24px)
+    );
+    gap: var(
+      --mdf-cmp-button--outlined-layout-padding-gap,
+      var(--mdf-cmp-button-layout-padding-gap, 8px)
+    );
+
+    border-radius: var(
+      --mdf-cmp-button--outlined-layout-border-radius,
+      var(--mdf-cmp-button-layout-border-radius, 20px)
+    );
+
+    color: var(
+      --mdf-cmp-button--outlined-state-label-color,
+      var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary))
+    );
+
+    font-family: var(
+      --mdf-cmp-button--outlined-state-label-font,
+      var(
+        --mdf-cmp-button-state-label-text-font,
+        var(--mdf-sys-typescale-label-large-font)
+      )
+    );
+    line-height: var(
+      --mdf-cmp-button--outlined-state-label-line-height,
+      var(
+        --mdf-cmp-button-state-label-line-height,
+        var(--mdf-sys-typescale-label-large-line-height)
+      )
+    );
+    font-size: var(
+      --mdf-cmp-button--outlined-state-label-size,
+      var(
+        --mdf-cmp-button-state-label-size,
+        var(--mdf-sys-typescale-label-large-size)
+      )
+    );
+    letter-spacing: var(
+      --mdf-cmp-button--outlined-state-label-tracking,
+      var(
+        --mdf-cmp-button-state-label-tracking,
+        var(--mdf-sys-typescale-label-large-tracking)
+      )
+    );
+    font-weight: var(
+      --mdf-cmp-button--outlined-state-label-weight,
+      var(
+        --mdf-cmp-button-state-label-weight,
+        var(--mdf-sys-typescale-label-large-weight)
+      )
+    );
+
+    & svg {
+      block-size: var(
+        --mdf-cmp-button--outlined-layout-icon-block-size,
+        var(--mdf-cmp-button-layout-icon-block-size, 18px)
+      );
+      inline-size: var(
+        --mdf-cmp-button--outlined-layout-icon-inline-size,
+        var(--mdf-cmp-button-layout-icon-inline-size, 18px)
+      );
+
+      color: var(
+        --mdf-cmp-button--outlined-state-icon-color,
+        var(--mdf-cmp-button-state-icon-color, inherit)
+      );
+    }
+
+    :is([data-prefix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-end, 24px)
+      );
+    }
+
+    :is([data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-start, 24px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px)
+      );
+    }
+
+    :is([data-prefix-icon="true"][data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-and-suffix-icon-padding-inline-start,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-start,
+          16px
+        )
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-and-suffix-icon-padding-inline-end,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-end,
+          16px
+        )
+      );
+    }
+
+    &::before {
+      background-color: var(
+        --mdf-cmp-button--outlined-state-container-color,
+        var(--mdf-cmp-button-state-container-color)
+      );
+    }
+
+    & .mdf-elevation {
+      --_elevation: var(
+        --mdf-cmp-button--outlined-state-container-elevation,
+        var(
+          --mdf-cmp-button-state-container-elevation,
+          var(--mdf-sys-elevation-level0)
+        )
+      );
+      --_shadow-color: var(
+        --mdf-cmp-button--outlined-state-container-shadow-color,
+        var(
+          --mdf-cmp-button-state-container-shadow-color,
+          var(--mdf-sys-color-shadow)
+        )
+      );
+
+      &::before {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 3, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(2 * clamp(0, var(--_elevation), 1)) +
+                  clamp(0, var(--_elevation) - 2, 1) +
+                  clamp(0, var(--_elevation) - 4, 1)
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.3;
+      }
+
+      /* Need to fix box-shadow calcs */
+      &::after {
+        box-shadow: 0px
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 1) +
+                  clamp(0, var(--_elevation) - 1, 1) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                calc(3 * clamp(0, var(--_elevation), 2)) +
+                  calc(2 * clamp(0, var(--_elevation) - 2, 3))
+              )
+          )
+          calc(
+            1px *
+              (
+                clamp(0, var(--_elevation), 4) +
+                  calc(2 * clamp(0, var(--_elevation) - 4, 1))
+              )
+          )
+          0px var(--_shadow-color);
+        opacity: 0.15;
+      }
+    }
+
+    & .mdf-outline {
+      border-color: var(
+        --mdf-cmp-button--outlined-state-outline-color,
+        var(--mdf-cmp-button-state-outline-color, var(--mdf-sys-color-outline))
+      );
+      border-width: var(
+        --mdf-cmp-button--outlined-state-outline-width,
+        var(--mdf-cmp-button-state-outline-width, 1px)
+      );
+      border-style: var(
+        --mdf-cmp-button--outlined-state-outline-style,
+        var(--mdf-cmp-button-state-outline-style, solid)
+      );
+    }
+
+    &:disabled {
+      color: var(
+        --mdf-cmp-button--outlined-disabled-state-label-color,
+        var(
+          --mdf-cmp-button-disabled-state-label-color,
+          var(--mdf-sys-color-on-surface)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-disabled-state-icon-color,
+          var(--mdf-cmp-button-disabled-state-icon-color, inherit)
+        );
+      }
+
+      &::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-disabled-state-container-color,
+          var(--mdf-cmp-button-disabled-state-container-color)
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--outlined-disabled-state-container-elevation,
+          var(
+            --mdf-cmp-button-disabled-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+
+      & .mdf-outline {
+        border-color: var(
+          --mdf-cmp-button--outlined-disabled-state-outline-color,
+          var(
+            --mdf-cmp-button-disabled-state-outline-color,
+            var(--mdf-sys-color-on-surface)
+          )
+        );
+        border-width: var(
+          --mdf-cmp-button--outlined-disabled-state-outline-width,
+          var(--mdf-cmp-button-disabled-state-outline-width, 1px)
+        );
+        border-style: var(
+          --mdf-cmp-button--outlined-disabled-state-outline-style,
+          var(--mdf-cmp-button-disabled-state-outline-style, solid)
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-disabled-state-outline-opacity,
+          var(--mdf-cmp-button-disabled-state-outline-opacity, 0.12)
+        );
+      }
+    }
+
+    &:hover {
+      color: var(
+        --mdf-cmp-button--outlined-hover-state-label-color,
+        var(
+          --mdf-cmp-button-hover-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-hover-state-icon-color,
+          var(--mdf-cmp-button-hover-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-state-hover-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--outlined-hover-state-container-elevation,
+          var(
+            --mdf-cmp-button-hover-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+
+      & .mdf-outline {
+        border-color: var(
+          --mdf-cmp-button--outlined-hover-outline-color,
+          var(
+            --mdf-cmp-button-hover-state-outline-color,
+            var(--mdf-sys-color-outline)
+          )
+        );
+        border-width: var(
+          --mdf-cmp-button--outlined-hover-outline-width,
+          var(--mdf-cmp-button-hover-state-outline-width, 1px)
+        );
+        border-style: var(
+          --mdf-cmp-button--outlined-hover-outline-style,
+          var(--mdf-cmp-button-hover-state-outline-style, solid)
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-hover-state-outline-opacity,
+          var(--mdf-cmp-button-hover-state-outline-opacity)
+        );
+      }
+    }
+
+    &:focus-visible {
+      color: var(
+        --mdf-cmp-button--outlined-focus-state-label-color,
+        var(
+          --mdf-cmp-button-focus-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-focus-state-icon-color,
+          var(--mdf-cmp-button-focus-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-state-focus-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--outlined-focus-state-container-elevation,
+          var(
+            --mdf-cmp-button-focus-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+
+      & .mdf-outline {
+        border-color: var(
+          --mdf-cmp-button--outlined-focus-outline-color,
+          var(
+            --mdf-cmp-button-focus-state-outline-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        border-width: var(
+          --mdf-cmp-button--outlined-focus-outline-width,
+          var(--mdf-cmp-button-focus-state-outline-width, 1px)
+        );
+        border-style: var(
+          --mdf-cmp-button--outlined-focus-outline-style,
+          var(--mdf-cmp-button-focus-state-outline-style, solid)
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-focus-state-outline-opacity,
+          var(--mdf-cmp-button-focus-state-outline-opacity)
+        );
+      }
+    }
+
+    &:active {
+      color: var(
+        --mdf-cmp-button--outlined-pressed-state-label-color,
+        var(
+          --mdf-cmp-button-pressed-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-pressed-state-icon-color,
+          var(--mdf-cmp-button-pressed-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-state-pressed-state-layer-opacity)
+          )
+        );
+      }
+
+      & .mdf-elevation {
+        --_elevation: var(
+          --mdf-cmp-button--outlined-pressed-state-container-elevation,
+          var(
+            --mdf-cmp-button-pressed-state-container-elevation,
+            var(--mdf-sys-elevation-level0)
+          )
+        );
+      }
+
+      & .mdf-outline {
+        border-color: var(
+          --mdf-cmp-button--outlined-pressed-outline-color,
+          var(
+            --mdf-cmp-button-pressed-state-outline-color,
+            var(--mdf-sys-color-outline)
+          )
+        );
+        border-width: var(
+          --mdf-cmp-button--outlined-pressed-outline-width,
+          var(--mdf-cmp-button-pressed-state-outline-width, 1px)
+        );
+        border-style: var(
+          --mdf-cmp-button--outlined-pressed-outline-style,
+          var(--mdf-cmp-button-pressed-state-outline-style, solid)
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-pressed-state-outline-opacity,
+          var(--mdf-cmp-button-pressed-state-outline-opacity)
+        );
+      }
+    }
+  }
+
+  /* Text Button */
+  &.mdf-button--text {
+    block-size: var(
+      --mdf-cmp-button--outlined-layout-block-size,
+      var(--mdf-cmp-button-layout-block-size, 40px)
+    );
+    min-inline-size: var(
+      --mdf-cmp-button--outlined-layout-min-inline-size,
+      var(--mdf-cmp-button-layout-min-inline-size, 48px)
+    );
+
+    padding-inline-start: var(
+      --mdf-cmp-button--outlined-layout-padding-inline-start,
+      var(--mdf-cmp-button-layout-padding-inline-start, 12px)
+    );
+    padding-inline-end: var(
+      --mdf-cmp-button--outlined-layout-padding-inline-end,
+      var(--mdf-cmp-button-layout-padding-inline-end, 12px)
+    );
+    gap: var(
+      --mdf-cmp-button--outlined-layout-padding-gap,
+      var(--mdf-cmp-button-layout-padding-gap, 8px)
+    );
+
+    border-radius: var(
+      --mdf-cmp-button--outlined-layout-border-radius,
+      var(--mdf-cmp-button-layout-border-radius, 20px)
+    );
+
+    color: var(
+      --mdf-cmp-button--outlined-state-label-color,
+      var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary))
+    );
+
+    font-family: var(
+      --mdf-cmp-button--outlined-state-label-font,
+      var(
+        --mdf-cmp-button-state-label-text-font,
+        var(--mdf-sys-typescale-label-large-font)
+      )
+    );
+    line-height: var(
+      --mdf-cmp-button--outlined-state-label-line-height,
+      var(
+        --mdf-cmp-button-state-label-line-height,
+        var(--mdf-sys-typescale-label-large-line-height)
+      )
+    );
+    font-size: var(
+      --mdf-cmp-button--outlined-state-label-size,
+      var(
+        --mdf-cmp-button-state-label-size,
+        var(--mdf-sys-typescale-label-large-size)
+      )
+    );
+    letter-spacing: var(
+      --mdf-cmp-button--outlined-state-label-tracking,
+      var(
+        --mdf-cmp-button-state-label-tracking,
+        var(--mdf-sys-typescale-label-large-tracking)
+      )
+    );
+    font-weight: var(
+      --mdf-cmp-button--outlined-state-label-weight,
+      var(
+        --mdf-cmp-button-state-label-weight,
+        var(--mdf-sys-typescale-label-large-weight)
+      )
+    );
+
+    & svg {
+      block-size: var(
+        --mdf-cmp-button--outlined-layout-icon-block-size,
+        var(--mdf-cmp-button-layout-icon-block-size, 18px)
+      );
+      inline-size: var(
+        --mdf-cmp-button--outlined-layout-icon-inline-size,
+        var(--mdf-cmp-button-layout-icon-inline-size, 18px)
+      );
+
+      color: var(
+        --mdf-cmp-button--outlined-state-icon-color,
+        var(--mdf-cmp-button-state-icon-color, inherit)
+      );
+    }
+
+    :is([data-prefix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 12px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-end, 16px)
+      );
+    }
+
+    :is([data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-start,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-start, 16px)
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-end,
+        var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 12px)
+      );
+    }
+
+    :is([data-prefix-icon="true"][data-suffix-icon="true"]) & {
+      padding-inline-start: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-and-suffix-icon-padding-inline-start,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-start,
+          12px
+        )
+      );
+      padding-inline-end: var(
+        --mdf-cmp-button--outlined-layout-with-prefix-and-suffix-icon-padding-inline-end,
+        var(
+          --mdf-cmp-button-layout-with-prefix-and-suffix-icon-padding-inline-end,
+          12px
+        )
+      );
+    }
+
+    &:disabled {
+      color: var(
+        --mdf-cmp-button--outlined-disabled-state-label-color,
+        var(
+          --mdf-cmp-button-disabled-state-label-color,
+          var(--mdf-sys-color-on-surface)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-disabled-state-icon-color,
+          var(--mdf-cmp-button-disabled-state-icon-color, inherit)
+        );
+      }
+    }
+
+    &:hover {
+      color: var(
+        --mdf-cmp-button--outlined-hover-state-label-color,
+        var(
+          --mdf-cmp-button-hover-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-hover-state-icon-color,
+          var(--mdf-cmp-button-hover-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-hover-state-layer-color,
+          var(
+            --mdf-cmp-button-hover-state-layer-color,
+            var(--mdf-sys-state-hover-state-layer-opacity)
+          )
+        );
+      }
+    }
+
+    &:focus-visible {
+      color: var(
+        --mdf-cmp-button--outlined-focus-state-label-color,
+        var(
+          --mdf-cmp-button-focus-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-focus-state-icon-color,
+          var(--mdf-cmp-button-focus-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-focus-state-layer-color,
+          var(
+            --mdf-cmp-button-focus-state-layer-color,
+            var(--mdf-sys-state-focus-state-layer-opacity)
+          )
+        );
+      }
+    }
+
+    &:active {
+      color: var(
+        --mdf-cmp-button--outlined-pressed-state-label-color,
+        var(
+          --mdf-cmp-button-pressed-state-label-color,
+          var(--mdf-sys-color-primary)
+        )
+      );
+
+      & svg {
+        color: var(
+          --mdf-cmp-button--outlined-pressed-state-icon-color,
+          var(--mdf-cmp-button-pressed-state-icon-color, inherit)
+        );
+      }
+
+      & .mdf-surface::before {
+        background-color: var(
+          --mdf-cmp-button--outlined-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-color-primary)
+          )
+        );
+        opacity: var(
+          --mdf-cmp-button--outlined-pressed-state-layer-color,
+          var(
+            --mdf-cmp-button-pressed-state-layer-color,
+            var(--mdf-sys-state-pressed-state-layer-opacity)
+          )
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+:root {
+  --mdf-ref-palette-black: #000;
+  --mdf-ref-palette-white: #fff;
+
+  --mdf-ref-palette-neutral0: #000;
+  --mdf-ref-palette-neutral10: #1d1b20;
+  --mdf-ref-palette-neutral20: #322f35;
+  --mdf-ref-palette-neutral30: #48464c;
+  --mdf-ref-palette-neutral40: #605d64;
+  --mdf-ref-palette-neutral50: #79767d;
+  --mdf-ref-palette-neutral60: #938f96;
+  --mdf-ref-palette-neutral70: #aea9b1;
+  --mdf-ref-palette-neutral80: #cac5cd;
+  --mdf-ref-palette-neutral90: #e6e0e9;
+  --mdf-ref-palette-neutral95: #f5eff7;
+  --mdf-ref-palette-neutral99: #fffbff;
+  --mdf-ref-palette-neutral100: #fff;
+
+  --mdf-ref-palette-neutral-variant0: #000;
+  --mdf-ref-palette-neutral-variant10: #1d1a22;
+  --mdf-ref-palette-neutral-variant20: #322f37;
+  --mdf-ref-palette-neutral-variant30: #49454f;
+  --mdf-ref-palette-neutral-variant40: #605d66;
+  --mdf-ref-palette-neutral-variant50: #79747e;
+  --mdf-ref-palette-neutral-variant60: #938f99;
+  --mdf-ref-palette-neutral-variant70: #aea9b4;
+  --mdf-ref-palette-neutral-variant80: #cac4d0;
+  --mdf-ref-palette-neutral-variant90: #e7e0ec;
+  --mdf-ref-palette-neutral-variant95: #f5eefa;
+  --mdf-ref-palette-neutral-variant99: #fffbfe;
+  --mdf-ref-palette-neutral-variant100: #fff;
+
+  --mdf-ref-palette-primary0: #000;
+  --mdf-ref-palette-primary10: #21005d;
+  --mdf-ref-palette-primary20: #381e72;
+  --mdf-ref-palette-primary30: #4f378b;
+  --mdf-ref-palette-primary40: #6750a4;
+  --mdf-ref-palette-primary50: #7f67be;
+  --mdf-ref-palette-primary60: #9a82db;
+  --mdf-ref-palette-primary70: #b69df8;
+  --mdf-ref-palette-primary80: #d0bcff;
+  --mdf-ref-palette-primary90: #eaddff;
+  --mdf-ref-palette-primary95: #f6edff;
+  --mdf-ref-palette-primary99: #fffbfe;
+  --mdf-ref-palette-primary100: #fff;
+
+  --mdf-ref-palette-secondary0: #000;
+  --mdf-ref-palette-secondary10: #1d192b;
+  --mdf-ref-palette-secondary20: #332d41;
+  --mdf-ref-palette-secondary30: #4a4458;
+  --mdf-ref-palette-secondary40: #625b71;
+  --mdf-ref-palette-secondary50: #7a7289;
+  --mdf-ref-palette-secondary60: #958da5;
+  --mdf-ref-palette-secondary70: #b0a7c0;
+  --mdf-ref-palette-secondary80: #ccc2dc;
+  --mdf-ref-palette-secondary90: #e8def8;
+  --mdf-ref-palette-secondary95: #f6edff;
+  --mdf-ref-palette-secondary99: #fffbfe;
+  --mdf-ref-palette-secondary100: #fff;
+
+  --mdf-ref-palette-tertiary0: #000;
+  --mdf-ref-palette-tertiary10: #31111d;
+  --mdf-ref-palette-tertiary20: #492532;
+  --mdf-ref-palette-tertiary30: #633b48;
+  --mdf-ref-palette-tertiary40: #7d5260;
+  --mdf-ref-palette-tertiary50: #986977;
+  --mdf-ref-palette-tertiary60: #b58392;
+  --mdf-ref-palette-tertiary70: #d29dac;
+  --mdf-ref-palette-tertiary80: #efb8c8;
+  --mdf-ref-palette-tertiary90: #ffd8e4;
+  --mdf-ref-palette-tertiary95: #ffecf1;
+  --mdf-ref-palette-tertiary99: #fffbfa;
+  --mdf-ref-palette-tertiary100: #fff;
+
+  --mdf-ref-palette-error0: #000;
+  --mdf-ref-palette-error10: #410e0b;
+  --mdf-ref-palette-error20: #601410;
+  --mdf-ref-palette-error30: #8c1d18;
+  --mdf-ref-palette-error40: #b3261e;
+  --mdf-ref-palette-error50: #dc362e;
+  --mdf-ref-palette-error60: #e46962;
+  --mdf-ref-palette-error70: #ec928e;
+  --mdf-ref-palette-error80: #f2b8b5;
+  --mdf-ref-palette-error90: #f9dedc;
+  --mdf-ref-palette-error95: #fceeee;
+  --mdf-ref-palette-error99: #fffbf9;
+  --mdf-ref-palette-error100: #fff;
+}
+
+.mdf-theme--light {
+  --mdf-sys-color-primary: var(--mdf-ref-palette-primary40);
+  --mdf-sys-color-on-primary: var(--mdf-ref-palette-primary100);
+  --mdf-sys-color-primary-container: var(--mdf-ref-palette-primary90);
+  --mdf-sys-color-on-primary-container: var(--mdf-ref-palette-primary10);
+  --mdf-sys-color-primary-fixed: var(--mdf-ref-palette-primary90);
+  --mdf-sys-color-primary-fixed-dim: var(--mdf-ref-palette-primary80);
+  --mdf-sys-color-on-primary-fixed: var(--mdf-ref-palette-primary10);
+  --mdf-sys-color-on-primary-fixed-variant: var(--mdf-ref-palette-primary30);
+
+  --mdf-sys-color-secondary: var(--mdf-ref-palette-secondary40);
+  --mdf-sys-color-on-secondary: var(--mdf-ref-palette-secondary100);
+  --mdf-sys-color-secondary-container: var(--mdf-ref-palette-secondary90);
+  --mdf-sys-color-on-secondary-container: var(--mdf-ref-palette-secondary10);
+  --mdf-sys-color-secondary-fixed: var(--mdf-ref-palette-secondary90);
+  --mdf-sys-color-secondary-fixed-dim: var(--mdf-ref-palette-secondary80);
+  --mdf-sys-color-on-secondary-fixed: var(--mdf-ref-palette-secondary10);
+  --mdf-sys-color-on-secondary-fixed-variant: var(--mdf-ref-palette-secondary30);
+
+  --mdf-sys-color-tertiary: var(--mdf-ref-palette-tertiary40);
+  --mdf-sys-color-on-tertiary: var(--mdf-ref-palette-tertiary100);
+  --mdf-sys-color-tertiary-container: var(--mdf-ref-palette-tertiary90);
+  --mdf-sys-color-on-tertiary-container: var(--mdf-ref-palette-tertiary10);
+  --mdf-sys-color-tertiary-fixed: var(--mdf-ref-palette-tertiary90);
+  --mdf-sys-color-tertiary-fixed-dim: var(--mdf-ref-palette-tertiary80);
+  --mdf-sys-color-on-tertiary-fixed: var(--mdf-ref-palette-tertiary10);
+  --mdf-sys-color-on-tertiary-fixed-variant: var(--mdf-ref-palette-tertiary30);
+
+  --mdf-sys-color-background: var(--mdf-ref-palette-neutral99);
+  --mdf-sys-color-on-background: var(--mdf-ref-palette-neutral10);
+
+  --mdf-sys-color-surface: var(--mdf-ref-palette-neutral99);
+  --mdf-sys-color-surface-dim: var(--mdf-ref-palette-neutral90);
+  --mdf-sys-color-surface-tint: var(--mdf-ref-palette-neutral40);
+  --mdf-sys-color-surface-bright: var(--mdf-ref-palette-neutral99);
+  --mdf-sys-color-on-surface: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-surface-variant: var(--mdf-ref-palette-neutral-variant90);
+  --mdf-sys-color-on-surface-variant: var(--mdf-ref-palette-neutral-variant30);
+  --mdf-sys-color-surface-container: var(--mdf-ref-palette-neutral95);
+  --mdf-sys-color-surface-container-high: var(--mdf-ref-palette-neutral90);
+  --mdf-sys-color-surface-container-highest: var(--mdf-ref-palette-neutral80);
+  --mdf-sys-color-surface-container-low: var(--mdf-ref-palette-neutral95);
+  --mdf-sys-color-surface-container-lowest: var(--mdf-ref-palette-neutral100);
+  
+  --mdf-sys-color-error-container: var(--mdf-ref-palette-error90);
+  --mdf-sys-color-on-error-container: var(--mdf-ref-palette-error10);
+  --mdf-sys-color-error: var(--mdf-ref-palette-error40);
+  --mdf-sys-color-on-error: var(--mdf-ref-palette-error100);
+  
+  --mdf-sys-color-inverse-primary: var(--mdf-ref-palette-primary80);
+  --mdf-sys-color-inverse-surface: var(--mdf-ref-palette-neutral20);
+  --mdf-sys-color-inverse-on-surface: var(--mdf-ref-palette-neutral95);
+
+  --mdf-sys-color-shadow: var(--mdf-ref-palette-neutral0);
+
+  --mdf-sys-color-outline: var(--mdf-ref-palette-neutral-variant50);
+  --mdf-sys-color-outline-variant: var(--mdf-ref-palette-neutral-variant80);
+
+  --mdf-sys-color-scrim: var(--mdf-ref-palette-neutral0);
+}
+
+.mdf-theme--dark {
+  --mdf-sys-color-primary: var(--mdf-ref-palette-primary80);
+  --mdf-sys-color-on-primary: var(--mdf-ref-palette-primary20);
+  --mdf-sys-color-primary-container: var(--mdf-ref-palette-primary30);
+  --mdf-sys-color-on-primary-container: var(--mdf-ref-palette-primary90);
+  --mdf-sys-color-primary-fixed: var(--mdf-ref-palette-primary90);
+  --mdf-sys-color-primary-fixed-dim: var(--mdf-ref-palette-primary80);
+  --mdf-sys-color-on-primary-fixed: var(--mdf-ref-palette-primary10);
+  --mdf-sys-color-on-primary-fixed-variant: var(--mdf-ref-palette-primary30);
+
+  --mdf-sys-color-secondary: var(--mdf-ref-palette-secondary80);
+  --mdf-sys-color-on-secondary: var(--mdf-ref-palette-secondary20);
+  --mdf-sys-color-secondary-container: var(--mdf-ref-palette-secondary30);
+  --mdf-sys-color-on-secondary-container: var(--mdf-ref-palette-secondary90);
+  --mdf-sys-color-secondary-fixed: var(--mdf-ref-palette-secondary90);
+  --mdf-sys-color-secondary-fixed-dim: var(--mdf-ref-palette-secondary80);
+  --mdf-sys-color-on-secondary-fixed: var(--mdf-ref-palette-secondary10);
+  --mdf-sys-color-on-secondary-fixed-variant: var(--mdf-ref-palette-secondary30);
+
+  --mdf-sys-color-tertiary: var(--mdf-ref-palette-tertiary80);
+  --mdf-sys-color-on-tertiary: var(--mdf-ref-palette-tertiary20);
+  --mdf-sys-color-tertiary-container: var(--mdf-ref-palette-tertiary30);
+  --mdf-sys-color-on-tertiary-container: var(--mdf-ref-palette-tertiary90);
+  --mdf-sys-color-tertiary-fixed: var(--mdf-ref-palette-tertiary90);
+  --mdf-sys-color-tertiary-fixed-dim: var(--mdf-ref-palette-tertiary80);
+  --mdf-sys-color-on-tertiary-fixed: var(--mdf-ref-palette-tertiary10);
+  --mdf-sys-color-on-tertiary-fixed-variant: var(--mdf-ref-palette-tertiary30);
+
+  --mdf-sys-color-background: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-on-background: var(--mdf-ref-palette-neutral90);
+
+  --mdf-sys-color-surface: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-surface-dim: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-surface-tint: var(--mdf-ref-palette-neutral80);
+  --mdf-sys-color-surface-bright: var(--mdf-ref-palette-neutral30);
+  --mdf-sys-color-on-surface: var(--mdf-ref-palette-neutral90);
+  --mdf-sys-color-surface-variant: var(--mdf-ref-palette-neutral-variant30);
+  --mdf-sys-color-on-surface-variant: var(--mdf-ref-palette-neutral-variant90);
+  --mdf-sys-color-surface-container: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-surface-container-high: var(--mdf-ref-palette-neutral20);
+  --mdf-sys-color-surface-container-highest: var(--mdf-ref-palette-neutral30);
+  --mdf-sys-color-surface-container-low: var(--mdf-ref-palette-neutral10);
+  --mdf-sys-color-surface-container-lowest: var(--mdf-ref-palette-neutral20);
+  
+  --mdf-sys-color-error-container: var(--mdf-ref-palette-error30);
+  --mdf-sys-color-on-error-container: var(--mdf-ref-palette-error90);
+  --mdf-sys-color-error: var(--mdf-ref-palette-error80);
+  --mdf-sys-color-on-error: var(--mdf-ref-palette-error20);
+  
+  --mdf-sys-color-inverse-surface: var(--mdf-ref-palette-neutral90);
+  --mdf-sys-color-inverse-on-surface: var(--mdf-ref-palette-neutral20);
+  --mdf-sys-color-inverse-primary: var(--mdf-ref-palette-primary40);
+
+  --mdf-sys-color-shadow: var(--mdf-ref-palette-neutral0);
+
+  --mdf-sys-color-outline: var(--mdf-ref-palette-neutral-variant60);
+  --mdf-sys-color-outline-variant: var(--mdf-ref-palette-neutral-variant30);
+
+  --mdf-sys-color-scrim: var(--mdf-ref-palette-neutral0);
+}

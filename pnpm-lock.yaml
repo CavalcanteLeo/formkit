@@ -299,8 +299,12 @@ importers:
   packages/themes:
     specifiers:
       '@formkit/core': 0.17.2
+      '@formkit/inputs': 0.17.2
+      '@formkit/utils': 0.17.2
     dependencies:
       '@formkit/core': link:../core
+      '@formkit/inputs': link:../inputs
+      '@formkit/utils': link:../utils
 
   packages/utils:
     specifiers: {}

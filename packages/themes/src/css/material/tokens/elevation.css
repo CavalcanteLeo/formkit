@@ -1,0 +1,8 @@
+:root {
+  --mdf-sys-elevation-level0: 0;
+  --mdf-sys-elevation-level1: 1;
+  --mdf-sys-elevation-level2: 3;
+  --mdf-sys-elevation-level3: 6;
+  --mdf-sys-elevation-level4: 8;
+  --mdf-sys-elevation-level5: 12;
+}
