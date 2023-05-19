@@ -49,12 +49,10 @@
   &[data-has-value=true] .mdf-field, &:has(:focus) .mdf-field {
     & .formkit-input {
       align-self: flex-end;
-      margin-bottom: 2px;
     }
 
     & .formkit-label {
       align-self: baseline;
-      top: 4px;
     }
   }
 

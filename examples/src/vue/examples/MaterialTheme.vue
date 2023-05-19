@@ -1,9 +1,23 @@
 <template>
-  <h2>Filled text field</h2>
+  <h2>Button</h2>
+
+  <div class="code-container">
+    <div class="mdf-theme--dark">
+      <FormKit type="button" label="Enabled" />
+    </div>
+    <div class="mdf-theme--light">
+      <FormKit type="button" label="Disabled" disabled />
+    </div>
+  </div>
+
+  <h2>Text field</h2>
 
   <div class="code-container">
     <div class="mdf-theme--dark">
       <FormKit type="text" label="Enabled" help="help text" />
+    </div>
+    <div class="mdf-theme--light">
+      <FormKit type="text" label="Disabled" disabled help="help text" />
     </div>
   </div>
 </template>
