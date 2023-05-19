@@ -4,8 +4,10 @@
   <div class="code-container">
     <div class="mdf-theme--dark">
       <FormKit type="button" label="Enabled" />
+      <FormKit type="button" label="Disabled" disabled />
     </div>
     <div class="mdf-theme--light">
+      <FormKit type="button" label="Enabled" />
       <FormKit type="button" label="Disabled" disabled />
     </div>
   </div>
@@ -15,8 +17,10 @@
   <div class="code-container">
     <div class="mdf-theme--dark">
       <FormKit type="text" label="Enabled" help="help text" />
+      <FormKit type="text" label="Disabled" disabled help="help text" />
     </div>
     <div class="mdf-theme--light">
+      <FormKit type="text" label="Enabled" help="help text" />
       <FormKit type="text" label="Disabled" disabled help="help text" />
     </div>
   </div>
