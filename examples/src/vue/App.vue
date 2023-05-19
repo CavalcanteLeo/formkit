@@ -1,13 +1,9 @@
 <template>
   <header class="header">
-    <img
-      src="/src/assets/logo.svg"
-      alt="FormKit Logo"
-      class="logo"
-    >
+    <img src="/src/assets/logo.svg" alt="FormKit Logo" class="logo">
     <Navigation />
   </header>
-  <div class="container">
+  <div class="container mdf-theme--dark">
     <router-view />
   </div>
   <VueGriddle />
@@ -35,9 +31,11 @@ import { VueGriddle } from '@braid/griddle'
   @media (min-width: bp(xs)) {
     width: span(4);
   }
+
   @media (min-width: bp(s)) {
     width: span(3);
   }
+
   @media (min-width: bp(m)) {
     width: span(2);
   }

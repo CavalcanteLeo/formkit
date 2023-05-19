@@ -130,12 +130,12 @@
   --mdf-sys-color-surface-container-highest: var(--mdf-ref-palette-neutral80);
   --mdf-sys-color-surface-container-low: var(--mdf-ref-palette-neutral95);
   --mdf-sys-color-surface-container-lowest: var(--mdf-ref-palette-neutral100);
-  
+
   --mdf-sys-color-error-container: var(--mdf-ref-palette-error90);
   --mdf-sys-color-on-error-container: var(--mdf-ref-palette-error10);
   --mdf-sys-color-error: var(--mdf-ref-palette-error40);
   --mdf-sys-color-on-error: var(--mdf-ref-palette-error100);
-  
+
   --mdf-sys-color-inverse-primary: var(--mdf-ref-palette-primary80);
   --mdf-sys-color-inverse-surface: var(--mdf-ref-palette-neutral20);
   --mdf-sys-color-inverse-on-surface: var(--mdf-ref-palette-neutral95);
@@ -191,12 +191,12 @@
   --mdf-sys-color-surface-container-highest: var(--mdf-ref-palette-neutral30);
   --mdf-sys-color-surface-container-low: var(--mdf-ref-palette-neutral10);
   --mdf-sys-color-surface-container-lowest: var(--mdf-ref-palette-neutral20);
-  
+
   --mdf-sys-color-error-container: var(--mdf-ref-palette-error30);
   --mdf-sys-color-on-error-container: var(--mdf-ref-palette-error90);
   --mdf-sys-color-error: var(--mdf-ref-palette-error80);
   --mdf-sys-color-on-error: var(--mdf-ref-palette-error20);
-  
+
   --mdf-sys-color-inverse-surface: var(--mdf-ref-palette-neutral90);
   --mdf-sys-color-inverse-on-surface: var(--mdf-ref-palette-neutral20);
   --mdf-sys-color-inverse-primary: var(--mdf-ref-palette-primary40);

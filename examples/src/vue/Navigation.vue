@@ -5,6 +5,9 @@
         <router-link to="/basic-form"> Basic Form </router-link>
       </li>
       <li>
+        <router-link to="/material-theme"> Material Theme </router-link>
+      </li>
+      <li>
         <router-link to="/auto-animate"> AutoAnimate Example </router-link>
       </li>
       <li>

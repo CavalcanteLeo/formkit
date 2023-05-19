@@ -6,6 +6,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import './assets/styles/main.scss'
 import App from './vue/App.vue'
 import BasicForm from './vue/examples/BasicForm.vue'
+import MaterialTheme from './vue/examples/MaterialTheme.vue'
 import AutoAnimate from './vue/examples/AutoAnimate.vue'
 import ThemePlugin from './vue/examples/ThemePlugin.vue'
 import ThirdPartyIcons from './vue/examples/3rdPartyIcons.vue'
@@ -69,6 +70,10 @@ const router = createRouter({
     {
       path: '/',
       component: BasicForm,
+    },
+    {
+      path: '/material-theme',
+      component: MaterialTheme,
     },
     {
       path: '/auto-animate',
