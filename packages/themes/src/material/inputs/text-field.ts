@@ -28,12 +28,10 @@ export const textFamily = (node: FormKitNode) => {
         FormKitSchemaCondition | Partial<FormKitSchemaNode>
       > = {}
     ) => {
-      if (extensions.inner) {
-        extensions.inner = {
-          attrs: {
-            'data-has-value': '$_value !== "" && $_value !== undefined',
-          },
-        }
+      extensions.inner = {
+        attrs: {
+          'data-has-value': '$_value !== "" && $_value !== undefined',
+        },
       }
 
       const inputSchema = originalSchema(extensions)
