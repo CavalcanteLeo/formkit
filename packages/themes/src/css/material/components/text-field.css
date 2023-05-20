@@ -74,8 +74,6 @@
 
       color: inherit;
 
-      transition: all 75ms ease;
-
       &:focus-visible {
         outline: none;
       }
@@ -89,7 +87,7 @@
       user-select: none;
       pointer-events: none;
 
-      transition: all 75ms ease;
+      transition: all 125ms ease-out, font-size 175ms ease-in;
     }
   }
 
@@ -103,14 +101,14 @@
     pointer-events: none;
   }
 
-  &[data-has-value=true] .formkit-input,
-  &:has(:focus) .formkit-input {
-    align-self: flex-end;
-  }
+  &[data-has-value=true], &:has(:focus) {
+    & .formkit-input {
+      align-self: flex-end;
+    }
 
-  &[data-has-value=true] .formkit-label,
-  &:has(:focus) .formkit-label {
-    align-self: baseline;
+    & .formkit-label {
+      align-self: baseline;
+    }
   }
 
   &.mdf-text-field--filled {
