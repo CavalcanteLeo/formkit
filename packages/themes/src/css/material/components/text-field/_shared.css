@@ -1,0 +1,68 @@
+.mdf-text-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 0;
+
+  & .formkit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    block-size: 18px;
+  }
+
+  & .mdf-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    position: relative;
+  }
+
+  & .mdf-field .formkit-input {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    color: inherit;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  & .mdf-field .formkit-label {
+    position: absolute;
+    left: 0;
+    color: inherit;
+
+    user-select: none;
+    pointer-events: none;
+
+    transition: all 125ms ease-out, font-size 175ms ease-in;
+  }
+
+  &::before,
+  & .mdf-surface, & .mdf-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+[data-has-value=true] .mdf-text-field, .mdf-text-field:has(:focus) {
+  & .formkit-input {
+    align-self: flex-end;
+  }
+
+  & .formkit-label {
+    align-self: baseline;
+  }
+}

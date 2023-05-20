@@ -1,0 +1,91 @@
+.mdf-text-field--filled {
+  block-size: var(--mdf-cmp-text-field--filled-layout-block-size, var(--mdf-cmp-text-field-layout-block-size, 56px));
+
+  padding-block: var(--mdf-cmp-text-field--filled-layout-padding-block-size, var(--mdf-cmp-text-field-layout-padding-block, 8px));
+  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-padding-inline-start, var(--mdf-cmp-text-field-layout-padding-inline-start, 16px));
+  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-padding-inline-end, var(--mdf-cmp-text-field-layout-padding-inline-end, 16px));
+
+  border-start-end-radius: var(--mdf-cmp-text-field--filled-layout-start-end-radius, var(--mdf-cmp-text-field-layout-start-end-radius, var(--mdf-sys-shape-corner-extra-small)));
+  border-start-start-radius: var(--mdf-cmp-text-field--filled-layout-start-start-radius, var(--mdf-cmp-text-field-layout-start-start-radius, var(--mdf-sys-shape-corner-extra-small)));
+
+  & .formkit-icon {
+    & svg {
+      color: var(--mdf-cmp-text-field--filled-state-icon-color, var(--mdf-cmp-text-field-state-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-prefix-icon svg {
+      block-size: var(--mdf-cmp-text-field--filled-layout-leading-icon-block-size, var(--mdf-cmp-text-field-layout-leading-icon-block-size, 20px));
+      inline-size: var(--mdf-cmp-text-field--filled-layout-leading-icon-inline-size, var(--mdf-cmp-text-field-layout-leading-icon-inline-size, 20px));
+    }
+
+    &.formkit-suffix-icon svg {
+      block-size: var(--mdf-cmp-text-field--filled-layout-trailing-icon-block-size, var(--mdf-cmp-text-field-layout-trailing-icon-block-size, 24px));
+      inline-size: var(--mdf-cmp-text-field--filled-layout-trailing-icon-inline-size, var(--mdf-cmp-text-field-layout-trailing-icon-inline-size, 24px));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--filled-state-input-text-color, var(--mdf-cmp-text-field-state-input-text-color, var(--mdf-sys-color-on-surface-variant)));
+    caret-color: var(--mdf-cmp-text-field--filled-state-caret-color, var(--mdf-cmp-text-field-state-caret-color, var(--mdf-sys-color-primary)));
+
+    font-family: var(--mdf-cmp-text-field--filled-state-input-text-font, var(--mdf-cmp-text-field-state-input-text-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--filled-state-input-text-line-height, var(--mdf-cmp-text-field-state-input-text-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--filled-state-input-text-size, var(--mdf-cmp-text-field-state-input-text-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--filled-state-input-text-tracking, var(--mdf-cmp-text-field-state-input-text-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--filled-state-input-text-weight, var(--mdf-cmp-text-field-state-input-text-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--filled-state-label-color, var(--mdf-cmp-text-field-state-label-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--filled-state-label-font, var(--mdf-cmp-text-field-state-label-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--filled-state-label-line-height, var(--mdf-cmp-text-field-state-label-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--filled-state-label-size, var(--mdf-cmp-text-field-state-label-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--filled-state-label-tracking, var(--mdf-cmp-text-field-state-label-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--filled-state-label-weight, var(--mdf-cmp-text-field-state-label-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  &::before {
+    background-color: var(--mdf-cmp-text-field--filled-state-container-color, var(--mdf-cmp-text-field-state-container-color, var(--mdf-sys-color-surface-variant)));
+  }
+
+  & .mdf-surface {
+    border-bottom: solid var(--mdf-cmp-text-field--filled-state-active-indicator-size, var(--mdf-cmp-text-field-state-active-indicator-size, 1px));
+    border-bottom-color: var(--mdf-cmp-text-field--filled-state-active-indicator-color, var(--mdf-cmp-text-field-state-active-indicator-color, var(--mdf-sys-color-on-surface-variant)));
+  }
+}
+
+[data-prefix-icon=true] .mdf-text-field--filled .formkit-prefix-icon {
+  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-prefix-icon-padding-inline-end, var(--mdf-cmp-text-field-layout-prefix-icon-padding-inline-end, 16px));
+}
+
+[data-suffix-icon=true] .mdf-text-field--filled .formkit-suffix-icon {
+  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-suffix-icon-padding-inline-start, var(--mdf-cmp-text-field-layout-suffix-icon-padding-inline-start, 16px));
+}
+
+[data-has-value=true] .mdf-text-field--filled .formkit-label, .mdf-text-field--filled:has(:focus) .formkit-label {
+  font-size: var(--mdf-cmp-text-field--filled-populated-state-label-size, var(--mdf-cmp-text-field-populated-state-label-size, var(--mdf-sys-typescale-body-small-size)));
+  line-height: var(--mdf-cmp-text-field--filled-populated-state-label-line-height, var(--mdf-cmp-text-field-populated-state-label-line-height, var(--mdf-sys-typescale-body-small-line-height)));
+}
+
+.mdf-text-field--filled:has(:disabled) {
+  &::before {
+    background-color: var(--mdf-cmp-text-field--filled-disabled-state-container-color, var(--mdf-cmp-text-field-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-container-opacity, var(--mdf-cmp-text-field-disabled-state-container-opacity, 0.4));
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-color, var(--mdf-cmp-text-field-disabled-state-active-indicator-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-opacity, var(--mdf-cmp-text-field-disabled-state-active-indicator-opacity, 0.38));
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--filled-disabled-state-input-text-color, var(--mdf-cmp-text-field-disabled-state-input-text-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-input-text-opacity, var(--mdf-cmp-text-field-disabled-state-input-text-opacity, 0.38));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--filled-disabled-state-label-color, var(--mdf-cmp-text-field-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-label-opacity, var(--mdf-cmp-text-field-disabled-state-label-opacity, 0.38));
+  }
+}

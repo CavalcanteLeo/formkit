@@ -28,7 +28,7 @@ export const textFamily = (node: FormKitNode) => {
         FormKitSchemaCondition | Partial<FormKitSchemaNode>
       > = {}
     ) => {
-      extensions.inner = {
+      extensions.outer = {
         attrs: {
           'data-has-value': '$_value !== "" && $_value !== undefined',
         },
