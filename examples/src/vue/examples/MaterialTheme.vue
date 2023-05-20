@@ -17,11 +17,11 @@
   <div class="code-container">
     <div class="mdf-theme--dark">
       <FormKit type="text" label="Enabled" help="help text" />
-      <FormKit type="text" label="Disabled" disabled help="help text" />
+      <FormKit type="text" label="Disabled" value="foo" help="help text" disabled />
     </div>
     <div class="mdf-theme--light">
       <FormKit type="text" label="Enabled" help="help text" />
-      <FormKit type="text" label="Disabled" disabled help="help text" />
+      <FormKit type="text" label="Disabled" help="help text" disabled />
     </div>
   </div>
 </template>
