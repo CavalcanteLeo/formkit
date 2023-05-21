@@ -1,0 +1,80 @@
+.mdf-button--text {
+  block-size: var(--mdf-cmp-button--text-layout-block-size, var(--mdf-cmp-button-layout-block-size, 40px));
+  min-inline-size: var(--mdf-cmp-button--text-layout-min-inline-size, var(--mdf-cmp-button-layout-min-inline-size, 48px));
+
+  padding-inline-start: var(--mdf-cmp-button--text-layout-padding-inline-start, var(--mdf-cmp-button-layout-padding-inline-start, 12px));
+  padding-inline-end: var(--mdf-cmp-button--text-layout-padding-inline-end, var(--mdf-cmp-button-layout-padding-inline-end, 12px));
+  gap: var(--mdf-cmp-button--text-layout-padding-gap, var(--mdf-cmp-button-layout-padding-gap, 8px));
+
+  border-radius: var(--mdf-cmp-button--text-layout-border-radius, var(--mdf-cmp-button-layout-border-radius, 20px));
+
+  color: var(--mdf-cmp-button--text-state-label-color, var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary)));
+
+  font-family: var(--mdf-cmp-button--text-state-label-font, var(--mdf-cmp-button-state-label-text-font, var(--mdf-sys-typescale-label-large-font)));
+  line-height: var(--mdf-cmp-button--text-state-label-line-height, var(--mdf-cmp-button-state-label-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  font-size: var(--mdf-cmp-button--text-state-label-size, var(--mdf-cmp-button-state-label-size, var(--mdf-sys-typescale-label-large-size)));
+  letter-spacing: var(--mdf-cmp-button--text-state-label-tracking, var(--mdf-cmp-button-state-label-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  font-weight: var(--mdf-cmp-button--text-state-label-weight, var(--mdf-cmp-button-state-label-weight, var(--mdf-sys-typescale-label-large-weight)));
+
+  .formkit-icon svg {
+    block-size: var(--mdf-cmp-button--text-layout-icon-block-size, var(--mdf-cmp-button-layout-icon-block-size, 18px));
+    inline-size: var(--mdf-cmp-button--text-layout-icon-inline-size, var(--mdf-cmp-button-layout-icon-inline-size, 18px));
+
+    color: var(--mdf-cmp-button--text-state-icon-color, var(--mdf-cmp-button-state-icon-color, inherit));
+  }
+}
+
+[data-prefix-icon=true] .mdf-text-field--text .formkit-prefix-icon {
+  padding-inline-start: var(--mdf-cmp-button--text-layout-with-prefix-icon-padding-inline-start, var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 12px));
+}
+
+[data-suffix-icon=true] .mdf-text-field--text .formkit-suffix-icon {
+  padding-inline-end: var(--mdf-cmp-button--text-layout-with-suffix-icon-padding-inline-end, var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 12px));
+}
+
+.mdf-button--text:disabled {
+  color: var(--mdf-cmp-button--text-disabled-state-label-color, var(--mdf-cmp-button-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
+
+  .formkit-icon svg {
+    color: var(--mdf-cmp-button--text-disabled-state-icon-color, var(--mdf-cmp-button-disabled-state-icon-color, inherit));
+  }
+}
+
+.mdf-button--text:hover {
+  color: var(--mdf-cmp-button--text-hover-state-label-color, var(--mdf-cmp-button-hover-state-label-color, var(--mdf-sys-color-primary)));
+
+  .formkit-icon svg {
+    color: var(--mdf-cmp-button--text-hover-state-icon-color, var(--mdf-cmp-button-hover-state-icon-color, inherit));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--text-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--text-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-state-hover-state-layer-opacity)));
+  }
+}
+
+.mdf-button--text:focus-visible {
+  color: var(--mdf-cmp-button--text-focus-state-label-color, var(--mdf-cmp-button-focus-state-label-color, var(--mdf-sys-color-primary)));
+
+  .formkit-icon svg {
+    color: var(--mdf-cmp-button--text-focus-state-icon-color, var(--mdf-cmp-button-focus-state-icon-color, inherit));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--text-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--text-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-state-focus-state-layer-opacity)));
+  }
+}
+
+.mdf-button--text:active {
+  color: var(--mdf-cmp-button--text-pressed-state-label-color, var(--mdf-cmp-button-pressed-state-label-color, var(--mdf-sys-color-primary)));
+
+  .formkit-icon svg {
+    color: var(--mdf-cmp-button--text-pressed-state-icon-color, var(--mdf-cmp-button-pressed-state-icon-color, inherit));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--text-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--text-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-state-pressed-state-layer-opacity)));
+  }
+}

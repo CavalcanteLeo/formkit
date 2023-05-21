@@ -1,0 +1,131 @@
+.mdf-button--filled {
+  block-size: var(--mdf-cmp-button--filled-layout-block-size, var(--mdf-cmp-button-layout-block-size, 40px));
+  min-inline-size: var(--mdf-cmp-button--filled-layout-min-inline-size, var(--mdf-cmp-button-layout-min-inline-size, 64px));
+
+  padding-inline-start: var(--mdf-cmp-button--filled-layout-padding-inline-start, var(--mdf-cmp-button-layout-padding-inline-start, 24px));
+  padding-inline-end: var(--mdf-cmp-button--filled-layout-padding-inline-end, var(--mdf-cmp-button-layout-padding-inline-end, 24px));
+  gap: var(--mdf-cmp-button--filled-layout-padding-gap, var(--mdf-cmp-button-layout-padding-gap, 8px));
+
+  border-radius: var(--mdf-cmp-button--filled-layout-border-radius, var(--mdf-cmp-button-layout-border-radius, 20px));
+
+  color: var(--mdf-cmp-button--filled-state-label-color, var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-on-primary)));
+
+  font-family: var(--mdf-cmp-button--filled-state-label-font, var(--mdf-cmp-button-state-label-text-font, var(--mdf-sys-typescale-label-large-font)));
+  line-height: var(--mdf-cmp-button--filled-state-label-line-height, var(--mdf-cmp-button-state-label-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  font-size: var(--mdf-cmp-button--filled-state-label-size, var(--mdf-cmp-button-state-label-size, var(--mdf-sys-typescale-label-large-size)));
+  letter-spacing: var(--mdf-cmp-button--filled-state-label-tracking, var(--mdf-cmp-button-state-label-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  font-weight: var(--mdf-cmp-button--filled-state-label-weight, var(--mdf-cmp-button-state-label-weight, var(--mdf-sys-typescale-label-large-weight)));
+
+  & .formkit-icon svg {
+    block-size: var(--mdf-cmp-button--filled-layout-icon-block-size, var(--mdf-cmp-button-layout-icon-block-size, 18px));
+    inline-size: var(--mdf-cmp-button--filled-layout-icon-inline-size, var(--mdf-cmp-button-layout-icon-inline-size, 18px));
+
+    color: var(--mdf-cmp-button--filled-state-icon-color, var(--mdf-cmp-button-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--filled-state-container-elevation, var(--mdf-cmp-button-state-container-elevation, var(--mdf-sys-elevation-level0)));
+    --_shadow-color: var(--mdf-cmp-button--filled-state-container-shadow-color, var(--mdf-cmp-button-state-container-shadow-color, var(--mdf-sys-color-shadow)));
+
+    &::before {
+      box-shadow:
+        0px
+        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 3, 1) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
+        calc(1px * (calc(2 * clamp(0, var(--_elevation), 1)) + clamp(0, var(--_elevation) - 2, 1) + clamp(0, var(--_elevation) - 4, 1)))
+        0px
+        var(--_shadow-color);
+      opacity: 0.3;
+    }
+
+    /* Need to fix box-shadow calcs */
+    &::after {
+      box-shadow:
+        0px
+        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 1, 1) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
+        calc(1px * (calc(3 * clamp(0, var(--_elevation), 2)) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
+        calc(1px * (clamp(0, var(--_elevation), 4) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
+        0px
+        var(--_shadow-color);
+      opacity: 0.15;
+    }
+  }
+
+  &::before {
+    background-color: var(--mdf-cmp-button--filled-state-container-color, var(--mdf-cmp-button-state-container-color, var(--mdf-sys-color-primary)));
+  }
+}
+
+[data-prefix-icon=true] .mdf-text-field--filled .formkit-prefix-icon {
+  padding-inline-start: var(--mdf-cmp-button--filled-layout-with-prefix-icon-padding-inline-start, var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px));
+}
+
+[data-suffix-icon=true] .mdf-text-field--filled .formkit-suffix-icon {
+  padding-inline-end: var(--mdf-cmp-button--filled-layout-with-suffix-icon-padding-inline-end, var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px));
+}
+
+.mdf-button--filled:disabled {
+  color: var(--mdf-cmp-button--filled-disabled-state-label-color, var(--mdf-cmp-button-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--filled-disabled-state-icon-color, var(--mdf-cmp-button-disabled-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--filled-disabled-state-container-elevation, var(--mdf-cmp-button-disabled-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  &::before {
+    background-color: var(--mdf-cmp-button--filled-disabled-state-container-color, var(--mdf-cmp-button-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
+  }
+}
+
+.mdf-button--filled:hover {
+  color: var(--mdf-cmp-button--filled-hover-state-label-color, var(--mdf-cmp-button-hover-state-label-color, var(--mdf-sys-color-on-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--filled-hover-state-icon-color, var(--mdf-cmp-button-hover-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--filled-hover-state-container-elevation, var(--mdf-cmp-button-hover-state-container-elevation, var(--mdf-sys-elevation-level1)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--filled-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-color-on-primary)));
+    opacity: var(--mdf-cmp-button--filled-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-state-hover-state-layer-opacity)));
+  }
+}
+
+.mdf-button--filled:focus-visible {
+  color: var(--mdf-cmp-button--filled-focus-state-label-color, var(--mdf-cmp-button-focus-state-label-color, var(--mdf-sys-color-on-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--filled-focus-state-icon-color, var(--mdf-cmp-button-focus-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--filled-focus-state-container-elevation, var(--mdf-cmp-button-focus-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--filled-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-color-on-primary)));
+    opacity: var(--mdf-cmp-button--filled-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-state-focus-state-layer-opacity)));
+  }
+}
+
+.mdf-button--filled:active {
+  color: var(--mdf-cmp-button--filled-pressed-state-label-color, var(--mdf-cmp-button-pressed-state-label-color, var(--mdf-sys-color-on-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--filled-pressed-state-icon-color, var(--mdf-cmp-button-pressed-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--filled-pressed-state-container-elevation, var(--mdf-cmp-button-pressed-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--filled-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-color-on-primary)));
+    opacity: var(--mdf-cmp-button--filled-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-state-pressed-state-layer-opacity)));
+  }
+}

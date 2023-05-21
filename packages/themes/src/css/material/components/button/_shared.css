@@ -1,0 +1,56 @@
+.mdf-button {
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+
+  background: transparent;
+
+  user-select: none;
+
+  & .formkit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &::before,
+  & .mdf-elevation, & .mdf-elevation::before, & .mdf-elevation::after,
+  & .mdf-surface, & .mdf-surface::before,
+  & .mdf-outline {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  & .mdf-surface::before {
+    transition: opacity 15ms linear, background-color 15ms linear;
+  }
+}
+
+.mdf-button:disabled {
+  cursor: default;
+  pointer-events: none;
+
+  opacity: 0.38;
+
+  &::before, & .mdf-outline {
+    opacity: 0.12;
+  }
+
+  & .mdf-surface {
+    opacity: 0;
+  }
+}
+
+.mdf-button:focus-visible {
+  & .mdf-surface::before {
+    transition-duration: 125ms;
+  }
+}

@@ -1,0 +1,165 @@
+.mdf-button--outlined {
+  block-size: var(--mdf-cmp-button--outlined-layout-block-size, var(--mdf-cmp-button-layout-block-size, 40px));
+  min-inline-size: var(--mdf-cmp-button--outlined-layout-min-inline-size, var(--mdf-cmp-button-layout-min-inline-size, 64px));
+
+  padding-inline-start: var(--mdf-cmp-button--outlined-layout-padding-inline-start, var(--mdf-cmp-button-layout-padding-inline-start, 24px));
+  padding-inline-end: var(--mdf-cmp-button--outlined-layout-padding-inline-end, var(--mdf-cmp-button-layout-padding-inline-end, 24px));
+  gap: var(--mdf-cmp-button--outlined-layout-padding-gap, var(--mdf-cmp-button-layout-padding-gap, 8px));
+
+  border-radius: var(--mdf-cmp-button--outlined-layout-border-radius, var(--mdf-cmp-button-layout-border-radius, 20px));
+
+  color: var(--mdf-cmp-button--outlined-state-label-color, var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary)));
+
+  font-family: var(--mdf-cmp-button--outlined-state-label-font, var(--mdf-cmp-button-state-label-text-font, var(--mdf-sys-typescale-label-large-font)));
+  line-height: var(--mdf-cmp-button--outlined-state-label-line-height, var(--mdf-cmp-button-state-label-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  font-size: var(--mdf-cmp-button--outlined-state-label-size, var(--mdf-cmp-button-state-label-size, var(--mdf-sys-typescale-label-large-size)));
+  letter-spacing: var(--mdf-cmp-button--outlined-state-label-tracking, var(--mdf-cmp-button-state-label-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  font-weight: var(--mdf-cmp-button--outlined-state-label-weight, var(--mdf-cmp-button-state-label-weight, var(--mdf-sys-typescale-label-large-weight)));
+
+  & .formkit-icon svg {
+    block-size: var(--mdf-cmp-button--outlined-layout-icon-block-size, var(--mdf-cmp-button-layout-icon-block-size, 18px));
+    inline-size: var(--mdf-cmp-button--outlined-layout-icon-inline-size, var(--mdf-cmp-button-layout-icon-inline-size, 18px));
+
+    color: var(--mdf-cmp-button--outlined-state-icon-color, var(--mdf-cmp-button-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--outlined-state-container-elevation, var(--mdf-cmp-button-state-container-elevation, var(--mdf-sys-elevation-level0)));
+    --_shadow-color: var(--mdf-cmp-button--outlined-state-container-shadow-color, var(--mdf-cmp-button-state-container-shadow-color, var(--mdf-sys-color-shadow)));
+
+    &::before {
+      box-shadow:
+        0px
+        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 3, 1) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
+        calc(1px * (calc(2 * clamp(0, var(--_elevation), 1)) + clamp(0, var(--_elevation) - 2, 1) + clamp(0, var(--_elevation) - 4, 1)))
+        0px
+        var(--_shadow-color);
+      opacity: 0.3;
+    }
+
+    /* Need to fix box-shadow calcs */
+    &::after {
+      box-shadow:
+        0px
+        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 1, 1) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
+        calc(1px * (calc(3 * clamp(0, var(--_elevation), 2)) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
+        calc(1px * (clamp(0, var(--_elevation), 4) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
+        0px
+        var(--_shadow-color);
+      opacity: 0.15;
+    }
+  }
+
+  &::before {
+    background-color: var(--mdf-cmp-button--outlined-state-container-color, var(--mdf-cmp-button-state-container-color));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-button--outlined-state-outline-color, var(--mdf-cmp-button-state-outline-color, var(--mdf-sys-color-outline)));
+    border-width: var(--mdf-cmp-button--outlined-state-outline-width, var(--mdf-cmp-button-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-button--outlined-state-outline-style, var(--mdf-cmp-button-state-outline-style, solid));
+  }
+}
+
+[data-prefix-icon=true] .mdf-text-field--outlined .formkit-prefix-icon {
+  padding-inline-start: var(--mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-start, var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px));
+}
+
+[data-suffix-icon=true] .mdf-text-field--outlined .formkit-suffix-icon {
+  padding-inline-end: var(--mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-end, var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px));
+}
+
+.mdf-button--outlined:disabled {
+  color: var(--mdf-cmp-button--outlined-disabled-state-label-color, var(--mdf-cmp-button-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--outlined-disabled-state-icon-color, var(--mdf-cmp-button-disabled-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--outlined-disabled-state-container-elevation, var(--mdf-cmp-button-disabled-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  &::before {
+    background-color: var(--mdf-cmp-button--outlined-disabled-state-container-color, var(--mdf-cmp-button-disabled-state-container-color));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-button--outlined-disabled-state-outline-color, var(--mdf-cmp-button-disabled-state-outline-color, var(--mdf-sys-color-on-surface)));
+    border-width: var(--mdf-cmp-button--outlined-disabled-state-outline-width, var(--mdf-cmp-button-disabled-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-button--outlined-disabled-state-outline-style, var(--mdf-cmp-button-disabled-state-outline-style, solid));
+    opacity: var(--mdf-cmp-button--outlined-disabled-state-outline-opacity, var(--mdf-cmp-button-disabled-state-outline-opacity, 0.12));
+  }
+}
+
+.mdf-button--outlined:hover {
+  color: var(--mdf-cmp-button--outlined-hover-state-label-color, var(--mdf-cmp-button-hover-state-label-color, var(--mdf-sys-color-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--outlined-hover-state-icon-color, var(--mdf-cmp-button-hover-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--outlined-hover-state-container-elevation, var(--mdf-cmp-button-hover-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--outlined-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--outlined-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-state-hover-state-layer-opacity)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-button--outlined-hover-outline-color, var(--mdf-cmp-button-hover-state-outline-color, var(--mdf-sys-color-outline)));
+    border-width: var(--mdf-cmp-button--outlined-hover-outline-width, var(--mdf-cmp-button-hover-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-button--outlined-hover-outline-style, var(--mdf-cmp-button-hover-state-outline-style, solid));
+    opacity: var(--mdf-cmp-button--outlined-hover-state-outline-opacity, var(--mdf-cmp-button-hover-state-outline-opacity));
+  }
+}
+
+.mdf-button--outlined:focus-visible {
+  color: var(--mdf-cmp-button--outlined-focus-state-label-color, var(--mdf-cmp-button-focus-state-label-color, var(--mdf-sys-color-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--outlined-focus-state-icon-color, var(--mdf-cmp-button-focus-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--outlined-focus-state-container-elevation, var(--mdf-cmp-button-focus-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--outlined-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--outlined-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-state-focus-state-layer-opacity)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-button--outlined-focus-outline-color, var(--mdf-cmp-button-focus-state-outline-color, var(--mdf-sys-color-primary)));
+    border-width: var(--mdf-cmp-button--outlined-focus-outline-width, var(--mdf-cmp-button-focus-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-button--outlined-focus-outline-style, var(--mdf-cmp-button-focus-state-outline-style, solid));
+    opacity: var(--mdf-cmp-button--outlined-focus-state-outline-opacity, var(--mdf-cmp-button-focus-state-outline-opacity));
+  }
+}
+
+.mdf-button--outlined:active {
+  color: var(--mdf-cmp-button--outlined-pressed-state-label-color, var(--mdf-cmp-button-pressed-state-label-color, var(--mdf-sys-color-primary)));
+
+  & .formkit-icon svg {
+    color: var(--mdf-cmp-button--outlined-pressed-state-icon-color, var(--mdf-cmp-button-pressed-state-icon-color, inherit));
+  }
+
+  & .mdf-elevation {
+    --_elevation: var(--mdf-cmp-button--outlined-pressed-state-container-elevation, var(--mdf-cmp-button-pressed-state-container-elevation, var(--mdf-sys-elevation-level0)));
+  }
+
+  & .mdf-surface::before {
+    background-color: var(--mdf-cmp-button--outlined-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-color-primary)));
+    opacity: var(--mdf-cmp-button--outlined-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-state-pressed-state-layer-opacity)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-button--outlined-pressed-outline-color, var(--mdf-cmp-button-pressed-state-outline-color, var(--mdf-sys-color-outline)));
+    border-width: var(--mdf-cmp-button--outlined-pressed-outline-width, var(--mdf-cmp-button-pressed-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-button--outlined-pressed-outline-style, var(--mdf-cmp-button-pressed-state-outline-style, solid));
+    opacity: var(--mdf-cmp-button--outlined-pressed-state-outline-opacity, var(--mdf-cmp-button-pressed-state-outline-opacity));
+  }
+}

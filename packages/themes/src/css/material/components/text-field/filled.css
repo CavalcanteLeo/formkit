@@ -56,29 +56,14 @@
 }
 
 [data-prefix-icon=true] .mdf-text-field--filled .formkit-prefix-icon {
-  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-prefix-icon-padding-inline-end, var(--mdf-cmp-text-field-layout-prefix-icon-padding-inline-end, 16px));
+  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-prefix-icon-padding-inline-start, var(--mdf-cmp-text-field-layout-prefix-icon-padding-inline-start, 12px));
 }
 
 [data-suffix-icon=true] .mdf-text-field--filled .formkit-suffix-icon {
-  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-suffix-icon-padding-inline-start, var(--mdf-cmp-text-field-layout-suffix-icon-padding-inline-start, 16px));
-}
-
-[data-has-value=true] .mdf-text-field--filled .formkit-label, .mdf-text-field--filled:has(:focus) .formkit-label {
-  font-size: var(--mdf-cmp-text-field--filled-populated-state-label-size, var(--mdf-cmp-text-field-populated-state-label-size, var(--mdf-sys-typescale-body-small-size)));
-  line-height: var(--mdf-cmp-text-field--filled-populated-state-label-line-height, var(--mdf-cmp-text-field-populated-state-label-line-height, var(--mdf-sys-typescale-body-small-line-height)));
+  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-suffix-icon-padding-inline-end, var(--mdf-cmp-text-field-layout-suffix-icon-padding-inline-end, 12px));
 }
 
 .mdf-text-field--filled:has(:disabled) {
-  &::before {
-    background-color: var(--mdf-cmp-text-field--filled-disabled-state-container-color, var(--mdf-cmp-text-field-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-container-opacity, var(--mdf-cmp-text-field-disabled-state-container-opacity, 0.4));
-  }
-
-  & .mdf-surface {
-    border-bottom-color: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-color, var(--mdf-cmp-text-field-disabled-state-active-indicator-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-opacity, var(--mdf-cmp-text-field-disabled-state-active-indicator-opacity, 0.38));
-  }
-
   & .mdf-field .formkit-input {
     color: var(--mdf-cmp-text-field--filled-disabled-state-input-text-color, var(--mdf-cmp-text-field-disabled-state-input-text-color, var(--mdf-sys-color-on-surface)));
     opacity: var(--mdf-cmp-text-field--filled-disabled-state-input-text-opacity, var(--mdf-cmp-text-field-disabled-state-input-text-opacity, 0.38));
@@ -88,4 +73,19 @@
     color: var(--mdf-cmp-text-field--filled-disabled-state-label-color, var(--mdf-cmp-text-field-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
     opacity: var(--mdf-cmp-text-field--filled-disabled-state-label-opacity, var(--mdf-cmp-text-field-disabled-state-label-opacity, 0.38));
   }
+
+  &::before {
+    background-color: var(--mdf-cmp-text-field--filled-disabled-state-container-color, var(--mdf-cmp-text-field-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-container-opacity, var(--mdf-cmp-text-field-disabled-state-container-opacity, 0.4));
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-color, var(--mdf-cmp-text-field-disabled-state-active-indicator-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-opacity, var(--mdf-cmp-text-field-disabled-state-active-indicator-opacity, 0.38));
+  }
+}
+
+[data-has-value=true] .mdf-text-field--filled .formkit-label, .mdf-text-field--filled:has(:focus) .formkit-label {
+  font-size: var(--mdf-cmp-text-field--filled-populated-state-label-size, var(--mdf-cmp-text-field-populated-state-label-size, var(--mdf-sys-typescale-body-small-size)));
+  line-height: var(--mdf-cmp-text-field--filled-populated-state-label-line-height, var(--mdf-cmp-text-field-populated-state-label-line-height, var(--mdf-sys-typescale-body-small-line-height)));
 }
