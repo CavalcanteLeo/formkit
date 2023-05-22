@@ -40,9 +40,12 @@ export const textFamily = (node: FormKitNode) => {
       const inputSection = schemaBuilder.fromSection('input')
       const labelSection = schemaBuilder.cutSection('label')
 
+      const prefixSection = schemaBuilder.cutSection('prefix')
+      const suffixSection = schemaBuilder.cutSection('suffix')
+
       // TODO: added to satisfy typescript below, should probably be
       // more surgical about what we're doing here
-      if (!schemaBuilder || !inputSection || !labelSection) return inputSchema
+      if (!schemaBuilder || !inputSection || !labelSection || !prefixSection || !suffixSection) return inputSchema
 
       const inner = schemaBuilder.fromSection('inner')
       if (inner) {
@@ -63,7 +66,19 @@ export const textFamily = (node: FormKitNode) => {
             class: 'mdf-field',
           },
           meta: { section: 'field' },
-          children: [inputSection.schema, labelSection],
+          children: [
+            {
+              $el: 'span',
+              attrs: { class: 'mdf-prefix' },
+              children: [prefixSection]
+            },
+            inputSection.schema, labelSection,
+            {
+              $el: 'span',
+              attrs: { class: 'mdf-suffix' },
+              children: [suffixSection]
+            }
+          ],
         },
       }
 

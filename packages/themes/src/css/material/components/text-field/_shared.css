@@ -12,6 +12,19 @@
     block-size: 18px;
   }
 
+  & .mdf-prefix, & .mdf-suffix {
+    align-self: flex-end;
+    opacity: 0;
+  }
+
+  & .mdf-prefix {
+    padding-right: 4px;
+  }
+
+  & .mdf-suffix {
+    padding-left: 4px;
+  }
+
   & .mdf-field {
     display: flex;
     justify-content: center;
@@ -58,6 +71,10 @@
 }
 
 [data-has-value=true] .mdf-text-field, .mdf-text-field:has(:focus) {
+  & .mdf-prefix, & .mdf-suffix {
+    opacity: 1;
+  }
+
   & .formkit-input {
     align-self: flex-end;
   }
