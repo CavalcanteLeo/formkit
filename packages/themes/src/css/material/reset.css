@@ -26,6 +26,11 @@ html {
   }
 }
 
-.formkit-message {
-  list-style-type: none;
+.formkit-messages {
+  margin: 0;
+  padding: 0;
+
+  & .formkit-message {
+    list-style-type: none;
+  }
 }

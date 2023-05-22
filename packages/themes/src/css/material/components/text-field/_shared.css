@@ -87,12 +87,3 @@
     align-self: baseline;
   }
 }
-
-[data-invalid=true]:has(.mdf-text-field) .formkit-help {
-  display: none;
-}
-
-.formkit-outer:has(.mdf-text-field) .formkit-messages {
-  margin: 0;
-  padding: 0;
-}
