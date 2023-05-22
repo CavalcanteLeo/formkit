@@ -68,12 +68,14 @@ export const textFamily = (node: FormKitNode) => {
           meta: { section: 'field' },
           children: [
             {
+              if: '$slots.prefix',
               $el: 'span',
               attrs: { class: 'mdf-prefix' },
               children: [prefixSection]
             },
             inputSection.schema, labelSection,
             {
+              if: '$slots.suffix',
               $el: 'span',
               attrs: { class: 'mdf-suffix' },
               children: [suffixSection]

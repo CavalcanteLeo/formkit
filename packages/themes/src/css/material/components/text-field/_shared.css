@@ -68,6 +68,10 @@
     border-radius: inherit;
     pointer-events: none;
   }
+
+  & .mdf-surface {
+    transition: border 75ms ease-in;
+  }
 }
 
 [data-has-value=true] .mdf-text-field, .mdf-text-field:has(:focus) {
