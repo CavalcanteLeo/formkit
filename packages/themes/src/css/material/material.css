@@ -1,4 +1,3 @@
-@import './reset.css';
-@import './tokens/main.css';
 @import './sections.css';
+@import './tokens/main.css';
 @import './components/main.css';
