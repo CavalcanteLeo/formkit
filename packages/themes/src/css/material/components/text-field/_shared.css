@@ -60,7 +60,8 @@
   }
 
   &::before,
-  & .mdf-surface, & .mdf-surface::before {
+  & .mdf-surface, & .mdf-surface::before,
+  & .mdf-outline {
     content: '';
     position: absolute;
     inset: 0;

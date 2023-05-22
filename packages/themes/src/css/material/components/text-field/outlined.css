@@ -1,0 +1,220 @@
+.mdf-text-field--outlined {
+  block-size: var(--mdf-cmp-text-field--outlined-layout-block-size, var(--mdf-cmp-text-field-layout-block-size, 56px));
+
+  padding-block: var(--mdf-cmp-text-field--outlined-layout-padding-block-size, var(--mdf-cmp-text-field-layout-padding-block, 8px));
+  padding-inline-start: var(--mdf-cmp-text-field--outlined-layout-padding-inline-start, var(--mdf-cmp-text-field-layout-padding-inline-start, 16px));
+  padding-inline-end: var(--mdf-cmp-text-field--outlined-layout-padding-inline-end, var(--mdf-cmp-text-field-layout-padding-inline-end, 16px));
+
+  border-start-end-radius: var(--mdf-cmp-text-field--outlined-layout-start-end-radius, var(--mdf-cmp-text-field-layout-start-end-radius, var(--mdf-sys-shape-corner-extra-small)));
+  border-start-start-radius: var(--mdf-cmp-text-field--outlined-layout-start-start-radius, var(--mdf-cmp-text-field-layout-start-start-radius, var(--mdf-sys-shape-corner-extra-small)));
+  border-end-start-radius: var(--mdf-cmp-text-field--outlined-layout-end-start-radius, var(--mdf-cmp-text-field-layout-end-start-radius, var(--mdf-sys-shape-corner-extra-small)));
+  border-end-end-radius: var(--mdf-cmp-text-field--outlined-layout-end-end-radius, var(--mdf-cmp-text-field-layout-end-end-radius, var(--mdf-sys-shape-corner-extra-small)));
+
+  & .mdf-prefix {
+    color: var(--mdf-cmp-text-field--outlined-state-prefix-color, var(--mdf-cmp-text-field-state-prefix-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--outlined-state-prefix-font, var(--mdf-cmp-text-field-state-prefix-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--outlined-state-prefix-line-height, var(--mdf-cmp-text-field-state-prefix-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--outlined-state-prefix-size, var(--mdf-cmp-text-field-state-prefix-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--outlined-state-prefix-tracking, var(--mdf-cmp-text-field-state-prefix-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--outlined-state-prefix-weight, var(--mdf-cmp-text-field-state-prefix-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  & .mdf-suffix {
+    color: var(--mdf-cmp-text-field--outlined-state-suffix-color, var(--mdf-cmp-text-field-state-suffix-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--outlined-state-suffix-font, var(--mdf-cmp-text-field-state-suffix-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--outlined-state-suffix-line-height, var(--mdf-cmp-text-field-state-suffix-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--outlined-state-suffix-size, var(--mdf-cmp-text-field-state-suffix-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--outlined-state-suffix-tracking, var(--mdf-cmp-text-field-state-suffix-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--outlined-state-suffix-weight, var(--mdf-cmp-text-field-state-suffix-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  & .formkit-icon {
+    & svg {
+      color: var(--mdf-cmp-text-field--outlined-state-icon-color, var(--mdf-cmp-text-field-state-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-prefix-icon svg {
+      block-size: var(--mdf-cmp-text-field--outlined-layout-leading-icon-block-size, var(--mdf-cmp-text-field-layout-leading-icon-block-size, 24px));
+      inline-size: var(--mdf-cmp-text-field--outlined-layout-leading-icon-inline-size, var(--mdf-cmp-text-field-layout-leading-icon-inline-size, 24px));
+    }
+
+    &.formkit-suffix-icon svg {
+      block-size: var(--mdf-cmp-text-field--outlined-layout-trailing-icon-block-size, var(--mdf-cmp-text-field-layout-trailing-icon-block-size, 24px));
+      inline-size: var(--mdf-cmp-text-field--outlined-layout-trailing-icon-inline-size, var(--mdf-cmp-text-field-layout-trailing-icon-inline-size, 24px));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-state-input-text-color, var(--mdf-cmp-text-field-state-input-text-color, var(--mdf-sys-color-on-surface)));
+    caret-color: var(--mdf-cmp-text-field--outlined-state-caret-color, var(--mdf-cmp-text-field-state-caret-color, var(--mdf-sys-color-primary)));
+
+    font-family: var(--mdf-cmp-text-field--outlined-state-input-text-font, var(--mdf-cmp-text-field-state-input-text-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--outlined-state-input-text-line-height, var(--mdf-cmp-text-field-state-input-text-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--outlined-state-input-text-size, var(--mdf-cmp-text-field-state-input-text-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--outlined-state-input-text-tracking, var(--mdf-cmp-text-field-state-input-text-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--outlined-state-input-text-weight, var(--mdf-cmp-text-field-state-input-text-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-state-label-color, var(--mdf-cmp-text-field-state-label-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--outlined-state-label-font, var(--mdf-cmp-text-field-state-label-text-font, var(--mdf-sys-typescale-body-large-font)));
+    line-height: var(--mdf-cmp-text-field--outlined-state-label-line-height, var(--mdf-cmp-text-field-state-label-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    font-size: var(--mdf-cmp-text-field--outlined-state-label-size, var(--mdf-cmp-text-field-state-label-size, var(--mdf-sys-typescale-body-large-size)));
+    letter-spacing: var(--mdf-cmp-text-field--outlined-state-label-tracking, var(--mdf-cmp-text-field-state-label-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    font-weight: var(--mdf-cmp-text-field--outlined-state-label-weight, var(--mdf-cmp-text-field-state-label-weight, var(--mdf-sys-typescale-body-large-weight)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp-text-field--outlined-state-outline-color, var(--mdf-cmp-text-field-state-outline-color, var(--mdf-sys-color-outline)));
+    border-width: var(--mdf-cmp-text-field--outlined-state-outline-width, var(--mdf-cmp-text-field-state-outline-width, 1px));
+    border-style: var(--mdf-cmp-text-field--outlined-state-outline-style, var(--mdf-cmp-text-field-state-outline-style, solid));
+  }
+}
+
+[data-prefix-icon=true] .mdf-text-field--outlined .formkit-prefix-icon {
+  padding-inline-start: var(--mdf-cmp-text-field--outlined-layout-prefix-icon-padding-inline-start, var(--mdf-cmp-text-field-layout-prefix-icon-padding-inline-start, 12px));
+}
+
+[data-suffix-icon=true] .mdf-text-field--outlined .formkit-suffix-icon {
+  padding-inline-end: var(--mdf-cmp-text-field--outlined-layout-suffix-icon-padding-inline-end, var(--mdf-cmp-text-field-layout-suffix-icon-padding-inline-end, 12px));
+}
+
+.mdf-text-field--outlined:has(:disabled) {
+  pointer-events: none;
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-disabled-state-input-text-color, var(--mdf-cmp-text-field-disabled-state-input-text-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--outlined-disabled-state-input-text-opacity, var(--mdf-cmp-text-field-disabled-state-input-text-opacity, 0.38));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-disabled-state-label-color, var(--mdf-cmp-text-field-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--outlined-disabled-state-label-opacity, var(--mdf-cmp-text-field-disabled-state-label-opacity, 0.38));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-disabled-state-outline-color, var(--mdf-cmp--text-field-disabled-state-outline-color, var(--mdf-sys-color-on-surface)));
+    border-width: var(--mdf-cmp--text-field--outlined-disabled-state-outline-width, var(--mdf-cmp--text-field-disabled-state-outline-width, 1px));
+    border-style: var(--mdf-cmp--text-field--outlined-disabled-state-outline-style, var(--mdf-cmp--text-field-disabled-state-outline-style, solid));
+    opacity: var(--mdf-cmp--text-field--outlined-disabled-state-outline-opacity, var(--mdf-cmp--text-field-disabled-state-outline-opacity, 0.12));
+  }
+}
+
+[data-has-value=true] .mdf-text-field--outlined .formkit-label, .mdf-text-field--outlined:has(:focus) .formkit-label {
+  font-size: var(--mdf-cmp-text-field--outlined-populated-state-label-size, var(--mdf-cmp-text-field-populated-state-label-size, var(--mdf-sys-typescale-body-small-size)));
+  line-height: var(--mdf-cmp-text-field--outlined-populated-state-label-line-height, var(--mdf-cmp-text-field-populated-state-label-line-height, var(--mdf-sys-typescale-body-small-line-height)));
+}
+
+.mdf-text-field--outlined:hover {
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-hover-state-input-text-color, var(--mdf-cmp-text-field-hover-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-hover-state-label-color, var(--mdf-cmp-text-field-hover-state-label-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-hover-state-outline-color, var(--mdf-cmp--text-field-hover-state-outline-color, var(--mdf-sys-color-on-surface)));
+    border-width: var(--mdf-cmp--text-field--outlined-hover-state-outline-width, var(--mdf-cmp--text-field-hover-state-outline-width, 1px));
+    border-style: var(--mdf-cmp--text-field--outlined-hover-state-outline-style, var(--mdf-cmp--text-field-hover-state-outline-style, solid));
+  }
+}
+
+.mdf-text-field--outlined:has(:focus) {
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-focus-state-input-text-color, var(--mdf-cmp-text-field-focus-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-focus-state-label-color, var(--mdf-cmp-text-field-focus-state-label-color, var(--mdf-sys-color-primary)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-focus-state-outline-color, var(--mdf-cmp--text-field-focus-state-outline-color, var(--mdf-sys-color-primary)));
+    border-width: var(--mdf-cmp--text-field--outlined-focus-state-outline-width, var(--mdf-cmp--text-field-focus-state-outline-width, 2px));
+    border-style: var(--mdf-cmp--text-field--outlined-focus-state-outline-style, var(--mdf-cmp--text-field-focus-state-outline-style, solid));
+  }
+}
+
+[data-invalid=true] .mdf-text-field--outlined {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-state-suffix-icon-color, var(--mdf-sys-color-error)));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-invalid-state-input-text-color, var(--mdf-cmp-text-field-invalid-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-invalid-state-label-color, var(--mdf-cmp-text-field-invalid-state-label-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-invalid-state-outline-color, var(--mdf-cmp--text-field-invalid-state-outline-color, var(--mdf-sys-color-error)));
+    border-width: var(--mdf-cmp--text-field--outlined-invalid-state-outline-width, var(--mdf-cmp--text-field-invalid-state-outline-width, 1px));
+    border-style: var(--mdf-cmp--text-field--outlined-invalid-state-outline-style, var(--mdf-cmp--text-field-invalid-state-outline-style, solid));
+  }
+}
+
+[data-invalid=true] .mdf-text-field--outlined:hover {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-hover-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-hover-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-suffix-icon-color, var(--mdf-sys-color-on-error-container)));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-invalid-hover-state-input-text-color, var(--mdf-cmp-text-field-invalid-hover-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-invalid-hover-state-label-color, var(--mdf-cmp-text-field-invalid-hover-state-label-color, var(--mdf-sys-color-on-error-container)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-invalid-hover-state-outline-color, var(--mdf-cmp--text-field-invalid-hover-state-outline-color, var(--mdf-sys-color-on-error-container)));
+    border-width: var(--mdf-cmp--text-field--outlined-invalid-hover-state-outline-width, var(--mdf-cmp--text-field-invalid-hover-state-outline-width, 1px));
+    border-style: var(--mdf-cmp--text-field--outlined-invalid-hover-state-outline-style, var(--mdf-cmp--text-field-invalid-hover-state-outline-style, solid));
+  }
+}
+
+[data-invalid=true] .mdf-text-field--outlined:has(:focus) {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-focus-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--outlined-invalid-focus-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-suffix-icon-color, var(--mdf-sys-color-error)));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--outlined-invalid-focus-state-input-text-color, var(--mdf-cmp-text-field-invalid-focus-state-input-text-color, var(--mdf-sys-color-on-surface)));
+    caret-color: var(--mdf-cmp-text-field--outlined-invalid-focus-state-caret-color, var(--mdf-cmp-text-field-invalid-focus-state-caret-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--outlined-invalid-focus-state-label-color, var(--mdf-cmp-text-field-invalid-focus-state-label-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-outline {
+    border-color: var(--mdf-cmp--text-field--outlined-invalid-focus-state-outline-color, var(--mdf-cmp--text-field-invalid-focus-state-outline-color, var(--mdf-sys-color-error)));
+    border-width: var(--mdf-cmp--text-field--outlined-invalid-focus-state-outline-width, var(--mdf-cmp--text-field-invalid-focus-state-outline-width, 1px));
+    border-style: var(--mdf-cmp--text-field--outlined-invalid-focus-state-outline-style, var(--mdf-cmp--text-field-invalid-focus-state-outline-style, solid));
+  }
+}

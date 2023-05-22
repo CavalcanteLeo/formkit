@@ -52,6 +52,13 @@ export const textFamily = (node: FormKitNode) => {
         inner.insertStart({
           $el: 'div',
           attrs: {
+            class: 'mdf-outline',
+          },
+        })
+
+        inner.insertStart({
+          $el: 'div',
+          attrs: {
             class: 'mdf-surface',
           },
         })
