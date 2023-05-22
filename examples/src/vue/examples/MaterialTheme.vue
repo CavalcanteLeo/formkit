@@ -16,7 +16,7 @@
 
   <div class="code-container">
     <div class="mdf-theme--dark">
-      <FormKit type="text" label="Enabled" help="help text">
+      <FormKit type="text" label="Enabled" help="help text" validation="required">
         <template #prefix>$</template>
         <template #suffix>lbs</template>
       </FormKit>

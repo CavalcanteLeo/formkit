@@ -147,22 +147,121 @@
   }
 }
 
-.formkit-wrapper:has(.mdf-text-field--filled)+.formkit-help {
-  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-help-padding-inline-start, var(--mdf-cmp-text-field-layout-help-padding-inline-start, 16px));
-  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-help-padding-inline-end, var(--mdf-cmp-text-field-layout-help-padding-inline-end, 16px));
+[data-invalid=true] .mdf-text-field--filled {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
 
-  padding-block-start: var(--mdf-cmp-text-field--filled-layout-help-padding-block-start, var(--mdf-cmp-text-field-layout-help-padding-block-start, 4px));
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-state-suffix-icon-color, var(--mdf-sys-color-error)));
+    }
+  }
 
-  color: var(--mdf-cmp-text-field--filled-state-help-color, var(--mdf-cmp-text-field-state-help-color, var(--mdf-sys-color-on-surface-variant)));
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--filled-invalid-state-input-text-color, var(--mdf-cmp-text-field-invalid-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
 
-  font-family: var(--mdf-cmp-text-field--filled-state-help-font, var(--mdf-cmp-text-field-state-help-font, var(--mdf-sys-typescale-body-small-font)));
-  line-height: var(--mdf-cmp-text-field--filled-state-help-line-height, var(--mdf-cmp-text-field-state-help-line-height, var(--mdf-sys-typescale-body-small-line-height)));
-  font-size: var(--mdf-cmp-text-field--filled-state-help-size, var(--mdf-cmp-text-field-state-help-size, var(--mdf-sys-typescale-body-small-size)));
-  letter-spacing: var(--mdf-cmp-text-field--filled-state-help-tracking, var(--mdf-cmp-text-field-state-help-tracking, var(--mdf-sys-typescale-body-small-tracking)));
-  font-weight: var(--mdf-cmp-text-field--filled-state-help-weight, var(--mdf-cmp-text-field-state-help-weight, var(--mdf-sys-typescale-body-small-weight)));
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--filled-invalid-state-label-color, var(--mdf-cmp-text-field-invalid-state-label-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-state-active-indicator-color, var(--mdf-sys-color-error)));
+  }
 }
 
-.formkit-wrapper:has(.mdf-text-field--filled):has(:disabled)+.formkit-help {
-  color: var(--mdf-cmp-text-field--filled-disabled-state-help-color, var(--mdf-cmp-text-field-disabled-state-help-color, var(--mdf-sys-color-on-surface)));
-  opacity: var(--mdf-cmp-text-field--filled-disabled-state-help-opacity, var(--mdf-cmp-text-field-disabled-state-help-opacity, 0.38));
+[data-invalid=true] .mdf-text-field--filled:hover {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-hover-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-hover-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-suffix-icon-color, var(--mdf-sys-color-on-error-container)));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--filled-invalid-hover-state-input-text-color, var(--mdf-cmp-text-field-invalid-hover-state-input-text-color, var(--mdf-sys-color-on-surface)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--filled-invalid-hover-state-label-color, var(--mdf-cmp-text-field-invalid-hover-state-label-color, var(--mdf-sys-color-on-error-container)));
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-hover-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-hover-state-active-indicator-color, var(--mdf-sys-color-on-error-container)));
+
+    &::before {
+      background-color: var(--mdf-cmp-text-field--filled-invalid-hover-state-layer-color, var(--mdf-cmp-text-field-invalid-hover-state-layer-color, var(--mdf-sys-color-on-surface)));
+      opacity: var(--mdf-cmp-text-field--filled-invalid-hover-state-layer-opacity, var(--mdf-cmp-text-field-invalid-hover-state-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+    }
+  }
+}
+
+[data-invalid=true] .mdf-text-field--filled:has(:focus) {
+  & .formkit-icon {
+    &.formkit-prefix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-focus-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
+    }
+
+    &.formkit-suffix-icon svg {
+      color: var(--mdf-cmp-text-field--filled-invalid-focus-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-suffix-icon-color, var(--mdf-sys-color-error)));
+    }
+  }
+
+  & .mdf-field .formkit-input {
+    color: var(--mdf-cmp-text-field--filled-invalid-focus-state-input-text-color, var(--mdf-cmp-text-field-invalid-focus-state-input-text-color, var(--mdf-sys-color-on-surface)));
+    caret-color: var(--mdf-cmp-text-field--filled-invalid-focus-state-caret-color, var(--mdf-cmp-text-field-invalid-focus-state-caret-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-field .formkit-label {
+    color: var(--mdf-cmp-text-field--filled-invalid-focus-state-label-color, var(--mdf-cmp-text-field-invalid-focus-state-label-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-focus-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-focus-state-active-indicator-color, var(--mdf-sys-color-error)));
+  }
+}
+
+.formkit-wrapper:has(.mdf-text-field--filled) {
+  &+.formkit-help {
+    padding-inline-start: var(--mdf-cmp-text-field--filled-layout-help-padding-inline-start, var(--mdf-cmp-text-field-layout-help-padding-inline-start, 16px));
+    padding-inline-end: var(--mdf-cmp-text-field--filled-layout-help-padding-inline-end, var(--mdf-cmp-text-field-layout-help-padding-inline-end, 16px));
+
+    padding-block-start: var(--mdf-cmp-text-field--filled-layout-help-padding-block-start, var(--mdf-cmp-text-field-layout-help-padding-block-start, 4px));
+
+    color: var(--mdf-cmp-text-field--filled-state-help-color, var(--mdf-cmp-text-field-state-help-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--filled-state-help-font, var(--mdf-cmp-text-field-state-help-font, var(--mdf-sys-typescale-body-small-font)));
+    line-height: var(--mdf-cmp-text-field--filled-state-help-line-height, var(--mdf-cmp-text-field-state-help-line-height, var(--mdf-sys-typescale-body-small-line-height)));
+    font-size: var(--mdf-cmp-text-field--filled-state-help-size, var(--mdf-cmp-text-field-state-help-size, var(--mdf-sys-typescale-body-small-size)));
+    letter-spacing: var(--mdf-cmp-text-field--filled-state-help-tracking, var(--mdf-cmp-text-field-state-help-tracking, var(--mdf-sys-typescale-body-small-tracking)));
+    font-weight: var(--mdf-cmp-text-field--filled-state-help-weight, var(--mdf-cmp-text-field-state-help-weight, var(--mdf-sys-typescale-body-small-weight)));
+  }
+
+  &:has(:disabled)+.formkit-help {
+    color: var(--mdf-cmp-text-field--filled-disabled-state-help-color, var(--mdf-cmp-text-field-disabled-state-help-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-cmp-text-field--filled-disabled-state-help-opacity, var(--mdf-cmp-text-field-disabled-state-help-opacity, 0.38));
+  }
+
+  &~.formkit-messages {
+    padding-inline-start: var(--mdf-cmp-text-field--filled-layout-messages-padding-inline-start, var(--mdf-cmp-text-field-layout-messages-padding-inline-start, 16px));
+    padding-inline-end: var(--mdf-cmp-text-field--filled-layout-messages-padding-inline-end, var(--mdf-cmp-text-field-layout-messages-padding-inline-end, 16px));
+
+    padding-block-start: var(--mdf-cmp-text-field--filled-layout-messages-padding-block-start, var(--mdf-cmp-text-field-layout-messages-padding-block-start, 4px));
+
+    color: var(--mdf-cmp-text-field--filled-state-messages-color, var(--mdf-cmp-text-field-state-messages-color, var(--mdf-sys-color-on-surface-variant)));
+
+    font-family: var(--mdf-cmp-text-field--filled-state-messages-font, var(--mdf-cmp-text-field-state-messages-font, var(--mdf-sys-typescale-body-small-font)));
+    line-height: var(--mdf-cmp-text-field--filled-state-messages-line-height, var(--mdf-cmp-text-field-state-messages-line-height, var(--mdf-sys-typescale-body-small-line-height)));
+    font-size: var(--mdf-cmp-text-field--filled-state-messages-size, var(--mdf-cmp-text-field-state-messages-size, var(--mdf-sys-typescale-body-small-size)));
+    letter-spacing: var(--mdf-cmp-text-field--filled-state-messages-tracking, var(--mdf-cmp-text-field-state-messages-tracking, var(--mdf-sys-typescale-body-small-tracking)));
+    font-weight: var(--mdf-cmp-text-field--filled-state-messages-weight, var(--mdf-cmp-text-field-state-messages-weight, var(--mdf-sys-typescale-body-small-weight)));
+  }
+}
+
+[data-invalid=true] .formkit-wrapper:has(.mdf-text-field--filled)~.formkit-messages {
+  color: var(--mdf-cmp-text-field--filled-invalid-state-help-color, var(--mdf-cmp-text-field-invalid-state-help-color, var(--mdf-sys-color-error)));
 }
