@@ -1,165 +1,137 @@
-.mdf-button--outlined {
-  block-size: var(--mdf-cmp-button--outlined-layout-block-size, var(--mdf-cmp-button-layout-block-size, 40px));
-  min-inline-size: var(--mdf-cmp-button--outlined-layout-min-inline-size, var(--mdf-cmp-button-layout-min-inline-size, 64px));
+[data-family=button][data-variant=outlined] button {
+  --container-width: var(--mdf-comp-outlined-button-container-width, var(--mdf-comp-button-container-width, 64px));
+  --container-height: var(--mdf-comp-outlined-button-container-height, var(--mdf-comp-button-container-height, 40px));
+  --spacing-leading: var(--mdf-comp-outlined-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 24px));
+  --spacing-trailing: var(--mdf-comp-outlined-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 24px));
 
-  padding-inline-start: var(--mdf-cmp-button--outlined-layout-padding-inline-start, var(--mdf-cmp-button-layout-padding-inline-start, 24px));
-  padding-inline-end: var(--mdf-cmp-button--outlined-layout-padding-inline-end, var(--mdf-cmp-button-layout-padding-inline-end, 24px));
-  gap: var(--mdf-cmp-button--outlined-layout-padding-gap, var(--mdf-cmp-button-layout-padding-gap, 8px));
+  --label-text-opacity: var(--mdf-comp-outlined-button-label-text-opacity, var(--mdf-comp-button-label-text-opacity));
+  --label-text-color: var(--mdf-comp-outlined-button-label-text-color, var(--mdf-comp-button-label-text-color, var(--mdf-sys-color-primary)));
+  --container-shape-start-start: var(--mdf-comp-outlined-button-container-shape-start-start, var(--mdf-comp-button-container-shape-start-start, var(--mdf-sys-shape-corner-large)));
+  --container-shape-start-end: var(--mdf-comp-outlined-button-container-shape-start-end, var(--mdf-comp-button-container-shape-start-end, var(--mdf-sys-shape-corner-large)));
+  --container-shape-end-start: var(--mdf-comp-outlined-button-container-shape-end-start, var(--mdf-comp-button-container-shape-end-start, var(--mdf-sys-shape-corner-large)));
+  --container-shape-end-end: var(--mdf-comp-outlined-button-container-shape-end-end, var(--mdf-comp-button-container-shape-end-end, var(--mdf-sys-shape-corner-large)));
 
-  border-radius: var(--mdf-cmp-button--outlined-layout-border-radius, var(--mdf-cmp-button-layout-border-radius, 20px));
+  --label-text-font: var(--mdf-comp-outlined-button-label-text-font, var(--mdf-comp-button-label-text-font, var(--mdf-sys-typescale-label-large-font)));
+  --label-text-line-height: var(--mdf-comp-outlined-button-label-text-line-height, var(--mdf-comp-button-label-text-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  --label-text-size: var(--mdf-comp-outlined-button-label-text-size, var(--mdf-comp-button-label-text-size, var(--mdf-sys-typescale-label-large-size)));
+  --label-text-tracking: var(--mdf-comp-outlined-button-label-text-tracking, var(--mdf-comp-button-label-text-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  --label-text-weight: var(--mdf-comp-outlined-button-label-text-weight, var(--mdf-comp-button-label-text-weight, var(--mdf-sys-typescale-label-large-weight)));
 
-  color: var(--mdf-cmp-button--outlined-state-label-color, var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-primary)));
+  --disabled-label-text-opacity: var(--mdf-comp-outlined-button-disabled-label-text-opacity, var(--mdf-comp-button-disabled-label-text-opacity, 0.38));
+  --disabled-label-text-color: var(--mdf-comp-outlined-button-disabled-label-text-color, var(--mdf-comp-button-disabled-label-text-color, var(--mdf-sys-color-on-surface)));
 
-  font-family: var(--mdf-cmp-button--outlined-state-label-font, var(--mdf-cmp-button-state-label-text-font, var(--mdf-sys-typescale-label-large-font)));
-  line-height: var(--mdf-cmp-button--outlined-state-label-line-height, var(--mdf-cmp-button-state-label-line-height, var(--mdf-sys-typescale-label-large-line-height)));
-  font-size: var(--mdf-cmp-button--outlined-state-label-size, var(--mdf-cmp-button-state-label-size, var(--mdf-sys-typescale-label-large-size)));
-  letter-spacing: var(--mdf-cmp-button--outlined-state-label-tracking, var(--mdf-cmp-button-state-label-tracking, var(--mdf-sys-typescale-label-large-tracking)));
-  font-weight: var(--mdf-cmp-button--outlined-state-label-weight, var(--mdf-cmp-button-state-label-weight, var(--mdf-sys-typescale-label-large-weight)));
+  --hover-label-text-opacity: var(--mdf-comp-outlined-button-hover-label-text-opacity, var(--mdf-comp-button-hover-label-text-opacity));
+  --hover-label-text-color: var(--mdf-comp-outlined-button-hover-label-text-color, var(--mdf-comp-button-hover-label-text-color, var(--mdf-sys-color-primary)));
 
-  & .formkit-icon svg {
-    block-size: var(--mdf-cmp-button--outlined-layout-icon-block-size, var(--mdf-cmp-button-layout-icon-block-size, 18px));
-    inline-size: var(--mdf-cmp-button--outlined-layout-icon-inline-size, var(--mdf-cmp-button-layout-icon-inline-size, 18px));
+  --focus-label-text-opacity: var(--mdf-comp-outlined-button-focus-label-text-opacity, var(--mdf-comp-button-focus-label-text-opacity));
+  --focus-label-text-color: var(--mdf-comp-outlined-button-focus-label-text-color, var(--mdf-comp-button-focus-label-text-color, var(--mdf-sys-color-primary)));
 
-    color: var(--mdf-cmp-button--outlined-state-icon-color, var(--mdf-cmp-button-state-icon-color, inherit));
-  }
-
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--outlined-state-container-elevation, var(--mdf-cmp-button-state-container-elevation, var(--mdf-sys-elevation-level0)));
-    --_shadow-color: var(--mdf-cmp-button--outlined-state-container-shadow-color, var(--mdf-cmp-button-state-container-shadow-color, var(--mdf-sys-color-shadow)));
-
-    &::before {
-      box-shadow:
-        0px
-        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 3, 1) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
-        calc(1px * (calc(2 * clamp(0, var(--_elevation), 1)) + clamp(0, var(--_elevation) - 2, 1) + clamp(0, var(--_elevation) - 4, 1)))
-        0px
-        var(--_shadow-color);
-      opacity: 0.3;
-    }
-
-    /* Need to fix box-shadow calcs */
-    &::after {
-      box-shadow:
-        0px
-        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 1, 1) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
-        calc(1px * (calc(3 * clamp(0, var(--_elevation), 2)) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
-        calc(1px * (clamp(0, var(--_elevation), 4) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
-        0px
-        var(--_shadow-color);
-      opacity: 0.15;
-    }
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-button--outlined-state-container-color, var(--mdf-cmp-button-state-container-color));
-  }
-
-  & .mdf-outline {
-    border-color: var(--mdf-cmp-button--outlined-state-outline-color, var(--mdf-cmp-button-state-outline-color, var(--mdf-sys-color-outline)));
-    border-width: var(--mdf-cmp-button--outlined-state-outline-width, var(--mdf-cmp-button-state-outline-width, 1px));
-    border-style: var(--mdf-cmp-button--outlined-state-outline-style, var(--mdf-cmp-button-state-outline-style, solid));
-  }
+  --pressed-label-text-opacity: var(--mdf-comp-outlined-button-pressed-label-text-opacity, var(--mdf-comp-button-pressed-label-text-opacity));
+  --pressed-label-text-color: var(--mdf-comp-outlined-button-pressed-label-text-color, var(--mdf-comp-button-pressed-label-text-color, var(--mdf-sys-color-primary)));
 }
 
-[data-prefix-icon=true] .mdf-text-field--outlined .formkit-prefix-icon {
-  padding-inline-start: var(--mdf-cmp-button--outlined-layout-with-prefix-icon-padding-inline-start, var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px));
+[data-family=button][data-variant=outlined] button .formkit-icon {
+  --icon-width: var(--mdf-comp-outlined-button-icon-width, var(--mdf-comp-button-icon-width, 18px));
+  --icon-height: var(--mdf-comp-outlined-button-icon-height, var(--mdf-comp-button-icon-height, 18px));
+
+  --icon-opacity: var(--mdf-comp-outlined-button-icon-opacity, var(--mdf-comp-button-icon-opacity));
+  --icon-color: var(--mdf-comp-outlined-button-icon-color, var(--mdf-comp-button-icon-color, inherit));
+
+  --disabled-icon-opacity: var(--mdf-comp-outlined-button-disabled-icon-opacity, var(--mdf-comp-button-disabled-icon-opacity));
+  --disabled-icon-color: var(--mdf-comp-outlined-button-disabled-icon-color, var(--mdf-comp-button-disabled-icon-color, inherit));
+
+  --hover-icon-opacity: var(--mdf-comp-outlined-button-hover-icon-opacity, var(--mdf-comp-button-hover-icon-opacity));
+  --hover-icon-color: var(--mdf-comp-outlined-button-hover-icon-color, var(--mdf-comp-button-hover-icon-color, inherit));
+
+  --focus-icon-opacity: var(--mdf-comp-outlined-button-focus-icon-opacity, var(--mdf-comp-button-focus-icon-opacity));
+  --focus-icon-color: var(--mdf-comp-outlined-button-focus-icon-color, var(--mdf-comp-button-focus-icon-color, inherit));
+
+  --pressed-icon-opacity: var(--mdf-comp-outlined-button-pressed-icon-opacity, var(--mdf-comp-button-pressed-icon-opacity));
+  --pressed-icon-color: var(--mdf-comp-outlined-button-pressed-icon-color, var(--mdf-comp-button-pressed-icon-color, inherit));
 }
 
-[data-suffix-icon=true] .mdf-text-field--outlined .formkit-suffix-icon {
-  padding-inline-end: var(--mdf-cmp-button--outlined-layout-with-suffix-icon-padding-inline-end, var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px));
+[data-family=button][data-variant=outlined][data-prefix-icon=true] {
+  --with-icon-spacing-leading: var(--mdf-comp-outlined-button-with-icon-spacing-leading, var(--mdf-comp-button-with-icon-spacing-leading, 16px));
 }
 
-.mdf-button--outlined:disabled {
-  color: var(--mdf-cmp-button--outlined-disabled-state-label-color, var(--mdf-cmp-button-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
-
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--outlined-disabled-state-icon-color, var(--mdf-cmp-button-disabled-state-icon-color, inherit));
-  }
-
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--outlined-disabled-state-container-elevation, var(--mdf-cmp-button-disabled-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-button--outlined-disabled-state-container-color, var(--mdf-cmp-button-disabled-state-container-color));
-  }
-
-  & .mdf-outline {
-    border-color: var(--mdf-cmp-button--outlined-disabled-state-outline-color, var(--mdf-cmp-button-disabled-state-outline-color, var(--mdf-sys-color-on-surface)));
-    border-width: var(--mdf-cmp-button--outlined-disabled-state-outline-width, var(--mdf-cmp-button-disabled-state-outline-width, 1px));
-    border-style: var(--mdf-cmp-button--outlined-disabled-state-outline-style, var(--mdf-cmp-button-disabled-state-outline-style, solid));
-    opacity: var(--mdf-cmp-button--outlined-disabled-state-outline-opacity, var(--mdf-cmp-button-disabled-state-outline-opacity, 0.12));
-  }
+[data-family=button][data-variant=outlined][data-suffix-icon=true] {
+  --with-icon-spacing-trailing: var(--mdf-comp-outlined-button-with-icon-spacing-trailing, var(--mdf-comp-button-with-icon-spacing-trailing, 16px));
 }
 
-.mdf-button--outlined:hover {
-  color: var(--mdf-cmp-button--outlined-hover-state-label-color, var(--mdf-cmp-button-hover-state-label-color, var(--mdf-sys-color-primary)));
+[data-family=button][data-variant=outlined] .mdf-elevation {
+  --elevation: var(--mdf-comp-outlined-button-elevation, var(--mdf-comp-button-elevation, var(--mdf-sys-elevation-level0)));
+  --shadow-color: var(--mdf-comp-outlined-button-shadow-color, var(--mdf-comp-button-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--outlined-hover-state-icon-color, var(--mdf-cmp-button-hover-state-icon-color, inherit));
-  }
+  --disabled-elevation: var(--mdf-comp-outlined-button-disabled-elevation, var(--mdf-comp-button-disabled-elevation, var(--mdf-sys-elevation-level0)));
+  --disabled-shadow-color: var(--mdf-comp-outlined-button-disabled-shadow-color, var(--mdf-comp-button-disabled-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--outlined-hover-state-container-elevation, var(--mdf-cmp-button-hover-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
+  --hover-elevation: var(--mdf-comp-outlined-button-hover-elevation, var(--mdf-comp-button-hover-elevation, var(--mdf-sys-elevation-level0)));
+  --hover-shadow-color: var(--mdf-comp-outlined-button-hover-shadow-color, var(--mdf-comp-button-hover-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--outlined-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-color-primary)));
-    opacity: var(--mdf-cmp-button--outlined-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-state-hover-state-layer-opacity)));
-  }
+  --focus-elevation: var(--mdf-comp-outlined-button-focus-elevation, var(--mdf-comp-button-focus-elevation, var(--mdf-sys-elevation-level0)));
+  --focus-shadow-color: var(--mdf-comp-outlined-button-focus-shadow-color, var(--mdf-comp-button-focus-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .mdf-outline {
-    border-color: var(--mdf-cmp-button--outlined-hover-outline-color, var(--mdf-cmp-button-hover-state-outline-color, var(--mdf-sys-color-outline)));
-    border-width: var(--mdf-cmp-button--outlined-hover-outline-width, var(--mdf-cmp-button-hover-state-outline-width, 1px));
-    border-style: var(--mdf-cmp-button--outlined-hover-outline-style, var(--mdf-cmp-button-hover-state-outline-style, solid));
-    opacity: var(--mdf-cmp-button--outlined-hover-state-outline-opacity, var(--mdf-cmp-button-hover-state-outline-opacity));
-  }
+  --pressed-elevation: var(--mdf-comp-outlined-button-pressed-elevation, var(--mdf-comp-button-pressed-elevation, var(--mdf-sys-elevation-level0)));
+  --pressed-shadow-color: var(--mdf-comp-outlined-button-pressed-shadow-color, var(--mdf-comp-button-pressed-shadow-color, var(--mdf-sys-color-shadow)));
 }
 
-.mdf-button--outlined:focus-visible {
-  color: var(--mdf-cmp-button--outlined-focus-state-label-color, var(--mdf-cmp-button-focus-state-label-color, var(--mdf-sys-color-primary)));
+[data-family=button][data-variant=outlined] .mdf-container {
+  --container-opacity: var(--mdf-comp-outlined-button-container-opacity, var(--mdf-comp-button-container-opacity));
+  --container-color: var(--mdf-comp-outlined-button-container-color, var(--mdf-comp-button-container-color));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--outlined-focus-state-icon-color, var(--mdf-cmp-button-focus-state-icon-color, inherit));
-  }
+  --disabled-container-opacity: var(--mdf-comp-outlined-button-disabled-container-opacity, var(--mdf-comp-button-disabled-container-opacity, 0.12));
+  --disabled-container-color: var(--mdf-comp-outlined-button-disabled-container-color, var(--mdf-comp-button-disabled-container-color));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--outlined-focus-state-container-elevation, var(--mdf-cmp-button-focus-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
+  --hover-container-opacity: var(--mdf-comp-outlined-button-hover-container-opacity, var(--mdf-comp-button-hover-container-opacity));
+  --hover-container-color: var(--mdf-comp-outlined-button-hover-container-color, var(--mdf-comp-button-hover-container-color));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--outlined-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-color-primary)));
-    opacity: var(--mdf-cmp-button--outlined-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-state-focus-state-layer-opacity)));
-  }
+  --focus-container-opacity: var(--mdf-comp-outlined-button-focus-container-opacity, var(--mdf-comp-button-focus-container-opacity));
+  --focus-container-color: var(--mdf-comp-outlined-button-focus-container-color, var(--mdf-comp-button-focus-container-color));
 
-  & .mdf-outline {
-    border-color: var(--mdf-cmp-button--outlined-focus-outline-color, var(--mdf-cmp-button-focus-state-outline-color, var(--mdf-sys-color-primary)));
-    border-width: var(--mdf-cmp-button--outlined-focus-outline-width, var(--mdf-cmp-button-focus-state-outline-width, 1px));
-    border-style: var(--mdf-cmp-button--outlined-focus-outline-style, var(--mdf-cmp-button-focus-state-outline-style, solid));
-    opacity: var(--mdf-cmp-button--outlined-focus-state-outline-opacity, var(--mdf-cmp-button-focus-state-outline-opacity));
-  }
+  --pressed-container-opacity: var(--mdf-comp-outlined-button-pressed-container-opacity, var(--mdf-comp-button-pressed-container-opacity));
+  --pressed-container-color: var(--mdf-comp-outlined-button-pressed-container-color, var(--mdf-comp-button-pressed-container-color));
 }
 
-.mdf-button--outlined:active {
-  color: var(--mdf-cmp-button--outlined-pressed-state-label-color, var(--mdf-cmp-button-pressed-state-label-color, var(--mdf-sys-color-primary)));
+[data-family=button][data-variant=outlined] .mdf-surface::before {
+  --layer-opacity: var(--mdf-comp-outlined-button-layer-opacity, var(--mdf-comp-button-layer-opacity));
+  --layer-color: var(--mdf-comp-outlined-button-layer-color, var(--mdf-comp-button-layer-color));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--outlined-pressed-state-icon-color, var(--mdf-cmp-button-pressed-state-icon-color, inherit));
-  }
+  --disabled-layer-opacity: var(--mdf-comp-outlined-button-disabled-layer-opacity, var(--mdf-comp-button-disabled-layer-opacity, 0));
+  --disabled-layer-color: var(--mdf-comp-outlined-button-disabled-layer-color, var(--mdf-comp-button-disabled-layer-color));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--outlined-pressed-state-container-elevation, var(--mdf-cmp-button-pressed-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
+  --hover-layer-opacity: var(--mdf-comp-outlined-button-hover-layer-opacity, var(--mdf-comp-button-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+  --hover-layer-color: var(--mdf-comp-outlined-button-hover-layer-color, var(--mdf-comp-button-hover-layer-color, var(--mdf-sys-color-primary)));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--outlined-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-color-primary)));
-    opacity: var(--mdf-cmp-button--outlined-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-state-pressed-state-layer-opacity)));
-  }
+  --focus-layer-opacity: var(--mdf-comp-outlined-button-focus-layer-opacity, var(--mdf-comp-button-focus-layer-opacity, var(--mdf-sys-state-focus-state-layer-opacity)));
+  --focus-layer-color: var(--mdf-comp-outlined-button-focus-layer-color, var(--mdf-comp-button-focus-layer-color, var(--mdf-sys-color-primary)));
 
-  & .mdf-outline {
-    border-color: var(--mdf-cmp-button--outlined-pressed-outline-color, var(--mdf-cmp-button-pressed-state-outline-color, var(--mdf-sys-color-outline)));
-    border-width: var(--mdf-cmp-button--outlined-pressed-outline-width, var(--mdf-cmp-button-pressed-state-outline-width, 1px));
-    border-style: var(--mdf-cmp-button--outlined-pressed-outline-style, var(--mdf-cmp-button-pressed-state-outline-style, solid));
-    opacity: var(--mdf-cmp-button--outlined-pressed-state-outline-opacity, var(--mdf-cmp-button-pressed-state-outline-opacity));
-  }
+  --pressed-layer-opacity: var(--mdf-comp-outlined-button-pressed-layer-opacity, var(--mdf-comp-button-pressed-layer-opacity, var(--mdf-sys-state-pressed-state-layer-opacity)));
+  --pressed-layer-color: var(--mdf-comp-outlined-button-pressed-layer-color, var(--mdf-comp-button-pressed-layer-color, var(--mdf-sys-color-primary)));
+}
+
+[data-family=button][data-variant=outlined] .mdf-outline {
+  --outline-opacity: var(--mdf-comp-outlined-button-outline-opacity, var(--mdf-comp-button-outline-opacity));
+  --outline-color: var(--mdf-comp-outlined-button-outline-color, var(--mdf-comp-button-outline-color, var(--mdf-sys-color-outline)));
+  --outline-width: var(--mdf-comp-outlined-button-outline-width, var(--mdf-comp-button-outline-width, 1px));
+  --outline-style: var(--mdf-comp-outlined-button-outline-style, var(--mdf-comp-button-outline-style, solid));
+
+  --disabled-outline-opacity: var(--mdf-comp-outlined-button-disabled-outline-opacity, var(--mdf-comp-button-disabled-outline-opacity, 0.12));
+  --disabled-outline-color: var(--mdf-comp-outlined-button-disabled-outline-color, var(--mdf-comp-button-disabled-outline-color, var(--mdf-sys-color-on-surface)));
+  --disabled-outline-width: var(--mdf-comp-outlined-button-disabled-outline-width, var(--mdf-comp-button-disabled-outline-width, 1px));
+  --disabled-outline-style: var(--mdf-comp-outlined-button-disabled-outline-style, var(--mdf-comp-button-disabled-outline-style, solid));
+
+  --hover-outline-opacity: var(--mdf-comp-outlined-button-hover-outline-opacity, var(--mdf-comp-button-hover-outline-opacity));
+  --hover-outline-color: var(--mdf-comp-outlined-button-hover-outline-color, var(--mdf-comp-button-hover-outline-color, var(--mdf-sys-color-outline)));
+  --hover-outline-width: var(--mdf-comp-outlined-button-hover-outline-width, var(--mdf-comp-button-hover-outline-width, 1px));
+  --hover-outline-style: var(--mdf-comp-outlined-button-hover-outline-style, var(--mdf-comp-button-hover-outline-style, solid));
+
+  --focus-outline-opacity: var(--mdf-comp-outlined-button-focus-outline-opacity, var(--mdf-comp-button-focus-outline-opacity));
+  --focus-outline-color: var(--mdf-comp-outlined-button-focus-outline-color, var(--mdf-comp-button-focus-outline-color, var(--mdf-sys-color-outline)));
+  --focus-outline-width: var(--mdf-comp-outlined-button-focus-outline-width, var(--mdf-comp-button-focus-outline-width, 1px));
+  --focus-outline-style: var(--mdf-comp-outlined-button-focus-outline-style, var(--mdf-comp-button-focus-outline-style, solid));
+
+  --pressed-outline-opacity: var(--mdf-comp-outlined-button-pressed-outline-opacity, var(--mdf-comp-button-pressed-outline-opacity));
+  --pressed-outline-color: var(--mdf-comp-outlined-button-pressed-outline-color, var(--mdf-comp-button-pressed-outline-color, var(--mdf-sys-color-outline)));
+  --pressed-outline-width: var(--mdf-comp-outlined-button-pressed-outline-width, var(--mdf-comp-button-pressed-outline-width, 1px));
+  --pressed-outline-style: var(--mdf-comp-outlined-button-pressed-outline-style, var(--mdf-comp-button-pressed-outline-style, solid));
 }

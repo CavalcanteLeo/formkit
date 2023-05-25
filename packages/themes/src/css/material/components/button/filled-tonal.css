@@ -1,131 +1,110 @@
-.mdf-button--filled-tonal {
-  block-size: var(--mdf-cmp-button--filled-tonal-layout-block-size, var(--mdf-cmp-button-layout-block-size, 40px));
-  min-inline-size: var(--mdf-cmp-button--filled-tonal-layout-min-inline-size, var(--mdf-cmp-button-layout-min-inline-size, 64px));
+[data-family=button][data-variant=filled-tonal] button {
+  --container-width: var(--mdf-comp-filled-tonal-button-container-width, var(--mdf-comp-button-container-width, 64px));
+  --container-height: var(--mdf-comp-filled-tonal-button-container-height, var(--mdf-comp-button-container-height, 40px));
+  --spacing-leading: var(--mdf-comp-filled-tonal-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 24px));
+  --spacing-trailing: var(--mdf-comp-filled-tonal-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 24px));
 
-  padding-inline-start: var(--mdf-cmp-button--filled-tonal-layout-padding-inline-start, var(--mdf-cmp-button-layout-padding-inline-start, 24px));
-  padding-inline-end: var(--mdf-cmp-button--filled-tonal-layout-padding-inline-end, var(--mdf-cmp-button-layout-padding-inline-end, 24px));
-  gap: var(--mdf-cmp-button--filled-tonal-layout-padding-gap, var(--mdf-cmp-button-layout-padding-gap, 8px));
+  --label-text-opacity: var(--mdf-comp-filled-tonal-button-label-text-opacity, var(--mdf-comp-button-label-text-opacity));
+  --label-text-color: var(--mdf-comp-filled-tonal-button-label-text-color, var(--mdf-comp-button-label-text-color, var(--mdf-sys-color-on-secondary-container)));
+  --container-shape-start-start: var(--mdf-comp-filled-tonal-button-container-shape-start-start, var(--mdf-comp-button-container-shape-start-start, var(--mdf-sys-shape-corner-large)));
+  --container-shape-start-end: var(--mdf-comp-filled-tonal-button-container-shape-start-end, var(--mdf-comp-button-container-shape-start-end, var(--mdf-sys-shape-corner-large)));
+  --container-shape-end-start: var(--mdf-comp-filled-tonal-button-container-shape-end-start, var(--mdf-comp-button-container-shape-end-start, var(--mdf-sys-shape-corner-large)));
+  --container-shape-end-end: var(--mdf-comp-filled-tonal-button-container-shape-end-end, var(--mdf-comp-button-container-shape-end-end, var(--mdf-sys-shape-corner-large)));
 
-  border-radius: var(--mdf-cmp-button--filled-tonal-layout-border-radius, var(--mdf-cmp-button-layout-border-radius, 20px));
+  --label-text-font: var(--mdf-comp-filled-tonal-button-label-text-font, var(--mdf-comp-button-label-text-font, var(--mdf-sys-typescale-label-large-font)));
+  --label-text-line-height: var(--mdf-comp-filled-tonal-button-label-text-line-height, var(--mdf-comp-button-label-text-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  --label-text-size: var(--mdf-comp-filled-tonal-button-label-text-size, var(--mdf-comp-button-label-text-size, var(--mdf-sys-typescale-label-large-size)));
+  --label-text-tracking: var(--mdf-comp-filled-tonal-button-label-text-tracking, var(--mdf-comp-button-label-text-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  --label-text-weight: var(--mdf-comp-filled-tonal-button-label-text-weight, var(--mdf-comp-button-label-text-weight, var(--mdf-sys-typescale-label-large-weight)));
 
-  color: var(--mdf-cmp-button--filled-tonal-state-label-color, var(--mdf-cmp-button-state-label-color, var(--mdf-sys-color-on-secondary-container)));
+  --disabled-label-text-opacity: var(--mdf-comp-filled-tonal-button-disabled-label-text-opacity, var(--mdf-comp-button-disabled-label-text-opacity, 0.38));
+  --disabled-label-text-color: var(--mdf-comp-filled-tonal-button-disabled-label-text-color, var(--mdf-comp-button-disabled-label-text-color, var(--mdf-sys-color-on-surface)));
 
-  font-family: var(--mdf-cmp-button--filled-tonal-state-label-font, var(--mdf-cmp-button-state-label-text-font, var(--mdf-sys-typescale-label-large-font)));
-  line-height: var(--mdf-cmp-button--filled-tonal-state-label-line-height, var(--mdf-cmp-button-state-label-line-height, var(--mdf-sys-typescale-label-large-line-height)));
-  font-size: var(--mdf-cmp-button--filled-tonal-state-label-size, var(--mdf-cmp-button-state-label-size, var(--mdf-sys-typescale-label-large-size)));
-  letter-spacing: var(--mdf-cmp-button--filled-tonal-state-label-tracking, var(--mdf-cmp-button-state-label-tracking, var(--mdf-sys-typescale-label-large-tracking)));
-  font-weight: var(--mdf-cmp-button--filled-tonal-state-label-weight, var(--mdf-cmp-button-state-label-weight, var(--mdf-sys-typescale-label-large-weight)));
+  --hover-label-text-opacity: var(--mdf-comp-filled-tonal-button-hover-label-text-opacity, var(--mdf-comp-button-hover-label-text-opacity));
+  --hover-label-text-color: var(--mdf-comp-filled-tonal-button-hover-label-text-color, var(--mdf-comp-button-hover-label-text-color, var(--mdf-sys-color-on-secondary-container)));
 
-  & .formkit-icon svg {
-    block-size: var(--mdf-cmp-button--filled-tonal-layout-icon-block-size, var(--mdf-cmp-button-layout-icon-block-size, 18px));
-    inline-size: var(--mdf-cmp-button--filled-tonal-layout-icon-inline-size, var(--mdf-cmp-button-layout-icon-inline-size, 18px));
+  --focus-label-text-opacity: var(--mdf-comp-filled-tonal-button-focus-label-text-opacity, var(--mdf-comp-button-focus-label-text-opacity));
+  --focus-label-text-color: var(--mdf-comp-filled-tonal-button-focus-label-text-color, var(--mdf-comp-button-focus-label-text-color, var(--mdf-sys-color-on-secondary-container)));
 
-    color: var(--mdf-cmp-button--filled-tonal-state-icon-color, var(--mdf-cmp-button-state-icon-color, inherit));
-  }
-
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--filled-tonal-state-container-elevation, var(--mdf-cmp-button-state-container-elevation, var(--mdf-sys-elevation-level0)));
-    --_shadow-color: var(--mdf-cmp-button--filled-tonal-state-container-shadow-color, var(--mdf-cmp-button-state-container-shadow-color, var(--mdf-sys-color-shadow)));
-
-    &::before {
-      box-shadow:
-        0px
-        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 3, 1) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
-        calc(1px * (calc(2 * clamp(0, var(--_elevation), 1)) + clamp(0, var(--_elevation) - 2, 1) + clamp(0, var(--_elevation) - 4, 1)))
-        0px
-        var(--_shadow-color);
-      opacity: 0.3;
-    }
-
-    /* Need to fix box-shadow calcs */
-    &::after {
-      box-shadow:
-        0px
-        calc(1px * (clamp(0, var(--_elevation), 1) + clamp(0, var(--_elevation) - 1, 1) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
-        calc(1px * (calc(3 * clamp(0, var(--_elevation), 2)) + calc(2 * clamp(0, var(--_elevation) - 2, 3))))
-        calc(1px * (clamp(0, var(--_elevation), 4) + calc(2 * clamp(0, var(--_elevation) - 4, 1))))
-        0px
-        var(--_shadow-color);
-      opacity: 0.15;
-    }
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-button--filled-tonal-state-container-color, var(--mdf-cmp-button-state-container-color, var(--mdf-sys-color-secondary-container)));
-  }
+  --pressed-label-text-opacity: var(--mdf-comp-filled-tonal-button-pressed-label-text-opacity, var(--mdf-comp-button-pressed-label-text-opacity));
+  --pressed-label-text-color: var(--mdf-comp-filled-tonal-button-pressed-label-text-color, var(--mdf-comp-button-pressed-label-text-color, var(--mdf-sys-color-on-secondary-container)));
 }
 
-[data-prefix-icon=true] .mdf-text-field--filled-tonal .formkit-prefix-icon {
-  padding-inline-start: var(--mdf-cmp-button--filled-tonal-layout-with-prefix-icon-padding-inline-start, var(--mdf-cmp-button-layout-with-prefix-icon-padding-inline-start, 16px));
+[data-family=button][data-variant=filled-tonal] button .formkit-icon {
+  --icon-width: var(--mdf-comp-filled-tonal-button-icon-width, var(--mdf-comp-button-icon-width, 18px));
+  --icon-height: var(--mdf-comp-filled-tonal-button-icon-height, var(--mdf-comp-button-icon-height, 18px));
+
+  --icon-opacity: var(--mdf-comp-filled-tonal-button-icon-opacity, var(--mdf-comp-button-icon-opacity));
+  --icon-color: var(--mdf-comp-filled-tonal-button-icon-color, var(--mdf-comp-button-icon-color, inherit));
+
+  --disabled-icon-opacity: var(--mdf-comp-filled-tonal-button-disabled-icon-opacity, var(--mdf-comp-button-disabled-icon-opacity));
+  --disabled-icon-color: var(--mdf-comp-filled-tonal-button-disabled-icon-color, var(--mdf-comp-button-disabled-icon-color, inherit));
+
+  --hover-icon-opacity: var(--mdf-comp-filled-tonal-button-hover-icon-opacity, var(--mdf-comp-button-hover-icon-opacity));
+  --hover-icon-color: var(--mdf-comp-filled-tonal-button-hover-icon-color, var(--mdf-comp-button-hover-icon-color, inherit));
+
+  --focus-icon-opacity: var(--mdf-comp-filled-tonal-button-focus-icon-opacity, var(--mdf-comp-button-focus-icon-opacity));
+  --focus-icon-color: var(--mdf-comp-filled-tonal-button-focus-icon-color, var(--mdf-comp-button-focus-icon-color, inherit));
+
+  --pressed-icon-opacity: var(--mdf-comp-filled-tonal-button-pressed-icon-opacity, var(--mdf-comp-button-pressed-icon-opacity));
+  --pressed-icon-color: var(--mdf-comp-filled-tonal-button-pressed-icon-color, var(--mdf-comp-button-pressed-icon-color, inherit));
 }
 
-[data-suffix-icon=true] .mdf-text-field--filled-tonal .formkit-suffix-icon {
-  padding-inline-end: var(--mdf-cmp-button--filled-tonal-layout-with-suffix-icon-padding-inline-end, var(--mdf-cmp-button-layout-with-suffix-icon-padding-inline-end, 16px));
+[data-family=button][data-variant=filled-tonal][data-prefix-icon=true] {
+  --with-icon-spacing-leading: var(--mdf-comp-filled-tonal-button-with-icon-spacing-leading, var(--mdf-comp-button-with-icon-spacing-leading, 16px));
 }
 
-.mdf-button--filled-tonal:disabled {
-  color: var(--mdf-cmp-button--filled-tonal-disabled-state-label-color, var(--mdf-cmp-button-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
-
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--filled-tonal-disabled-state-icon-color, var(--mdf-cmp-button-disabled-state-icon-color, inherit));
-  }
-
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--filled-tonal-disabled-state-container-elevation, var(--mdf-cmp-button-disabled-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-button--filled-tonal-disabled-state-container-color, var(--mdf-cmp-button-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
-  }
+[data-family=button][data-variant=filled-tonal][data-suffix-icon=true] {
+  --with-icon-spacing-trailing: var(--mdf-comp-filled-tonal-button-with-icon-spacing-trailing, var(--mdf-comp-button-with-icon-spacing-trailing, 16px));
 }
 
-.mdf-button--filled-tonal:hover {
-  color: var(--mdf-cmp-button--filled-tonal-hover-state-label-color, var(--mdf-cmp-button-hover-state-label-color, var(--mdf-sys-color-on-secondary-container)));
+[data-family=button][data-variant=filled-tonal] .mdf-elevation {
+  --elevation: var(--mdf-comp-filled-tonal-button-elevation, var(--mdf-comp-button-elevation, var(--mdf-sys-elevation-level0)));
+  --shadow-color: var(--mdf-comp-filled-tonal-button-shadow-color, var(--mdf-comp-button-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--filled-tonal-hover-state-icon-color, var(--mdf-cmp-button-hover-state-icon-color, inherit));
-  }
+  --disabled-elevation: var(--mdf-comp-filled-tonal-button-disabled-elevation, var(--mdf-comp-button-disabled-elevation, var(--mdf-sys-elevation-level0)));
+  --disabled-shadow-color: var(--mdf-comp-filled-tonal-button-disabled-shadow-color, var(--mdf-comp-button-disabled-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--filled-tonal-hover-state-container-elevation, var(--mdf-cmp-button-hover-state-container-elevation, var(--mdf-sys-elevation-level1)));
-  }
+  --hover-elevation: var(--mdf-comp-filled-tonal-button-hover-elevation, var(--mdf-comp-button-hover-elevation, var(--mdf-sys-elevation-level1)));
+  --hover-shadow-color: var(--mdf-comp-filled-tonal-button-hover-shadow-color, var(--mdf-comp-button-hover-shadow-color, var(--mdf-sys-color-shadow)));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--filled-tonal-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-color-on-secondary-container)));
-    opacity: var(--mdf-cmp-button--filled-tonal-hover-state-layer-color, var(--mdf-cmp-button-hover-state-layer-color, var(--mdf-sys-state-hover-state-layer-opacity)));
-  }
+  --focus-elevation: var(--mdf-comp-filled-tonal-button-focus-elevation, var(--mdf-comp-button-focus-elevation, var(--mdf-sys-elevation-level0)));
+  --focus-shadow-color: var(--mdf-comp-filled-tonal-button-focus-shadow-color, var(--mdf-comp-button-focus-shadow-color, var(--mdf-sys-color-shadow)));
+
+  --pressed-elevation: var(--mdf-comp-filled-tonal-button-pressed-elevation, var(--mdf-comp-button-pressed-elevation, var(--mdf-sys-elevation-level0)));
+  --pressed-shadow-color: var(--mdf-comp-filled-tonal-button-pressed-shadow-color, var(--mdf-comp-button-pressed-shadow-color, var(--mdf-sys-color-shadow)));
 }
 
-.mdf-button--filled-tonal:focus-visible {
-  color: var(--mdf-cmp-button--filled-tonal-focus-state-label-color, var(--mdf-cmp-button-focus-state-label-color, var(--mdf-sys-color-on-secondary-container)));
+[data-family=button][data-variant=filled-tonal] .mdf-container {
+  --container-opacity: var(--mdf-comp-filled-tonal-button-container-opacity, var(--mdf-comp-button-container-opacity));
+  --container-color: var(--mdf-comp-filled-tonal-button-container-color, var(--mdf-comp-button-container-color, var(--mdf-sys-color-secondary-container)));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--filled-tonal-focus-state-icon-color, var(--mdf-cmp-button-focus-state-icon-color, inherit));
-  }
+  --disabled-container-opacity: var(--mdf-comp-filled-tonal-button-disabled-container-opacity, var(--mdf-comp-button-disabled-container-opacity, 0.12));
+  --disabled-container-color: var(--mdf-comp-filled-tonal-button-disabled-container-color, var(--mdf-comp-button-disabled-container-color, var(--mdf-sys-color-on-surface)));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--filled-tonal-focus-state-container-elevation, var(--mdf-cmp-button-focus-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
+  --hover-container-opacity: var(--mdf-comp-filled-tonal-button-hover-container-opacity, var(--mdf-comp-button-hover-container-opacity));
+  --hover-container-color: var(--mdf-comp-filled-tonal-button-hover-container-color, var(--mdf-comp-button-hover-container-color, var(--mdf-sys-color-secondary-container)));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--filled-tonal-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-color-on-secondary-container)));
-    opacity: var(--mdf-cmp-button--filled-tonal-focus-state-layer-color, var(--mdf-cmp-button-focus-state-layer-color, var(--mdf-sys-state-focus-state-layer-opacity)));
-  }
+  --focus-container-opacity: var(--mdf-comp-filled-tonal-button-focus-container-opacity, var(--mdf-comp-button-focus-container-opacity));
+  --focus-container-color: var(--mdf-comp-filled-tonal-button-focus-container-color, var(--mdf-comp-button-focus-container-color, var(--mdf-sys-color-secondary-container)));
+
+  --pressed-container-opacity: var(--mdf-comp-filled-tonal-button-pressed-container-opacity, var(--mdf-comp-button-pressed-container-opacity));
+  --pressed-container-color: var(--mdf-comp-filled-tonal-button-pressed-container-color, var(--mdf-comp-button-pressed-container-color, var(--mdf-sys-color-secondary-container)));
 }
 
-.mdf-button--filled-tonal:active {
-  color: var(--mdf-cmp-button--filled-tonal-pressed-state-label-color, var(--mdf-cmp-button-pressed-state-label-color, var(--mdf-sys-color-on-secondary-container)));
+[data-family=button][data-variant=filled-tonal] .mdf-surface::before {
+  --layer-opacity: var(--mdf-comp-filled-tonal-button-layer-opacity, var(--mdf-comp-button-layer-opacity));
+  --layer-color: var(--mdf-comp-filled-tonal-button-layer-color, var(--mdf-comp-button-layer-color));
 
-  & .formkit-icon svg {
-    color: var(--mdf-cmp-button--filled-tonal-pressed-state-icon-color, var(--mdf-cmp-button-pressed-state-icon-color, inherit));
-  }
+  --disabled-layer-opacity: var(--mdf-comp-filled-tonal-button-disabled-layer-opacity, var(--mdf-comp-button-disabled-layer-opacity, 0));
+  --disabled-layer-color: var(--mdf-comp-filled-tonal-button-disabled-layer-color, var(--mdf-comp-button-disabled-layer-color));
 
-  & .mdf-elevation {
-    --_elevation: var(--mdf-cmp-button--filled-tonal-pressed-state-container-elevation, var(--mdf-cmp-button-pressed-state-container-elevation, var(--mdf-sys-elevation-level0)));
-  }
+  --hover-layer-opacity: var(--mdf-comp-filled-tonal-button-hover-layer-opacity, var(--mdf-comp-button-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+  --hover-layer-color: var(--mdf-comp-filled-tonal-button-hover-layer-color, var(--mdf-comp-button-hover-layer-color, var(--mdf-sys-color-on-secondary-container)));
 
-  & .mdf-surface::before {
-    background-color: var(--mdf-cmp-button--filled-tonal-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-color-on-secondary-container)));
-    opacity: var(--mdf-cmp-button--filled-tonal-pressed-state-layer-color, var(--mdf-cmp-button-pressed-state-layer-color, var(--mdf-sys-state-pressed-state-layer-opacity)));
-  }
+  --focus-layer-opacity: var(--mdf-comp-filled-tonal-button-focus-layer-opacity, var(--mdf-comp-button-focus-layer-opacity, var(--mdf-sys-state-focus-state-layer-opacity)));
+  --focus-layer-color: var(--mdf-comp-filled-tonal-button-focus-layer-color, var(--mdf-comp-button-focus-layer-color, var(--mdf-sys-color-on-secondary-container)));
+
+  --pressed-layer-opacity: var(--mdf-comp-filled-tonal-button-pressed-layer-opacity, var(--mdf-comp-button-pressed-layer-opacity, var(--mdf-sys-state-pressed-state-layer-opacity)));
+  --pressed-layer-color: var(--mdf-comp-filled-tonal-button-pressed-layer-color, var(--mdf-comp-button-pressed-layer-color, var(--mdf-sys-color-on-secondary-container)));
 }

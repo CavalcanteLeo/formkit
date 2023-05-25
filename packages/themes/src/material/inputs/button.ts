@@ -1,62 +1,87 @@
-import { FormKitNode } from '@formkit/core'
+import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
+import { findSection, buttonLabel, icon, prefix, suffix } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
-import { fromSchema } from '../schema'
+
+const elevation = {
+  $el: 'div',
+  attrs: {
+    class: 'mdf-elevation'
+  }
+}
+
+const inmost = {
+  $el: 'div',
+  attrs: {
+    class: 'mdf-container'
+  }
+}
+
+const surface = {
+  $el: 'div',
+  attrs: {
+    class: 'mdf-surface'
+  }
+}
+
+const outline = {
+  $el: 'div',
+  attrs: {
+    class: 'mdf-outline'
+  }
+}
 
 export const buttonFamily = (node: FormKitNode) => {
   if (node.props.family !== 'button') return
 
-  node.addProps(['variant'])
-
   node.on('created', () => {
-    node.props.variant = node.props.variant || 'elevated'
-
     if (typeof node.props?.definition === 'undefined') return
 
-    const definition = clone(node.props.definition)
+    const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return
 
+    node.addProps(['variant'])
+    node.props.variant = node.props.variant || 'elevated'
+
     const originalSchema = definition.schema
-    const hos = (extensions = {}) => {
-      const inputSchema = originalSchema(extensions)
-      const schemaBuilder = fromSchema(inputSchema)
 
-      ;['messages', 'help'].forEach((sectionName) =>
-        schemaBuilder.removeSection(sectionName)
-      )
-      const inputSection = schemaBuilder.fromSection('input')
-
-      if (inputSection) {
-        inputSection.insertStart({
-          $el: 'div',
-          attrs: {
-            class: 'mdf-outline',
-          },
-        })
-
-        inputSection.insertStart({
-          $el: 'div',
-          attrs: {
-            class: 'mdf-surface',
-          },
-        })
-
-        inputSection.insertStart({
-          $el: 'div',
-          attrs: {
-            class: 'mdf-elevation',
-          },
-        })
+    definition.schema = (extensions: Record<string, FormKitSchemaCondition | Partial<FormKitSchemaNode>> = {}) => {
+      extensions.outer = {
+        attrs: {
+          'data-variant': '$variant'
+        },
       }
 
-      return inputSchema
+      extensions.wrapper = {
+        $el: null
+      }
+
+      extensions.input = {
+        children: [
+          elevation,
+          inmost,
+          surface,
+          outline,
+          icon('prefix')({}),
+          prefix()({}),
+          buttonLabel('$label || $ui.submit.value')({}),
+          suffix()({}),
+          icon('suffix')({})
+        ]
+      }
+
+      const inputSchema = originalSchema(extensions);
+
+      for (const sectionName of ['messages', 'help']) {
+        const [parentChildren, section] = findSection(inputSchema, sectionName)
+
+        if (parentChildren && section) {
+          parentChildren.splice(parentChildren.indexOf(section), 1)
+        }
+      }
+
+      return inputSchema;
     }
 
-    definition.schema = hos
     node.props.definition = definition
-
-    node.props.inputClass = (reactiveNode: FormKitNode) => ({
-      'mdf-button': true,
-      [`mdf-button--${reactiveNode.props.variant}`]: true,
-    })
   })
 }

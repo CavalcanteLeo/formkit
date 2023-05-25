@@ -1,56 +1,103 @@
-.mdf-button {
-  cursor: pointer;
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+[data-family=button] button {
   position: relative;
   z-index: 0;
 
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
+  min-inline-size: var(--container-width);
+  block-size: var(--container-height);
+  padding-block: 0;
+  padding-inline-start: var(--spacing-leading);
+  padding-inline-end: var(--spacing-trailing);
+  gap: 8px;
+
+  appearance: none;
   user-select: none;
 
-  & .formkit-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  opacity: var(--label-text-opacity);
+  color: var(--label-text-color);
+  border: none;
+  border-start-start-radius: var(--container-shape-start-start);
+  border-start-end-radius: var(--container-shape-start-end);
+  border-end-start-radius: var(--container-shape-end-start);
+  border-end-end-radius: var(--container-shape-end-end);
+  background: transparent;
 
-  &::before,
-  & .mdf-elevation, & .mdf-elevation::before, & .mdf-elevation::after,
-  & .mdf-surface, & .mdf-surface::before,
-  & .mdf-outline {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    pointer-events: none;
-  }
+  font-family: var(--label-text-font);
+  line-height: var(--label-text-line-height);
+  font-size: var(--label-text-size);
+  letter-spacing: var(--label-text-tracking);
+  font-weight: var(--label-text-weight);
 
-  & .mdf-surface::before {
-    transition: opacity 15ms linear, background-color 15ms linear;
+  &:focus {
+    outline: none;
   }
 }
 
-.mdf-button:disabled {
-  cursor: default;
+[data-family=button] button .formkit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: var(--icon-opacity);
+  color: var(--icon-color, inherit);
+
+  & svg {
+    inline-size: var(--icon-width);
+    block-size: var(--icon-height);
+  }
+}
+
+[data-family=button][data-prefix-icon=true] {
+  padding-inline-start: var(--with-icon-spacing-leading);
+}
+
+[data-family=button][data-suffix-icon=true] {
+  padding-inline-end: var(--with-icon-spacing-trailing);
+}
+
+[data-family=button] button:disabled {
   pointer-events: none;
 
-  opacity: 0.38;
+  opacity: var(--disabled-label-text-opacity);
+  color: var(--disabled-label-text-color);
 
-  &::before, & .mdf-outline {
-    opacity: 0.12;
-  }
-
-  & .mdf-surface {
-    opacity: 0;
+  & .formkit-icon {
+    opacity: var(--disabled-icon-opacity);
+    color: var(--disabled-icon-color, inherit);
   }
 }
 
-.mdf-button:focus-visible {
-  & .mdf-surface::before {
-    transition-duration: 125ms;
+[data-family=button] button:hover {
+  cursor: pointer;
+
+  opacity: var(--hover-label-text-opacity);
+  color: var(--hover-label-text-color);
+
+  & .formkit-icon {
+    opacity: var(--hover-icon-opacity);
+    color: var(--hover-icon-color, inherit);
+  }
+}
+
+[data-family=button] button:focus-visible {
+  opacity: var(--focus-label-text-opacity);
+  color: var(--focus-label-text-color);
+
+  & .formkit-icon {
+    opacity: var(--focus-icon-opacity);
+    color: var(--focus-icon-color, inherit);
+  }
+}
+
+[data-family=button] button:active {
+  opacity: var(--pressed-label-text-opacity);
+  color: var(--pressed-label-text-color);
+
+  & .formkit-icon {
+    opacity: var(--pressed-icon-opacity);
+    color: var(--pressed-icon-color, inherit);
   }
 }
