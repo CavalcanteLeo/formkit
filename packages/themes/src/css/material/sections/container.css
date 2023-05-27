@@ -12,25 +12,3 @@
   opacity: var(--container-opacity);
   background-color: var(--container-color, transparent);
 }
-
-[data-type]:has(:disabled) .mdf-container {
-  pointer-events: none;
-
-  opacity: var(--disabled-container-opacity);
-  background-color: var(--disabled-container-color, transparent);
-}
-
-[data-type]:has(:hover) .mdf-container {
-  opacity: var(--hover-container-opacity);
-  background-color: var(--hover-container-color, transparent);
-}
-
-[data-type]:has(:focus-visible) .mdf-container {
-  opacity: var(--focus-container-opacity);
-  background-color: var(--focus-container-color, transparent);
-}
-
-[data-type]:has(:active) .mdf-container {
-  opacity: var(--pressed-container-opacity);
-  background-color: var(--pressed-container-color, transparent);
-}

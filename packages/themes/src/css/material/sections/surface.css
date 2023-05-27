@@ -12,25 +12,3 @@
   opacity: var(--layer-opacity);
   background-color: var(--layer-color, transparent);
 }
-
-[data-type]:has(:disabled) .mdf-surface::before {
-  pointer-events: none;
-
-  opacity: var(--disabled-layer-opacity);
-  background-color: var(--disabled-layer-color, transparent);
-}
-
-[data-type]:has(:hover) .mdf-surface::before {
-  opacity: var(--hover-layer-opacity);
-  background-color: var(--hover-layer-color, transparent);
-}
-
-[data-type]:has(:focus-visible) .mdf-surface::before {
-  opacity: var(--focus-layer-opacity);
-  background-color: var(--focus-layer-color, transparent);
-}
-
-[data-type]:has(:active) .mdf-surface::before {
-  opacity: var(--pressed-layer-opacity);
-  background-color: var(--pressed-layer-color, transparent);
-}

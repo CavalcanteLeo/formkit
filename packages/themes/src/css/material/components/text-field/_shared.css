@@ -1,90 +1,159 @@
-.mdf-text-field {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  z-index: 0;
+[data-family=text] {
+  & .formkit-inner {
+    position: relative;
+    z-index: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    block-size: var(--container-height);
+    padding-block-start: var(--spacing-top);
+    padding-block-end: var(--spacing-bottom);
+    padding-inline-start: var(--spacing-leading);
+    padding-inline-end: var(--spacing-trailing);
+    gap: 8px;
+
+    border: none;
+    border-start-start-radius: var(--container-shape-start-start);
+    border-start-end-radius: var(--container-shape-start-end);
+    border-end-start-radius: var(--container-shape-end-start);
+    border-end-end-radius: var(--container-shape-end-end);
+  }
 
   & .formkit-icon {
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    block-size: 18px;
-  }
-
-  & .mdf-prefix, & .mdf-suffix {
-    align-self: flex-end;
-    opacity: 0;
-  }
-
-  & .mdf-prefix {
-    padding-right: 4px;
-  }
-
-  & .mdf-suffix {
-    padding-left: 4px;
-  }
-
-  & .mdf-field {
-    display: flex;
     justify-content: center;
-    align-items: center;
 
-    height: 100%;
+    opacity: var(--icon-opacity);
+    color: var(--icon-color);
 
-    position: relative;
-  }
+    &.formkit-prefix-icon svg {
+      inline-size: var(--prefix-icon-width);
+      block-size: var(--prefix-icon-height);
+    }
 
-  & .mdf-field .formkit-input {
-    appearance: none;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-
-    color: inherit;
-
-    &:focus-visible {
-      outline: none;
+    &.formkit-suffix-icon svg {
+      inline-size: var(--suffix-icon-width);
+      block-size: var(--suffix-icon-height);
     }
   }
 
-  & .mdf-field .formkit-label {
-    position: absolute;
-    left: 0;
-    color: inherit;
+  & .mdf-field {
+    position: relative;
 
-    user-select: none;
-    pointer-events: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    transition: all 125ms ease-out, font-size 175ms ease-in;
-  }
+    color: var(--text-color);
 
-  &::before,
-  & .mdf-surface, & .mdf-surface::before,
-  & .mdf-outline {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    pointer-events: none;
-  }
+    font-family: var(--text-font);
+    line-height: var(--text-line-height);
+    font-size: var(--text-size);
+    letter-spacing: var(--text-tracking);
+    font-weight: var(--text-weight);
 
-  & .mdf-surface {
-    transition: border 75ms ease-in;
+    & .mdf-prefix, & .mdf-suffix {
+      opacity: 0;
+
+      font-family: inherit;
+      line-height: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      font-weight: inherit;
+
+      transition: all var(--mdf-sys-motion-duration-short2) ease-out;
+    }
+
+    & .mdf-prefix {
+      padding-right: 4px;
+
+      color: var(--prefix-text-color, inherit);
+    }
+
+    & .formkit-input {
+      padding: 0;
+
+      color: var(--input-color, inherit);
+      caret-color: var(--input-caret-color);
+      background-color: transparent;
+
+      font-family: inherit;
+      line-height: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      font-weight: inherit;
+
+      transition: all var(--mdf-sys-motion-duration-short2) ease-out;
+    }
+
+    & .formkit-label {
+      position: absolute;
+      left: 0;
+
+      user-select: none;
+      pointer-events: none;
+
+      font-family: inherit;
+      line-height: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      font-weight: inherit;
+
+      color: var(--label-color, inherit);
+
+      transition: all var(--mdf-sys-motion-duration-short2) ease-out;
+    }
+
+    & .mdf-suffix {
+      padding-left: 4px;
+
+      color: var(--suffix-text-color, inherit);
+    }
   }
 }
 
-[data-has-value=true] .mdf-text-field, .mdf-text-field:has(:focus) {
+[data-family=text][data-prefix-icon=true] .formkit-inner {
+  padding-inline-start: var(--with-icon-spacing-leading);
+}
+
+[data-family=text][data-suffix-icon=true] .formkit-inner {
+  padding-inline-end: var(--with-icon-spacing-trailing);
+}
+
+/* ----- States ----- */
+/* Populated or focus state */
+[data-family=text][data-populated=true], [data-family=text][data-focused=true] {
   & .mdf-prefix, & .mdf-suffix {
     opacity: 1;
+
+    translate: 0 calc((0.6 * var(--container-height)) - 100%);
+  }
+
+  & .mdf-field {
+    & .formkit-input {
+      translate: 0 calc((0.6 * var(--container-height)) - 100%);
+    }
+
+    & .formkit-label {
+      line-height: var(--mdf-sys-typescale-body-small-line-height);
+      font-size: var(--mdf-sys-typescale-body-small-size);
+
+      translate: 0 calc((-0.5 * var(--container-height)) + 100%);
+    }
+  }
+}
+
+/* Disabled state */
+[data-family=text][data-disabled=true] {
+  & .formkit-inner {
+    pointer-events: none;
   }
 
   & .formkit-input {
-    align-self: flex-end;
-  }
-
-  & .formkit-label {
-    align-self: baseline;
+    user-select: none;
   }
 }

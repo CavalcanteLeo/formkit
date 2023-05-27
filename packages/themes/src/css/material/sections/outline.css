@@ -14,33 +14,3 @@
   border-width: var(--outline-width);
   border-style: var(--outline-style);
 }
-
-[data-type]:has(:disabled) .mdf-outline {
-  pointer-events: none;
-
-  opacity: var(--disabled-outline-opacity);
-  border-color: var(--disabled-outline-color);
-  border-width: var(--disabled-outline-width);
-  border-style: var(--disabled-outline-style);
-}
-
-[data-type]:has(:hover) .mdf-outline {
-  opacity: var(--hover-outline-opacity);
-  border-color: var(--hover-outline-color);
-  border-width: var(--hover-outline-width);
-  border-style: var(--hover-outline-style);
-}
-
-[data-type]:has(:focus-visible) .mdf-outline {
-  opacity: var(--focus-outline-opacity);
-  border-color: var(--focus-outline-color);
-  border-width: var(--focus-outline-width);
-  border-style: var(--focus-outline-style);
-}
-
-[data-type]:has(:active) .mdf-outline {
-  opacity: var(--pressed-outline-opacity);
-  border-color: var(--pressed-outline-color);
-  border-width: var(--pressed-outline-width);
-  border-style: var(--pressed-outline-style);
-}

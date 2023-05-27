@@ -30,7 +30,7 @@
   --pressed-label-text-color: var(--mdf-comp-filled-tonal-button-pressed-label-text-color, var(--mdf-comp-button-pressed-label-text-color, var(--mdf-sys-color-on-secondary-container)));
 }
 
-[data-family=button][data-variant=filled-tonal] button .formkit-icon {
+[data-family=button][data-variant=filled-tonal] .formkit-icon {
   --icon-width: var(--mdf-comp-filled-tonal-button-icon-width, var(--mdf-comp-button-icon-width, 18px));
   --icon-height: var(--mdf-comp-filled-tonal-button-icon-height, var(--mdf-comp-button-icon-height, 18px));
 

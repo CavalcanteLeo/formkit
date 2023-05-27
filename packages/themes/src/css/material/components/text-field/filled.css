@@ -1,226 +1,172 @@
-.mdf-text-field--filled {
-  block-size: var(--mdf-cmp-text-field--filled-layout-block-size, var(--mdf-cmp-text-field-layout-block-size, 56px));
+[data-family=text][data-variant=filled] {
+  --container-height: var(--mdf-comp-filled-text-field-container-height, var(--mdf-comp-text-field-container-height, 56px));
+  --container-shape-start-start: var(--mdf-comp-filled-text-field-container-shape-start-start, var(--mdf-comp-text-field-container-shape-start-start, var(--mdf-sys-shape-corner-extra-small)));
+  --container-shape-start-end: var(--mdf-comp-filled-text-field-container-shape-start-end, var(--mdf-comp-text-field-container-shape-start-end, var(--mdf-sys-shape-corner-extra-small)));
 
-  padding-block: var(--mdf-cmp-text-field--filled-layout-padding-block-size, var(--mdf-cmp-text-field-layout-padding-block, 8px));
-  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-padding-inline-start, var(--mdf-cmp-text-field-layout-padding-inline-start, 16px));
-  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-padding-inline-end, var(--mdf-cmp-text-field-layout-padding-inline-end, 16px));
-
-  border-start-end-radius: var(--mdf-cmp-text-field--filled-layout-start-end-radius, var(--mdf-cmp-text-field-layout-start-end-radius, var(--mdf-sys-shape-corner-extra-small)));
-  border-start-start-radius: var(--mdf-cmp-text-field--filled-layout-start-start-radius, var(--mdf-cmp-text-field-layout-start-start-radius, var(--mdf-sys-shape-corner-extra-small)));
-
-  & .mdf-prefix {
-    color: var(--mdf-cmp-text-field--filled-state-prefix-color, var(--mdf-cmp-text-field-state-prefix-color, var(--mdf-sys-color-on-surface-variant)));
-
-    font-family: var(--mdf-cmp-text-field--filled-state-prefix-font, var(--mdf-cmp-text-field-state-prefix-text-font, var(--mdf-sys-typescale-body-large-font)));
-    line-height: var(--mdf-cmp-text-field--filled-state-prefix-line-height, var(--mdf-cmp-text-field-state-prefix-line-height, var(--mdf-sys-typescale-body-large-line-height)));
-    font-size: var(--mdf-cmp-text-field--filled-state-prefix-size, var(--mdf-cmp-text-field-state-prefix-size, var(--mdf-sys-typescale-body-large-size)));
-    letter-spacing: var(--mdf-cmp-text-field--filled-state-prefix-tracking, var(--mdf-cmp-text-field-state-prefix-tracking, var(--mdf-sys-typescale-body-large-tracking)));
-    font-weight: var(--mdf-cmp-text-field--filled-state-prefix-weight, var(--mdf-cmp-text-field-state-prefix-weight, var(--mdf-sys-typescale-body-large-weight)));
-  }
-
-  & .mdf-suffix {
-    color: var(--mdf-cmp-text-field--filled-state-suffix-color, var(--mdf-cmp-text-field-state-suffix-color, var(--mdf-sys-color-on-surface-variant)));
-
-    font-family: var(--mdf-cmp-text-field--filled-state-suffix-font, var(--mdf-cmp-text-field-state-suffix-text-font, var(--mdf-sys-typescale-body-large-font)));
-    line-height: var(--mdf-cmp-text-field--filled-state-suffix-line-height, var(--mdf-cmp-text-field-state-suffix-line-height, var(--mdf-sys-typescale-body-large-line-height)));
-    font-size: var(--mdf-cmp-text-field--filled-state-suffix-size, var(--mdf-cmp-text-field-state-suffix-size, var(--mdf-sys-typescale-body-large-size)));
-    letter-spacing: var(--mdf-cmp-text-field--filled-state-suffix-tracking, var(--mdf-cmp-text-field-state-suffix-tracking, var(--mdf-sys-typescale-body-large-tracking)));
-    font-weight: var(--mdf-cmp-text-field--filled-state-suffix-weight, var(--mdf-cmp-text-field-state-suffix-weight, var(--mdf-sys-typescale-body-large-weight)));
-  }
+  --spacing-top: var(--mdf-comp-filled-text-field-spacing-top, var(--mdf-comp-text-field-spacing-top, 8px));
+  --spacing-bottom: var(--mdf-comp-filled-text-field-spacing-bottom, var(--mdf-comp-text-field-spacing-bottom, 8px));
+  --spacing-leading: var(--mdf-comp-filled-text-field-spacing-leading, var(--mdf-comp-text-field-spacing-leading, 16px));
+  --spacing-trailing: var(--mdf-comp-filled-text-field-spacing-leading, var(--mdf-comp-text-field-spacing-leading, 16px));
+  --with-icon-spacing-leading: var(--mdf-comp-filled-text-field-with-icon-spacing-leading, var(--mdf-comp-text-field-with-icon-spacing-leading, 12px));
+  --with-icon-spacing-trailing: var(--mdf-comp-filled-text-field-with-icon-spacing-trailing, var(--mdf-comp-text-field-with-icon-spacing-trailing, 12px));
 
   & .formkit-icon {
-    & svg {
-      color: var(--mdf-cmp-text-field--filled-state-icon-color, var(--mdf-cmp-text-field-state-icon-color, var(--mdf-sys-color-on-surface-variant)));
-    }
+    --icon-color: var(--mdf-comp-filled-text-field-prefix-icon-color, var(--mdf-comp-text-field-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
 
-    &.formkit-prefix-icon svg {
-      block-size: var(--mdf-cmp-text-field--filled-layout-leading-icon-block-size, var(--mdf-cmp-text-field-layout-leading-icon-block-size, 20px));
-      inline-size: var(--mdf-cmp-text-field--filled-layout-leading-icon-inline-size, var(--mdf-cmp-text-field-layout-leading-icon-inline-size, 20px));
-    }
+    --prefix-icon-width: var(--mdf-comp-filled-text-field-prefix-icon-width, var(--mdf-comp-text-field-prefix-icon-width, 20px));
+    --prefix-icon-height: var(--mdf-comp-filled-text-field-prefix-icon-height, var(--mdf-comp-text-field-prefix-icon-height, 20px));
+    --suffix-icon-width: var(--mdf-comp-filled-text-field-suffix-icon-width, var(--mdf-comp-text-field-suffix-icon-width, 24px));
+    --suffix-icon-height: var(--mdf-comp-filled-text-field-suffix-icon-height, var(--mdf-comp-text-field-suffix-icon-height, 24px));
+  }
 
-    &.formkit-suffix-icon svg {
-      block-size: var(--mdf-cmp-text-field--filled-layout-trailing-icon-block-size, var(--mdf-cmp-text-field-layout-trailing-icon-block-size, 24px));
-      inline-size: var(--mdf-cmp-text-field--filled-layout-trailing-icon-inline-size, var(--mdf-cmp-text-field-layout-trailing-icon-inline-size, 24px));
+  & .mdf-field {
+    --text-color: var(--mdf-comp-filled-text-field-text-color, var(--mdf-comp-text-field-text-color, var(--mdf-sys-color-on-surface-variant)));
+
+    --text-font: var(--mdf-comp-filled-text-field-text-font, var(--mdf-comp-text-field-text-font, var(--mdf-sys-typescale-body-large-font)));
+    --text-line-height: var(--mdf-comp-filled-text-field-text-line-height, var(--mdf-comp-text-field-text-line-height, var(--mdf-sys-typescale-body-large-line-height)));
+    --text-size: var(--mdf-comp-filled-text-field-text-size, var(--mdf-comp-text-field-text-size, var(--mdf-sys-typescale-body-large-size)));
+    --text-tracking: var(--mdf-comp-filled-text-field-text-tracking, var(--mdf-comp-text-field-text-tracking, var(--mdf-sys-typescale-body-large-tracking)));
+    --text-weight: var(--mdf-comp-filled-text-field-text-weight, var(--mdf-comp-text-field-text-weight, var(--mdf-sys-typescale-body-large-weight)));
+
+    & .formkit-input {
+      --input-caret-color: var(--mdf-comp-filled-text-field-input-caret-color, var(--mdf-comp-text-field-input-caret-color, var(--mdf-sys-color-primary)));
     }
   }
 
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-state-input-text-color, var(--mdf-cmp-text-field-state-input-text-color, var(--mdf-sys-color-on-surface-variant)));
-    caret-color: var(--mdf-cmp-text-field--filled-state-caret-color, var(--mdf-cmp-text-field-state-caret-color, var(--mdf-sys-color-primary)));
-
-    font-family: var(--mdf-cmp-text-field--filled-state-input-text-font, var(--mdf-cmp-text-field-state-input-text-text-font, var(--mdf-sys-typescale-body-large-font)));
-    line-height: var(--mdf-cmp-text-field--filled-state-input-text-line-height, var(--mdf-cmp-text-field-state-input-text-line-height, var(--mdf-sys-typescale-body-large-line-height)));
-    font-size: var(--mdf-cmp-text-field--filled-state-input-text-size, var(--mdf-cmp-text-field-state-input-text-size, var(--mdf-sys-typescale-body-large-size)));
-    letter-spacing: var(--mdf-cmp-text-field--filled-state-input-text-tracking, var(--mdf-cmp-text-field-state-input-text-tracking, var(--mdf-sys-typescale-body-large-tracking)));
-    font-weight: var(--mdf-cmp-text-field--filled-state-input-text-weight, var(--mdf-cmp-text-field-state-input-text-weight, var(--mdf-sys-typescale-body-large-weight)));
-  }
-
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-state-label-color, var(--mdf-cmp-text-field-state-label-color, var(--mdf-sys-color-on-surface-variant)));
-
-    font-family: var(--mdf-cmp-text-field--filled-state-label-font, var(--mdf-cmp-text-field-state-label-text-font, var(--mdf-sys-typescale-body-large-font)));
-    line-height: var(--mdf-cmp-text-field--filled-state-label-line-height, var(--mdf-cmp-text-field-state-label-line-height, var(--mdf-sys-typescale-body-large-line-height)));
-    font-size: var(--mdf-cmp-text-field--filled-state-label-size, var(--mdf-cmp-text-field-state-label-size, var(--mdf-sys-typescale-body-large-size)));
-    letter-spacing: var(--mdf-cmp-text-field--filled-state-label-tracking, var(--mdf-cmp-text-field-state-label-tracking, var(--mdf-sys-typescale-body-large-tracking)));
-    font-weight: var(--mdf-cmp-text-field--filled-state-label-weight, var(--mdf-cmp-text-field-state-label-weight, var(--mdf-sys-typescale-body-large-weight)));
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-text-field--filled-state-container-color, var(--mdf-cmp-text-field-state-container-color, var(--mdf-sys-color-surface-variant)));
+  & .mdf-container {
+    --container-color: var(--mdf-comp-filled-text-field-container-color, var(--mdf-comp-text-field-container-color, var(--mdf-sys-color-surface-variant)));
   }
 
   & .mdf-surface {
-    border-bottom: solid var(--mdf-cmp-text-field--filled-state-active-indicator-size, var(--mdf-cmp-text-field-state-active-indicator-size, 1px));
-    border-bottom-color: var(--mdf-cmp-text-field--filled-state-active-indicator-color, var(--mdf-cmp-text-field-state-active-indicator-color, var(--mdf-sys-color-on-surface-variant)));
+    border-bottom-color: var(--mdf-comp-filled-text-field-active-indicator-color, var(--mdf-comp-text-field-active-indicator-color, var(--mdf-sys-color-on-surface-variant)));
+    border-bottom-width: var(--mdf-comp-filled-text-field-active-indicator-width, var(--mdf-comp-text-field-active-indicator-width, 1px));
+    border-bottom-style: var(--mdf-comp-filled-text-field-active-indicator-style, var(--mdf-comp-text-field-active-indicator-style, solid));
   }
 }
 
-[data-prefix-icon=true] .mdf-text-field--filled .formkit-prefix-icon {
-  padding-inline-start: var(--mdf-cmp-text-field--filled-layout-prefix-icon-padding-inline-start, var(--mdf-cmp-text-field-layout-prefix-icon-padding-inline-start, 12px));
-}
-
-[data-suffix-icon=true] .mdf-text-field--filled .formkit-suffix-icon {
-  padding-inline-end: var(--mdf-cmp-text-field--filled-layout-suffix-icon-padding-inline-end, var(--mdf-cmp-text-field-layout-suffix-icon-padding-inline-end, 12px));
-}
-
-.mdf-text-field--filled:has(:disabled) {
-  pointer-events: none;
-
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-disabled-state-input-text-color, var(--mdf-cmp-text-field-disabled-state-input-text-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-input-text-opacity, var(--mdf-cmp-text-field-disabled-state-input-text-opacity, 0.38));
+/* ----- States ----- */
+/* Disabled state */
+[data-family=text][data-variant=filled][data-disabled=true] {
+  & .mdf-field {
+    --text-opacity: var(--mdf-comp-filled-text-field-disabled-text-opacity, var(--mdf-comp-text-field-disabled-text-opacity, 0.38));
+    --text-color: var(--mdf-comp-filled-text-field-disabled-text-color, var(--mdf-comp-text-field-disabled-text-color, var(--mdf-sys-color-on-surface)));
   }
 
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-disabled-state-label-color, var(--mdf-cmp-text-field-disabled-state-label-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-label-opacity, var(--mdf-cmp-text-field-disabled-state-label-opacity, 0.38));
-  }
-
-  &::before {
-    background-color: var(--mdf-cmp-text-field--filled-disabled-state-container-color, var(--mdf-cmp-text-field-disabled-state-container-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-container-opacity, var(--mdf-cmp-text-field-disabled-state-container-opacity, 0.4));
+  & .mdf-container {
+    --container-opacity: var(--mdf-comp-filled-text-field-disabled-container-opacity, var(--mdf-comp-text-field-disabled-container-opacity, 0.38));
+    --container-color: var(--mdf-comp-filled-text-field-disabled-container-color, var(--mdf-comp-text-field-disabled-container-color, var(--mdf-sys-color-on-surface)));
   }
 
   & .mdf-surface {
-    border-bottom-color: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-color, var(--mdf-cmp-text-field-disabled-state-active-indicator-color, var(--mdf-sys-color-on-surface)));
-    opacity: var(--mdf-cmp-text-field--filled-disabled-state-active-indicator-opacity, var(--mdf-cmp-text-field-disabled-state-active-indicator-opacity, 0.38));
+    opacity: var(--mdf-comp-filled-text-field-disabled-active-indicator-opacity, var(--mdf-comp-text-field-disabled-active-indicator-opacity, 0.38));
+    border-bottom-color: var(--mdf-comp-filled-text-field-disabled-active-indicator-color, var(--mdf-comp-text-field-disabled-active-indicator-color, var(--mdf-sys-color-on-surface)));
   }
 }
 
-[data-has-value=true] .mdf-text-field--filled .formkit-label, .mdf-text-field--filled:has(:focus) .formkit-label {
-  font-size: var(--mdf-cmp-text-field--filled-populated-state-label-size, var(--mdf-cmp-text-field-populated-state-label-size, var(--mdf-sys-typescale-body-small-size)));
-  line-height: var(--mdf-cmp-text-field--filled-populated-state-label-line-height, var(--mdf-cmp-text-field-populated-state-label-line-height, var(--mdf-sys-typescale-body-small-line-height)));
-}
-
-.mdf-text-field--filled:hover {
+/* Hovered state */
+[data-family=text][data-variant=filled][data-hovered=true] {
   & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-hover-state-input-text-color, var(--mdf-cmp-text-field-hover-state-input-text-color, var(--mdf-sys-color-on-surface)));
-  }
-
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-hover-state-label-color, var(--mdf-cmp-text-field-hover-state-label-color, var(--mdf-sys-color-on-surface-variant)));
+    --input-color: var(--mdf-comp-filled-text-field-hover-input-color, var(--mdf-comp-text-field-hover-input-color, var(--mdf-sys-color-on-surface)));
   }
 
   & .mdf-surface {
-    border-bottom: solid var(--mdf-cmp-text-field--filled-hover-state-active-indicator-size, var(--mdf-cmp-text-field-hover-state-active-indicator-size, 1px));
-    border-bottom-color: var(--mdf-cmp-text-field--filled-hover-state-active-indicator-color, var(--mdf-cmp-text-field-hover-state-active-indicator-color, var(--mdf-sys-color-on-surface)));
+    border-bottom-color: var(--mdf-comp-filled-text-field-hover-active-indicator-color, var(--mdf-comp-text-field-hover-active-indicator-color, var(--mdf-sys-color-on-surface)));
 
     &::before {
-      background-color: var(--mdf-cmp-text-field--filled-hover-state-layer-color, var(--mdf-cmp-text-field-hover-state-layer-color, var(--mdf-sys-color-on-surface)));
-      opacity: var(--mdf-cmp-text-field--filled-hover-state-layer-opacity, var(--mdf-cmp-text-field-hover-state-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+      --layer-opacity: var(--mdf-comp-filled-text-field-hover-layer-opacity, var(--mdf-comp-text-field-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+      --layer-color: var(--mdf-comp-filled-text-field-hover-layer-color, var(--mdf-comp-text-field-hover-layer-color, var(--mdf-sys-color-on-primary)));
     }
   }
 }
 
-.mdf-text-field--filled:has(:focus) {
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-focus-state-input-text-color, var(--mdf-cmp-text-field-focus-state-input-text-color, var(--mdf-sys-color-on-surface)));
-  }
+/* Focused state */
+[data-family=text][data-variant=filled][data-focused=true] {
+  & .mdf-field {
+    & .formkit-input {
+      --input-color: var(--mdf-comp-filled-text-field-focus-input-color, var(--mdf-comp-text-field-focus-input-color, var(--mdf-sys-color-on-surface)));
+    }
 
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-focus-state-label-color, var(--mdf-cmp-text-field-focus-state-label-color, var(--mdf-sys-color-primary)));
+    & .formkit-label {
+      --label-color: var(--mdf-comp-filled-text-field-focus-label-color, var(--mdf-comp-text-field-focus-label-color, var(--mdf-sys-color-primary)));
+    }
   }
 
   & .mdf-surface {
-    border-bottom: solid var(--mdf-cmp-text-field--filled-focus-state-active-indicator-size, var(--mdf-cmp-text-field-focus-state-active-indicator-size, 2px));
-    border-bottom-color: var(--mdf-cmp-text-field--filled-focus-state-active-indicator-color, var(--mdf-cmp-text-field-focus-state-active-indicator-color, var(--mdf-sys-color-primary)));
-  }
-}
-
-[data-invalid=true] .mdf-text-field--filled {
-  & .formkit-icon {
-    &.formkit-prefix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
-    }
-
-    &.formkit-suffix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-state-suffix-icon-color, var(--mdf-sys-color-error)));
-    }
-  }
-
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-invalid-state-input-text-color, var(--mdf-cmp-text-field-invalid-state-input-text-color, var(--mdf-sys-color-on-surface)));
-  }
-
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-invalid-state-label-color, var(--mdf-cmp-text-field-invalid-state-label-color, var(--mdf-sys-color-error)));
-  }
-
-  & .mdf-surface {
-    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-state-active-indicator-color, var(--mdf-sys-color-error)));
-  }
-}
-
-[data-invalid=true] .mdf-text-field--filled:hover {
-  & .formkit-icon {
-    &.formkit-prefix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-hover-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
-    }
-
-    &.formkit-suffix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-hover-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-hover-state-suffix-icon-color, var(--mdf-sys-color-on-error-container)));
-    }
-  }
-
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-invalid-hover-state-input-text-color, var(--mdf-cmp-text-field-invalid-hover-state-input-text-color, var(--mdf-sys-color-on-surface)));
-  }
-
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-invalid-hover-state-label-color, var(--mdf-cmp-text-field-invalid-hover-state-label-color, var(--mdf-sys-color-on-error-container)));
-  }
-
-  & .mdf-surface {
-    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-hover-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-hover-state-active-indicator-color, var(--mdf-sys-color-on-error-container)));
+    border-bottom-color: var(--mdf-comp-filled-text-field-focus-active-indicator-color, var(--mdf-comp-text-field-focus-active-indicator-color, var(--mdf-sys-color-primary)));
+    border-bottom-width: var(--mdf-comp-filled-text-field-focus-active-indicator-width, var(--mdf-comp-text-field-focus-active-indicator-width, 2px));
 
     &::before {
-      background-color: var(--mdf-cmp-text-field--filled-invalid-hover-state-layer-color, var(--mdf-cmp-text-field-invalid-hover-state-layer-color, var(--mdf-sys-color-on-surface)));
-      opacity: var(--mdf-cmp-text-field--filled-invalid-hover-state-layer-opacity, var(--mdf-cmp-text-field-invalid-hover-state-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+      --layer-opacity: var(--mdf-comp-filled-text-field-focus-layer-opacity, var(--mdf-comp-text-field-focus-layer-opacity, var(--mdf-sys-state-focus-state-layer-opacity)));
+      --layer-color: var(--mdf-comp-filled-text-field-focus-layer-color, var(--mdf-comp-text-field-focus-layer-color, var(--mdf-sys-color-on-primary)));
     }
   }
 }
 
-[data-invalid=true] .mdf-text-field--filled:has(:focus) {
-  & .formkit-icon {
-    &.formkit-prefix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-focus-state-prefix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-prefix-icon-color, var(--mdf-sys-color-on-surface-variant)));
-    }
-
-    &.formkit-suffix-icon svg {
-      color: var(--mdf-cmp-text-field--filled-invalid-focus-state-suffix-icon-color, var(--mdf-cmp-text-field-invalid-focus-state-suffix-icon-color, var(--mdf-sys-color-error)));
-    }
+/* ----- Invalid ----- */
+[data-family=text][data-variant=filled][data-invalid=true] {
+  & .formkit-icon.formkit-suffix-icon {
+    --icon-color: var(--mdf-comp-filled-text-field-invalid-suffix-icon-color, var(--mdf-comp-text-field-invalid-suffix-icon-color, var(--mdf-sys-color-error)));
   }
 
-  & .mdf-field .formkit-input {
-    color: var(--mdf-cmp-text-field--filled-invalid-focus-state-input-text-color, var(--mdf-cmp-text-field-invalid-focus-state-input-text-color, var(--mdf-sys-color-on-surface)));
-    caret-color: var(--mdf-cmp-text-field--filled-invalid-focus-state-caret-color, var(--mdf-cmp-text-field-invalid-focus-state-caret-color, var(--mdf-sys-color-error)));
-  }
+  & .mdf-field {
+    & .formkit-input {
+      --input-color: var(--mdf-comp-filled-text-field-invalid-input-color, var(--mdf-comp-text-field-invalid-input-color, var(--mdf-sys-color-on-surface)));
+    }
 
-  & .mdf-field .formkit-label {
-    color: var(--mdf-cmp-text-field--filled-invalid-focus-state-label-color, var(--mdf-cmp-text-field-invalid-focus-state-label-color, var(--mdf-sys-color-error)));
+    & .formkit-label {
+      --label-color: var(--mdf-comp-filled-text-field-invalid-label-color, var(--mdf-comp-text-field-invalid-label-color, var(--mdf-sys-color-error)));
+    }
   }
 
   & .mdf-surface {
-    border-bottom-color: var(--mdf-cmp-text-field--filled-invalid-focus-state-active-indicator-color, var(--mdf-cmp-text-field-invalid-focus-state-active-indicator-color, var(--mdf-sys-color-error)));
+    border-bottom-color: var(--mdf-comp-filled-text-field-invalid-active-indicator-color, var(--mdf-comp-text-field-invalid-active-indicator-color, var(--mdf-sys-color-error)));
+  }
+}
+
+/* Hovered state */
+[data-family=text][data-variant=filled][data-invalid=true][data-hovered=true] {
+  & .formkit-icon.formkit-suffix-icon {
+    --icon-color: var(--mdf-comp-filled-text-field-invalid-hover-suffix-icon-color, var(--mdf-comp-text-field-invalid-hover-suffix-icon-color, var(--mdf-sys-color-on-error-container)));
+  }
+
+  & .mdf-field {
+    & .formkit-input {
+      --input-color: var(--mdf-comp-filled-text-field-invalid-hover-input-color, var(--mdf-comp-text-field-invalid-hover-input-color, var(--mdf-sys-color-on-surface)));
+    }
+
+    & .formkit-label {
+      --label-color: var(--mdf-comp-filled-text-field-invalid-hover-label-color, var(--mdf-comp-text-field-invalid-hover-label-color, var(--mdf-sys-color-on-error-container)));
+    }
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-comp-filled-text-field-invalid-hover-active-indicator-color, var(--mdf-comp-text-field-invalid-hover-active-indicator-color, var(--mdf-sys-color-on-error-container)));
+
+    &::before {
+      --layer-opacity: var(--mdf-comp-filled-text-field-invalid-hover-layer-opacity, var(--mdf-comp-text-field-invalid-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+      --layer-color: var(--mdf-comp-filled-text-field-invalid-hover-layer-color, var(--mdf-comp-text-field-invalid-hover-layer-color, var(--mdf-sys-color-on-surface)));
+    }
+  }
+}
+
+/* Focused state */
+[data-family=text][data-variant=filled][data-invalid=true][data-focused=true] {
+  & .formkit-icon.formkit-suffix-icon {
+    --icon-color: var(--mdf-comp-filled-text-field-invalid-focus-suffix-icon-color, var(--mdf-comp-text-field-invalid-focus-suffix-icon-color, var(--mdf-sys-color-error)));
+  }
+
+  & .mdf-field {
+    & .formkit-input {
+      --input-color: var(--mdf-comp-filled-text-field-invalid-focus-input-color, var(--mdf-comp-text-field-invalid-focus-input-color, var(--mdf-sys-color-on-surface)));
+      --input-caret-color: var(--mdf-comp-filled-text-field-invalid-focus-input-caret-color, var(--mdf-comp-text-field-invalid-focus-input-caret-color, var(--mdf-sys-color-error)));
+    }
+
+    & .formkit-label {
+      --label-color: var(--mdf-comp-filled-text-field-invalid-focus-label-color, var(--mdf-comp-text-field-invalid-focus-label-color, var(--mdf-sys-color-error)));
+    }
+  }
+
+  & .mdf-surface {
+    border-bottom-color: var(--mdf-comp-filled-text-field-invalid-focus-active-indicator-color, var(--mdf-comp-text-field-invalid-focus-active-indicator-color, var(--mdf-sys-color-error)));
   }
 }

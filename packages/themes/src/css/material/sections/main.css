@@ -2,3 +2,25 @@
 @import 'container.css';
 @import 'surface.css';
 @import 'outline.css';
+
+[data-type] {
+  box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+  }
+
+  & input {
+    appearance: none;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

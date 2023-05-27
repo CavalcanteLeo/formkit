@@ -30,7 +30,7 @@
   --pressed-label-text-color: var(--mdf-comp-outlined-button-pressed-label-text-color, var(--mdf-comp-button-pressed-label-text-color, var(--mdf-sys-color-primary)));
 }
 
-[data-family=button][data-variant=outlined] button .formkit-icon {
+[data-family=button][data-variant=outlined] .formkit-icon {
   --icon-width: var(--mdf-comp-outlined-button-icon-width, var(--mdf-comp-button-icon-width, 18px));
   --icon-height: var(--mdf-comp-outlined-button-icon-height, var(--mdf-comp-button-icon-height, 18px));
 

@@ -1,107 +1,111 @@
-import {
-  FormKitNode,
-  FormKitTypeDefinition,
-  FormKitSchemaCondition,
-  FormKitSchemaNode,
-} from '@formkit/core'
+import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
+import { createSection, findSection, textInput, label, icon, prefix, suffix, $attrs } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
-import { fromSchema } from '../schema'
+import { container, surface, outline } from '../sections'
+import { hoverStateHandler, pressedStateHandler, focusStateHandler } from '../state-handlers'
+
+const fieldSection = createSection('field', () => ({
+  $el: 'div',
+  attrs: {
+    class: 'mdf-field'
+  }
+}))(
+  () => ({
+    if: '$slots.prefix',
+    $el: 'span',
+    attrs: { class: 'mdf-prefix' },
+    children: [prefix()({})]
+  }),
+  $attrs({
+    onpointerdown: '$handlers.stopPropagation',
+    onBlur: '$handlers.onFocusLeave'
+  }, textInput()),
+  label('$label'),
+  () => ({
+    if: '$slots.suffix',
+    $el: 'span',
+    attrs: { class: 'mdf-suffix' },
+    children: [suffix()({})]
+  }),
+)
 
 export const textFamily = (node: FormKitNode) => {
   if (node.props.family !== 'text') return
 
-  node.addProps(['variant'])
-
   node.on('created', () => {
-    node.props.variant = node.props.variant || 'filled'
-    node.props.placeholder = undefined
-
+    if (!node.context) return
     if (typeof node.props?.definition === 'undefined') return
 
     const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return
 
+    hoverStateHandler(node);
+    pressedStateHandler(node);
+    focusStateHandler(node);
+
+    node.context.handlers.stopPropagation = (e: PointerEvent) => {
+      e.stopImmediatePropagation();
+
+      if (!node.context) return
+
+      node.context.state.focus = true
+    }
+
+    node.context.handlers.onpointerdown = (e: PointerEvent) => {
+      if (!node.context) return
+
+      node.context.handlers.onPressedEnter();
+      node.context.handlers.onFocusEnter(e);
+    }
+
+    node.addProps(['variant'])
+    node.props.variant = node.props.variant || 'filled'
+    node.props.placeholder = undefined
+
     const originalSchema = definition.schema
-    const hos = (
-      extensions: Record<
-        string,
-        FormKitSchemaCondition | Partial<FormKitSchemaNode>
-      > = {}
-    ) => {
+
+    definition.schema = (extensions: Record<string, FormKitSchemaCondition | Partial<FormKitSchemaNode>> = {}) => {
       extensions.outer = {
         attrs: {
-          'data-has-value': '$_value !== "" && $_value !== undefined',
+          'data-variant': '$variant',
+          'data-disabled': '$disabled === "" || $disabled || undefined',
+          'data-populated': '$_value !== "" && $_value !== undefined',
+          'data-hovered': '$state.hover',
+          'data-pressed': '$state.pressed',
+          'data-focused': '$state.focus'
         },
+      }
+
+      extensions.inner = {
+        attrs: {
+          onpointerenter: '$handlers.onHoverEnter',
+          onpointerleave: '$handlers.onHoverLeave',
+          onpointerdown: '$handlers.onpointerdown',
+          onpointerup: '$handlers.onPressedLeave',
+        },
+        children: [
+          container,
+          surface,
+          outline,
+          icon('prefix', 'label')({}),
+          fieldSection({}),
+          icon('suffix')({})
+        ]
       }
 
       const inputSchema = originalSchema(extensions)
-      const schemaBuilder = fromSchema(inputSchema)
 
-      const inputSection = schemaBuilder.fromSection('input')
-      const labelSection = schemaBuilder.cutSection('label')
+      for (const sectionName of ['label']) {
+        const [parentChildren, section] = findSection(inputSchema, sectionName)
 
-      const prefixSection = schemaBuilder.cutSection('prefix')
-      const suffixSection = schemaBuilder.cutSection('suffix')
-
-      // TODO: added to satisfy typescript below, should probably be
-      // more surgical about what we're doing here
-      if (!schemaBuilder || !inputSection || !labelSection || !prefixSection || !suffixSection) return inputSchema
-
-      const inner = schemaBuilder.fromSection('inner')
-      if (inner) {
-        inner.insertStart({
-          $el: 'div',
-          attrs: {
-            class: 'mdf-outline',
-          },
-        })
-
-        inner.insertStart({
-          $el: 'div',
-          attrs: {
-            class: 'mdf-surface',
-          },
-        })
+        if (parentChildren && section) {
+          parentChildren.splice(parentChildren.indexOf(section), 1)
+        }
       }
-
-      const fieldSection = {
-        if: '$slots.field',
-        then: '$slots.field',
-        else: {
-          $el: 'div',
-          attrs: {
-            class: 'mdf-field',
-          },
-          meta: { section: 'field' },
-          children: [
-            {
-              if: '$slots.prefix',
-              $el: 'span',
-              attrs: { class: 'mdf-prefix' },
-              children: [prefixSection]
-            },
-            inputSection.schema, labelSection,
-            {
-              if: '$slots.suffix',
-              $el: 'span',
-              attrs: { class: 'mdf-suffix' },
-              children: [suffixSection]
-            }
-          ],
-        },
-      }
-
-      schemaBuilder.replaceSection('input')(fieldSection)
 
       return inputSchema
     }
 
-    definition.schema = hos
     node.props.definition = definition
-
-    node.props.innerClass = (reactiveNode: FormKitNode) => ({
-      'mdf-text-field': true,
-      [`mdf-text-field--${reactiveNode.props.variant}`]: true,
-    })
   })
 }

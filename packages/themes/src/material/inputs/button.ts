@@ -1,34 +1,7 @@
 import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
 import { findSection, buttonLabel, icon, prefix, suffix } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
-
-const elevation = {
-  $el: 'div',
-  attrs: {
-    class: 'mdf-elevation'
-  }
-}
-
-const inmost = {
-  $el: 'div',
-  attrs: {
-    class: 'mdf-container'
-  }
-}
-
-const surface = {
-  $el: 'div',
-  attrs: {
-    class: 'mdf-surface'
-  }
-}
-
-const outline = {
-  $el: 'div',
-  attrs: {
-    class: 'mdf-outline'
-  }
-}
+import { elevation, container, surface, outline } from '../sections'
 
 export const buttonFamily = (node: FormKitNode) => {
   if (node.props.family !== 'button') return
@@ -58,7 +31,7 @@ export const buttonFamily = (node: FormKitNode) => {
       extensions.input = {
         children: [
           elevation,
-          inmost,
+          container,
           surface,
           outline,
           icon('prefix')({}),
