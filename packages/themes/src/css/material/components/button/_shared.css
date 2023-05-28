@@ -1,103 +1,67 @@
-[data-family=button] button {
-  position: relative;
-  z-index: 0;
+[data-family=button] {
+  & .formkit-input {
+    position: relative;
+    z-index: 0;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  min-inline-size: var(--container-width);
-  block-size: var(--container-height);
-  padding-block: 0;
-  padding-inline-start: var(--spacing-leading);
-  padding-inline-end: var(--spacing-trailing);
-  gap: 8px;
+    min-inline-size: var(--container-width);
+    block-size: var(--container-height);
+    padding-block-start: var(--spacing-top);
+    padding-block-end: var(--spacing-bottom);
+    padding-inline-start: var(--spacing-leading);
+    padding-inline-end: var(--spacing-trailing);
+    gap: 8px;
 
-  appearance: none;
-  user-select: none;
+    opacity: var(--text-opacity);
+    color: var(--text-color);
+    background-color: transparent;
+    border-start-start-radius: var(--container-shape-start-start);
+    border-start-end-radius: var(--container-shape-start-end);
+    border-end-start-radius: var(--container-shape-end-start);
+    border-end-end-radius: var(--container-shape-end-end);
 
-  opacity: var(--label-text-opacity);
-  color: var(--label-text-color);
-  border: none;
-  border-start-start-radius: var(--container-shape-start-start);
-  border-start-end-radius: var(--container-shape-start-end);
-  border-end-start-radius: var(--container-shape-end-start);
-  border-end-end-radius: var(--container-shape-end-end);
-  background: transparent;
+    user-select: none;
 
-  font-family: var(--label-text-font);
-  line-height: var(--label-text-line-height);
-  font-size: var(--label-text-size);
-  letter-spacing: var(--label-text-tracking);
-  font-weight: var(--label-text-weight);
+    font-family: var(--text-font);
+    line-height: var(--text-line-height);
+    font-size: var(--text-size);
+    letter-spacing: var(--text-tracking);
+    font-weight: var(--text-weight);
+  }
 
-  &:focus {
-    outline: none;
+  & .formkit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: var(--icon-opacity);
+    color: var(--icon-color, inherit);
+
+    &.formkit-prefix-icon svg {
+      inline-size: var(--prefix-icon-width);
+      block-size: var(--prefix-icon-height);
+    }
+
+    &.formkit-suffix-icon svg {
+      inline-size: var(--suffix-icon-width);
+      block-size: var(--suffix-icon-height);
+    }
   }
 }
 
-[data-family=button] .formkit-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: var(--icon-opacity);
-  color: var(--icon-color, inherit);
-
-  & svg {
-    inline-size: var(--icon-width);
-    block-size: var(--icon-height);
-  }
-}
-
-[data-family=button][data-prefix-icon=true] {
+[data-family=text][data-prefix-icon=true] .formkit-wrapper {
   padding-inline-start: var(--with-icon-spacing-leading);
 }
 
-[data-family=button][data-suffix-icon=true] {
+[data-family=text][data-suffix-icon=true] .formkit-wrapper {
   padding-inline-end: var(--with-icon-spacing-trailing);
 }
 
-[data-family=button] button:disabled {
+/* ----- States ----- */
+/* Disabled state */
+[data-family=button][data-disabled=true] .formkit-wrapper {
   pointer-events: none;
-
-  opacity: var(--disabled-label-text-opacity);
-  color: var(--disabled-label-text-color);
-
-  & .formkit-icon {
-    opacity: var(--disabled-icon-opacity);
-    color: var(--disabled-icon-color, inherit);
-  }
-}
-
-[data-family=button] button:hover {
-  cursor: pointer;
-
-  opacity: var(--hover-label-text-opacity);
-  color: var(--hover-label-text-color);
-
-  & .formkit-icon {
-    opacity: var(--hover-icon-opacity);
-    color: var(--hover-icon-color, inherit);
-  }
-}
-
-[data-family=button] button:focus-visible {
-  opacity: var(--focus-label-text-opacity);
-  color: var(--focus-label-text-color);
-
-  & .formkit-icon {
-    opacity: var(--focus-icon-opacity);
-    color: var(--focus-icon-color, inherit);
-  }
-}
-
-[data-family=button] button:active {
-  opacity: var(--pressed-label-text-opacity);
-  color: var(--pressed-label-text-color);
-
-  & .formkit-icon {
-    opacity: var(--pressed-icon-opacity);
-    color: var(--pressed-icon-color, inherit);
-  }
 }

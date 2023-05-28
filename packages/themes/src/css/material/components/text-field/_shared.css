@@ -14,7 +14,8 @@
     padding-inline-end: var(--spacing-trailing);
     gap: 8px;
 
-    border: none;
+    opacity: var(--label-text-opacity);
+    color: var(--label-text-color);
     border-start-start-radius: var(--container-shape-start-start);
     border-start-end-radius: var(--container-shape-start-end);
     border-end-start-radius: var(--container-shape-end-start);
@@ -27,7 +28,7 @@
     justify-content: center;
 
     opacity: var(--icon-opacity);
-    color: var(--icon-color);
+    color: var(--icon-color, inherit);
 
     &.formkit-prefix-icon svg {
       inline-size: var(--prefix-icon-width);

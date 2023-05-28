@@ -33,8 +33,7 @@ export const textFamily = (node: FormKitNode) => {
   if (node.props.family !== 'text') return
 
   node.on('created', () => {
-    if (!node.context) return
-    if (typeof node.props?.definition === 'undefined') return
+    if (!node.context || typeof node.props?.definition === 'undefined') return
 
     const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return

@@ -1,76 +1,58 @@
-[data-family=button][data-variant=text] button {
+[data-family=button][data-variant=text] {
   --container-width: var(--mdf-comp-text-button-container-width, var(--mdf-comp-button-container-width, 48px));
   --container-height: var(--mdf-comp-text-button-container-height, var(--mdf-comp-button-container-height, 40px));
-  --spacing-leading: var(--mdf-comp-text-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 12px));
-  --spacing-trailing: var(--mdf-comp-text-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 12px));
-
-  --label-text-opacity: var(--mdf-comp-text-button-label-text-opacity, var(--mdf-comp-button-label-text-opacity));
-  --label-text-color: var(--mdf-comp-text-button-label-text-color, var(--mdf-comp-button-label-text-color, var(--mdf-sys-color-primary)));
   --container-shape-start-start: var(--mdf-comp-text-button-container-shape-start-start, var(--mdf-comp-button-container-shape-start-start, var(--mdf-sys-shape-corner-large)));
   --container-shape-start-end: var(--mdf-comp-text-button-container-shape-start-end, var(--mdf-comp-button-container-shape-start-end, var(--mdf-sys-shape-corner-large)));
   --container-shape-end-start: var(--mdf-comp-text-button-container-shape-end-start, var(--mdf-comp-button-container-shape-end-start, var(--mdf-sys-shape-corner-large)));
   --container-shape-end-end: var(--mdf-comp-text-button-container-shape-end-end, var(--mdf-comp-button-container-shape-end-end, var(--mdf-sys-shape-corner-large)));
 
-  --label-text-font: var(--mdf-comp-text-button-label-text-font, var(--mdf-comp-button-label-text-font, var(--mdf-sys-typescale-label-large-font)));
-  --label-text-line-height: var(--mdf-comp-text-button-label-text-line-height, var(--mdf-comp-button-label-text-line-height, var(--mdf-sys-typescale-label-large-line-height)));
-  --label-text-size: var(--mdf-comp-text-button-label-text-size, var(--mdf-comp-button-label-text-size, var(--mdf-sys-typescale-label-large-size)));
-  --label-text-tracking: var(--mdf-comp-text-button-label-text-tracking, var(--mdf-comp-button-label-text-tracking, var(--mdf-sys-typescale-label-large-tracking)));
-  --label-text-weight: var(--mdf-comp-text-button-label-text-weight, var(--mdf-comp-button-label-text-weight, var(--mdf-sys-typescale-label-large-weight)));
-
-  --disabled-label-text-opacity: var(--mdf-comp-text-button-disabled-label-text-opacity, var(--mdf-comp-button-disabled-label-text-opacity, 0.38));
-  --disabled-label-text-color: var(--mdf-comp-text-button-disabled-label-text-color, var(--mdf-comp-button-disabled-label-text-color, var(--mdf-sys-color-on-surface)));
-
-  --hover-label-text-opacity: var(--mdf-comp-text-button-hover-label-text-opacity, var(--mdf-comp-button-hover-label-text-opacity));
-  --hover-label-text-color: var(--mdf-comp-text-button-hover-label-text-color, var(--mdf-comp-button-hover-label-text-color, var(--mdf-sys-color-primary)));
-
-  --focus-label-text-opacity: var(--mdf-comp-text-button-focus-label-text-opacity, var(--mdf-comp-button-focus-label-text-opacity));
-  --focus-label-text-color: var(--mdf-comp-text-button-focus-label-text-color, var(--mdf-comp-button-focus-label-text-color, var(--mdf-sys-color-primary)));
-
-  --pressed-label-text-opacity: var(--mdf-comp-text-button-pressed-label-text-opacity, var(--mdf-comp-button-pressed-label-text-opacity));
-  --pressed-label-text-color: var(--mdf-comp-text-button-pressed-label-text-color, var(--mdf-comp-button-pressed-label-text-color, var(--mdf-sys-color-primary)));
-}
-
-[data-family=button][data-variant=text] .formkit-icon {
-  --icon-width: var(--mdf-comp-text-button-icon-width, var(--mdf-comp-button-icon-width, 18px));
-  --icon-height: var(--mdf-comp-text-button-icon-height, var(--mdf-comp-button-icon-height, 18px));
-
-  --icon-opacity: var(--mdf-comp-text-button-icon-opacity, var(--mdf-comp-button-icon-opacity));
-  --icon-color: var(--mdf-comp-text-button-icon-color, var(--mdf-comp-button-icon-color, inherit));
-
-  --disabled-icon-opacity: var(--mdf-comp-text-button-disabled-icon-opacity, var(--mdf-comp-button-disabled-icon-opacity));
-  --disabled-icon-color: var(--mdf-comp-text-button-disabled-icon-color, var(--mdf-comp-button-disabled-icon-color, inherit));
-
-  --hover-icon-opacity: var(--mdf-comp-text-button-hover-icon-opacity, var(--mdf-comp-button-hover-icon-opacity));
-  --hover-icon-color: var(--mdf-comp-text-button-hover-icon-color, var(--mdf-comp-button-hover-icon-color, inherit));
-
-  --focus-icon-opacity: var(--mdf-comp-text-button-focus-icon-opacity, var(--mdf-comp-button-focus-icon-opacity));
-  --focus-icon-color: var(--mdf-comp-text-button-focus-icon-color, var(--mdf-comp-button-focus-icon-color, inherit));
-
-  --pressed-icon-opacity: var(--mdf-comp-text-button-pressed-icon-opacity, var(--mdf-comp-button-pressed-icon-opacity));
-  --pressed-icon-color: var(--mdf-comp-text-button-pressed-icon-color, var(--mdf-comp-button-pressed-icon-color, inherit));
-}
-
-[data-family=button][data-variant=text][data-prefix-icon=true] {
+  --spacing-leading: var(--mdf-comp-text-button-spacing-leading, var(--mdf-comp-button-spacing-leading, 12px));
+  --spacing-trailing: var(--mdf-comp-text-button-spacing-trailing, var(--mdf-comp-button-spacing-trailing, 12px));
   --with-icon-spacing-leading: var(--mdf-comp-text-button-with-icon-spacing-leading, var(--mdf-comp-button-with-icon-spacing-leading, 12px));
-}
-
-[data-family=button][data-variant=text][data-suffix-icon=true] {
   --with-icon-spacing-trailing: var(--mdf-comp-text-button-with-icon-spacing-trailing, var(--mdf-comp-button-with-icon-spacing-trailing, 12px));
+
+  --text-color: var(--mdf-comp-text-button-text-color, var(--mdf-comp-button-text-color, var(--mdf-sys-color-primary)));
+  --text-font: var(--mdf-comp-text-button-text-font, var(--mdf-comp-button-text-font, var(--mdf-sys-typescale-label-large-font)));
+  --text-line-height: var(--mdf-comp-text-button-text-line-height, var(--mdf-comp-button-text-line-height, var(--mdf-sys-typescale-label-large-line-height)));
+  --text-size: var(--mdf-comp-text-button-text-size, var(--mdf-comp-button-text-size, var(--mdf-sys-typescale-label-large-size)));
+  --text-tracking: var(--mdf-comp-text-button-text-tracking, var(--mdf-comp-button-text-tracking, var(--mdf-sys-typescale-label-large-tracking)));
+  --text-weight: var(--mdf-comp-text-button-text-weight, var(--mdf-comp-button-text-weight, var(--mdf-sys-typescale-label-large-weight)));
+
+  & .formkit-icon {
+    --prefix-icon-width: var(--mdf-comp-text-button-prefix-icon-width, var(--mdf-comp-button-prefix-icon-width, 18px));
+    --prefix-icon-height: var(--mdf-comp-text-button-prefix-icon-height, var(--mdf-comp-button-prefix-icon-height, 18px));
+    --suffix-icon-width: var(--mdf-comp-text-button-suffix-icon-width, var(--mdf-comp-button-suffix-icon-width, 18px));
+    --suffix-icon-height: var(--mdf-comp-text-button-suffix-icon-height, var(--mdf-comp-button-suffix-icon-height, 18px));
+  }
 }
 
-[data-family=button][data-variant=text] .mdf-surface::before {
-  --layer-opacity: var(--mdf-comp-text-button-layer-opacity, var(--mdf-comp-button-layer-opacity));
-  --layer-color: var(--mdf-comp-text-button-layer-color, var(--mdf-comp-button-layer-color));
+/* ----- States ----- */
+/* Disabled state */
+[data-family=button][data-variant=text][data-disabled=true] {
+  --text-opacity: var(--mdf-comp-text-button-disabled-text-opacity, var(--mdf-comp-button-disabled-text-opacity, 0.38));
+  --text-color: var(--mdf-comp-text-button-disabled-text-color, var(--mdf-comp-button-disabled-text-color, var(--mdf-sys-color-on-surface)));
+}
 
-  --disabled-layer-opacity: var(--mdf-comp-text-button-disabled-layer-opacity, var(--mdf-comp-button-disabled-layer-opacity, 0));
-  --disabled-layer-color: var(--mdf-comp-text-button-disabled-layer-color, var(--mdf-comp-button-disabled-layer-color));
+/* Hovered state */
+[data-family=button][data-variant=text][data-hovered=true] {
+  & .mdf-surface::before {
+    --layer-opacity: var(--mdf-comp-text-button-hover-layer-opacity, var(--mdf-comp-button-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
+    --layer-color: var(--mdf-comp-text-button-hover-layer-color, var(--mdf-comp-button-hover-layer-color, var(--mdf-sys-color-primary)));
+  }
+}
 
-  --hover-layer-opacity: var(--mdf-comp-text-button-hover-layer-opacity, var(--mdf-comp-button-hover-layer-opacity, var(--mdf-sys-state-hover-state-layer-opacity)));
-  --hover-layer-color: var(--mdf-comp-text-button-hover-layer-color, var(--mdf-comp-button-hover-layer-color, var(--mdf-sys-color-primary)));
+/* Focused state */
+[data-family=button][data-variant=text][data-focused=true] {
+  & .mdf-surface::before {
+    --layer-opacity: var(--mdf-comp-text-button-focus-layer-opacity, var(--mdf-comp-button-focus-layer-opacity, var(--mdf-sys-state-focus-state-layer-opacity)));
+    --layer-color: var(--mdf-comp-text-button-focus-layer-color, var(--mdf-comp-button-focus-layer-color, var(--mdf-sys-color-primary)));
+  }
+}
 
-  --focus-layer-opacity: var(--mdf-comp-text-button-focus-layer-opacity, var(--mdf-comp-button-focus-layer-opacity, var(--mdf-sys-state-focus-state-layer-opacity)));
-  --focus-layer-color: var(--mdf-comp-text-button-focus-layer-color, var(--mdf-comp-button-focus-layer-color, var(--mdf-sys-color-primary)));
-
-  --pressed-layer-opacity: var(--mdf-comp-text-button-pressed-layer-opacity, var(--mdf-comp-button-pressed-layer-opacity, var(--mdf-sys-state-pressed-state-layer-opacity)));
-  --pressed-layer-color: var(--mdf-comp-text-button-pressed-layer-color, var(--mdf-comp-button-pressed-layer-color, var(--mdf-sys-color-primary)));
+/* Pressed state */
+[data-family=button][data-variant=text][data-pressed=true] {
+  & .mdf-surface::before {
+    --layer-opacity: var(--mdf-comp-text-button-pressed-layer-opacity, var(--mdf-comp-button-pressed-layer-opacity, var(--mdf-sys-state-pressed-state-layer-opacity)));
+    --layer-color: var(--mdf-comp-text-button-pressed-layer-color, var(--mdf-comp-button-pressed-layer-color, var(--mdf-sys-color-primary)));
+  }
 }

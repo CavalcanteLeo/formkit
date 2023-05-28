@@ -8,7 +8,7 @@
   --spacing-top: var(--mdf-comp-outlined-text-field-spacing-top, var(--mdf-comp-text-field-spacing-top, 8px));
   --spacing-bottom: var(--mdf-comp-outlined-text-field-spacing-bottom, var(--mdf-comp-text-field-spacing-bottom, 8px));
   --spacing-leading: var(--mdf-comp-outlined-text-field-spacing-leading, var(--mdf-comp-text-field-spacing-leading, 16px));
-  --spacing-trailing: var(--mdf-comp-outlined-text-field-spacing-leading, var(--mdf-comp-text-field-spacing-leading, 16px));
+  --spacing-trailing: var(--mdf-comp-outlined-text-field-spacing-trailing, var(--mdf-comp-text-field-spacing-trailing, 16px));
   --with-icon-spacing-leading: var(--mdf-comp-outlined-text-field-with-icon-spacing-leading, var(--mdf-comp-text-field-with-icon-spacing-leading, 12px));
   --with-icon-spacing-trailing: var(--mdf-comp-outlined-text-field-with-icon-spacing-trailing, var(--mdf-comp-text-field-with-icon-spacing-trailing, 12px));
 

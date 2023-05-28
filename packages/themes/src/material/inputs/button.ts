@@ -1,16 +1,20 @@
 import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
-import { findSection, buttonLabel, icon, prefix, suffix } from '@formkit/inputs'
+import { findSection, buttonLabel, icon } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
 import { elevation, container, surface, outline } from '../sections'
+import { hoverStateHandler, pressedStateHandler } from '../state-handlers'
 
 export const buttonFamily = (node: FormKitNode) => {
   if (node.props.family !== 'button') return
 
   node.on('created', () => {
-    if (typeof node.props?.definition === 'undefined') return
+    if (!node.context || typeof node.props?.definition === 'undefined') return
 
     const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return
+
+    hoverStateHandler(node);
+    pressedStateHandler(node);
 
     node.addProps(['variant'])
     node.props.variant = node.props.variant || 'elevated'
@@ -20,12 +24,20 @@ export const buttonFamily = (node: FormKitNode) => {
     definition.schema = (extensions: Record<string, FormKitSchemaCondition | Partial<FormKitSchemaNode>> = {}) => {
       extensions.outer = {
         attrs: {
-          'data-variant': '$variant'
+          'data-variant': '$variant',
+          'data-disabled': '$disabled === "" || $disabled || undefined',
+          'data-hovered': '$state.hover',
+          'data-pressed': '$state.pressed',
         },
       }
 
       extensions.wrapper = {
-        $el: null
+        attrs: {
+          onpointerenter: '$handlers.onHoverEnter',
+          onpointerleave: '$handlers.onHoverLeave',
+          onpointerdown: '$handlers.onPressedEnter',
+          onpointerup: '$handlers.onPressedLeave',
+        },
       }
 
       extensions.input = {
@@ -35,9 +47,7 @@ export const buttonFamily = (node: FormKitNode) => {
           surface,
           outline,
           icon('prefix')({}),
-          prefix()({}),
           buttonLabel('$label || $ui.submit.value')({}),
-          suffix()({}),
           icon('suffix')({})
         ]
       }
