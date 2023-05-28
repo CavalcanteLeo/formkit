@@ -2,7 +2,7 @@ import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefi
 import { findSection, buttonLabel, icon } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
 import { elevation, container, surface, outline } from '../sections'
-import { hoverStateHandler, pressedStateHandler } from '../state-handlers'
+import userInteractionBindings from '../userInteractionHandlers'
 
 export const buttonFamily = (node: FormKitNode) => {
   if (node.props.family !== 'button') return
@@ -13,8 +13,7 @@ export const buttonFamily = (node: FormKitNode) => {
     const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return
 
-    hoverStateHandler(node);
-    pressedStateHandler(node);
+    userInteractionBindings(node)
 
     node.addProps(['variant'])
     node.props.variant = node.props.variant || 'elevated'
@@ -28,19 +27,32 @@ export const buttonFamily = (node: FormKitNode) => {
           'data-disabled': '$disabled === "" || $disabled || undefined',
           'data-hovered': '$state.hover',
           'data-pressed': '$state.pressed',
+          'data-focused': '$state.focus'
         },
       }
 
       extensions.wrapper = {
         attrs: {
-          onpointerenter: '$handlers.onHoverEnter',
-          onpointerleave: '$handlers.onHoverLeave',
-          onpointerdown: '$handlers.onPressedEnter',
-          onpointerup: '$handlers.onPressedLeave',
+          onpointerenter: '$handlers.hoverEnter',
+          onpointerleave: '$handlers.hoverLeave',
+          onpointerdown: '$handlers.pressedEnter',
+          onpointerup: '$handlers.pressedLeave',
         },
       }
 
+      if (node.context) {
+        node.context.handlers.onFocus = () => {
+          if (!node.context || node.context.state.pressed) return
+
+          node.context.handlers.focusEnter()
+        }
+      }
+
       extensions.input = {
+        attrs: {
+          onfocus: '$handlers.onFocus',
+          onblur: '$handlers.focusLeave',
+        },
         children: [
           elevation,
           container,

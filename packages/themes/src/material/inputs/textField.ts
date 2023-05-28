@@ -1,8 +1,8 @@
 import { FormKitNode, FormKitSchemaCondition, FormKitSchemaNode, FormKitTypeDefinition } from '@formkit/core'
-import { createSection, findSection, textInput, label, icon, prefix, suffix, $attrs } from '@formkit/inputs'
+import { $attrs, createSection, findSection, textInput, label, icon, prefix, suffix } from '@formkit/inputs'
 import { clone } from '@formkit/utils'
 import { container, surface, outline } from '../sections'
-import { hoverStateHandler, pressedStateHandler, focusStateHandler } from '../state-handlers'
+import userInteractionBindings from '../userInteractionHandlers'
 
 const fieldSection = createSection('field', () => ({
   $el: 'div',
@@ -17,8 +17,9 @@ const fieldSection = createSection('field', () => ({
     children: [prefix()({})]
   }),
   $attrs({
+    onfocus: '$handlers.focusEnter',
+    onblur: '$handlers.focusLeave',
     onpointerdown: '$handlers.stopPropagation',
-    onBlur: '$handlers.onFocusLeave'
   }, textInput()),
   label('$label'),
   () => ({
@@ -38,24 +39,7 @@ export const textFamily = (node: FormKitNode) => {
     const definition: FormKitTypeDefinition = clone(node.props.definition)
     if (typeof definition.schema !== 'function') return
 
-    hoverStateHandler(node);
-    pressedStateHandler(node);
-    focusStateHandler(node);
-
-    node.context.handlers.stopPropagation = (e: PointerEvent) => {
-      e.stopImmediatePropagation();
-
-      if (!node.context) return
-
-      node.context.state.focus = true
-    }
-
-    node.context.handlers.onpointerdown = (e: PointerEvent) => {
-      if (!node.context) return
-
-      node.context.handlers.onPressedEnter();
-      node.context.handlers.onFocusEnter(e);
-    }
+    userInteractionBindings(node)
 
     node.addProps(['variant'])
     node.props.variant = node.props.variant || 'filled'
@@ -75,12 +59,27 @@ export const textFamily = (node: FormKitNode) => {
         },
       }
 
+      if (node.context) {
+        node.context.handlers.log = console.log
+
+        node.context.handlers.innerPointerFocusInput = (e: PointerEvent) => {
+          if (!node.context) return
+
+          node.context.handlers.pressedEnter(e)
+          node.context.handlers.focusInput(e)
+        }
+
+        node.context.handlers.stopPropagation = (e: Event) => {
+          e.stopPropagation()
+        }
+      }
+
       extensions.inner = {
         attrs: {
-          onpointerenter: '$handlers.onHoverEnter',
-          onpointerleave: '$handlers.onHoverLeave',
-          onpointerdown: '$handlers.onpointerdown',
-          onpointerup: '$handlers.onPressedLeave',
+          onpointerenter: '$handlers.hoverEnter',
+          onpointerleave: '$handlers.hoverLeave',
+          onpointerdown: '$handlers.innerPointerFocusInput',
+          onpointerup: '$handlers.pressedLeave',
         },
         children: [
           container,
