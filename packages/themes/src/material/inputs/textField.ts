@@ -104,6 +104,7 @@ export const textFamily = (node: FormKitNode) => {
       return inputSchema
     }
 
+    definition.schemaMemoKey += '-material'
     node.props.definition = definition
   })
 }

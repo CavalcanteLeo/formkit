@@ -55,6 +55,11 @@
     --outline-opacity: var(--mdf-comp-outlined-text-field-disabled-outline-opacity, var(--mdf-comp-text-field-disabled-outline-opacity, 0.12));
     --outline-color: var(--mdf-comp-outlined-text-field-disabled-outline-color, var(--mdf-comp-text-field-disabled-outline-color, var(--mdf-sys-color-on-surface)));
   }
+
+  & .formkit-help {
+    color: var(--mdf-comp-outlined-text-field-disabled-help-color, var(--mdf-comp-text-field-disabled-help-color, var(--mdf-sys-color-on-surface)));
+    opacity: var(--mdf-comp-outlined-text-field-disabled-help-opacity, var(--mdf-comp-text-field-disabled-help-opacity, 0.38));
+  }
 }
 
 /* Hovered state */
@@ -98,6 +103,10 @@
 
   & .mdf-outline {
     --outline-color: var(--mdf-comp-outlined-text-field-invalid-outline-color, var(--mdf-comp-text-field-invalid-outline-color, var(--mdf-sys-color-error)));
+  }
+
+  & .formkit-messages {
+    color: var(--mdf-comp-outlined-text-field-invalid-messages-color, var(--mdf-comp-text-field-invalid-messages-color, var(--mdf-sys-color-error)));
   }
 }
 

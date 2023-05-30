@@ -77,6 +77,7 @@ export const buttonFamily = (node: FormKitNode) => {
       return inputSchema;
     }
 
+    definition.schemaMemoKey += '-material'
     node.props.definition = definition
   })
 }

@@ -158,3 +158,10 @@
     user-select: none;
   }
 }
+
+/* ----- Invalid ----- */
+[data-family=text][data-invalid=true] {
+  & .formkit-help {
+    display: none;
+  }
+}

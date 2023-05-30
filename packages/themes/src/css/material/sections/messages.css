@@ -1,0 +1,18 @@
+[data-type] .formkit-messages {
+  padding-inline-start: var(--messages-spacing-leading, 16px);
+  padding-inline-end: var(--messages-spacing-trailing, 16px);
+
+  padding-block-start: var(--messages-spacing-top, 4px);
+
+  color: var(--messages-color, var(--mdf-sys-color-on-surface-variant));
+
+  font-family: var(--messages-font, var(--mdf-sys-typescale-body-small-font));
+  line-height: var(--messages-line-height, var(--mdf-sys-typescale-body-small-line-height));
+  font-size: var(--messages-size, var(--mdf-sys-typescale-body-small-size));
+  letter-spacing: var(--messages-tracking, var(--mdf-sys-typescale-body-small-tracking));
+  font-weight: var(--messages-weight, var(--mdf-sys-typescale-body-small-weight));
+
+  & .formkit-message {
+    list-style-type: none;
+  }
+}

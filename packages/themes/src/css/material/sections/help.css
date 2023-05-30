@@ -1,0 +1,14 @@
+[data-type] .formkit-help {
+  padding-inline-start: var(--help-spacing-leading, 16px);
+  padding-inline-end: var(--help-spacing-trailing, 16px);
+
+  padding-block-start: var(--help-spacing-top, 4px);
+
+  color: var(--help-color, var(--mdf-sys-color-on-surface-variant));
+
+  font-family: var(--help-font, var(--mdf-sys-typescale-body-small-font));
+  line-height: var(--help-line-height, var(--mdf-sys-typescale-body-small-line-height));
+  font-size: var(--help-size, var(--mdf-sys-typescale-body-small-size));
+  letter-spacing: var(--help-tracking, var(--mdf-sys-typescale-body-small-tracking));
+  font-weight: var(--help-weight, var(--mdf-sys-typescale-body-small-weight));
+}

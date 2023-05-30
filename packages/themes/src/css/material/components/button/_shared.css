@@ -62,6 +62,6 @@
 
 /* ----- States ----- */
 /* Disabled state */
-[data-family=button][data-disabled=true] .formkit-wrapper {
+[data-family=button][data-disabled=true] {
   pointer-events: none;
 }

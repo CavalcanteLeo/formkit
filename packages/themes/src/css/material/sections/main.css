@@ -2,6 +2,7 @@
 @import 'container.css';
 @import 'surface.css';
 @import 'outline.css';
+@import 'help.css';
 
 [data-type] {
   box-sizing: border-box;
